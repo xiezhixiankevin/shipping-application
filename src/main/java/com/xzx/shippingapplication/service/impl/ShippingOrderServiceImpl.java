@@ -58,7 +58,7 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
             /**
              * 生成消息放到rabbitMQ队列
              * */
-            producerMessage.sendMsg(shippingOrder, RabbitConfig.EXCHANGE_A,RabbitConfig.ROUTINGKEY_A);
+            producerMessage.sendMsg(shippingOrder, RabbitConfig.EXCHANGE_FOR_SHIPPING_ORDER,RabbitConfig.ROUTINGKEY_FOR_SHIPPING_ORDER);
             return R.ok().data("order",shippingOrder);
         }
 

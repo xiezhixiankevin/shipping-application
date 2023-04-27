@@ -1,6 +1,7 @@
 package com.xzx.shippingapplication;
 
 import com.xzx.shippingapplication.common.util.rabbit.ProducerMessage;
+import com.xzx.shippingapplication.config.RabbitConfig;
 import com.xzx.shippingapplication.pojo.ShippingOrder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ class ShippingApplicationTests {
         shippingOrder.setLatestDeliveryTime(new Date());
         shippingOrder.setCreateTimestamp(new Date());
         shippingOrder.setUpdateTimestamp(new Date());
-//        producerMessage.sendMsg(shippingOrder);
+        producerMessage.sendMsg(shippingOrder, RabbitConfig.EXCHANGE_FOR_SHIPPING_ORDER,RabbitConfig.ROUTINGKEY_FOR_SHIPPING_ORDER);
     }
 
 }

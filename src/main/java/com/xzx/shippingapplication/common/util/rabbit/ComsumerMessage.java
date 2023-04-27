@@ -24,7 +24,7 @@ import java.io.IOException;
 //@Component
 public class ComsumerMessage {
 
-    @RabbitListener(queues = RabbitConfig.QUEUE_A)
+    @RabbitListener(queues = RabbitConfig.QUEUE_FOR_SHIPPING_ORDER)
     public void handleMessage(Message message,Channel channel) throws  IOException{
         try {
             String json = new String(message.getBody());

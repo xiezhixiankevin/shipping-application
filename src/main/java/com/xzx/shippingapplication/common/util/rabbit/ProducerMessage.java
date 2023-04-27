@@ -52,6 +52,12 @@ public class ProducerMessage implements  RabbitTemplate.ConfirmCallback , Rabbit
 
         rabbitTemplate.convertAndSend(exchangeName,routingKey,jsonString,correlationId);
 
+        // 刚刚发送消息出去，避免异步的ConfirmCallback由于资源关闭而出现错误
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
     }
 
