@@ -2,6 +2,7 @@ package com.xzx.shippingapplication.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.xzx.shippingapplication.ShippingApplicationTests;
+import com.xzx.shippingapplication.controller.order.ShippingOrderController;
 import com.xzx.shippingapplication.pojo.ShippingOrder;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;

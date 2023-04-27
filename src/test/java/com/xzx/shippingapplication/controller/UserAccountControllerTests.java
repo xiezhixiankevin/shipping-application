@@ -1,6 +1,7 @@
 package com.xzx.shippingapplication.controller;
 
 import com.xzx.shippingapplication.ShippingApplicationTests;
+import com.xzx.shippingapplication.controller.user.UserAccountController;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 import org.junit.Test;
