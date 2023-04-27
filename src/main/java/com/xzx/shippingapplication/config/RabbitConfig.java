@@ -50,34 +50,36 @@ public class RabbitConfig {
     @Value("${spring.rabbitmq.password}")
     private String password;
 
-    public static final String EXCHANGE_FOR_SHIPPING_ORDER = "exchange_for_shippingOrder";
-//    public static final String EXCHANGE_B = "my_mq_exchange_B";
-//    public static final String EXCHANGE_C = "my_mq_exchange_C";
+    //交换机
+    public static final String EXCHANGE_A = "my_mq_exchange_A";
+    public static final String EXCHANGE_B = "my_mq_exchange_B";
+    public static final String EXCHANGE_C = "my_mq_exchange_C";
 
-    public static final String QUEUE_FOR_SHIPPING_ORDER="QUEUE_FOR_SHIPPING_ORDER";
-//    public static final String QUEUE_B="QUEUE_B";
-//    public static final String QUEUE_C="QUEUE_C";
+    //队列
+    public static final String QUEUE_A="QUEUE_A";
+    public static final String QUEUE_B="QUEUE_B";
+    public static final String QUEUE_C="QUEUE_C";
 
-
-    public static final String ROUTINGKEY_FOR_SHIPPING_ORDER = "routingKey_shipping_order";
-//    public static final String ROUTINGKEY_B = "spring-boot-routingKey_B";
-//    public static final String ROUTINGKEY_C = "spring-boot-routingKey_C";
+    //binding key
+    public static final String ROUTINGKEY_A = "spring-boot-routingKey_A";
+    public static final String ROUTINGKEY_B = "spring-boot-routingKey_B";
+    public static final String ROUTINGKEY_C = "spring-boot-routingKey_C";
 
     @Bean
-    public ConnectionFactory connectionFactory(){
+    public ConnectionFactory connectionFactory(){       //初始化
         CachingConnectionFactory connectionFactory = new CachingConnectionFactory(host,port);
         connectionFactory.setUsername(username);
         connectionFactory.setPassword(password);
         connectionFactory.setVirtualHost("testhost");
         connectionFactory.setPublisherConfirms(true); //设置发送消息失败重试
-        connectionFactory.setChannelCacheSize(100);//解决多线程发送消息
+        connectionFactory.setChannelCacheSize(100); //解决多线程发送消息
 
         return connectionFactory;
     }
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-    public RabbitTemplate rabbitTemplate(){
-        RabbitTemplate template = new RabbitTemplate(connectionFactory());
+    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory){
+        RabbitTemplate template = new RabbitTemplate(connectionFactory);
         template.setMandatory(true); //设置发送消息失败重试
         return template;
 
