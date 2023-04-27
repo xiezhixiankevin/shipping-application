@@ -37,7 +37,9 @@ public class UserAccountController {
                    @RequestParam String password){
         UserAccountPack userAccount = userAccountService.login(email, password);
         if(userAccount != null){
-            return R.ok().data("user_info",userAccount).data("token",userAccount.getToken());
+            String token = userAccount.getToken();
+            userAccount.setToken(null);
+            return R.ok().data("user_info",userAccount).data("token",token);
         }
         return R.error().message("用户名或密码错误！或者系统限流请稍后重试");
     }

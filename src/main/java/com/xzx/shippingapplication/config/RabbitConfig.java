@@ -50,18 +50,18 @@ public class RabbitConfig {
     @Value("${spring.rabbitmq.password}")
     private String password;
 
-    public static final String EXCHANGE_A = "my_mq_exchange_A";
-    public static final String EXCHANGE_B = "my_mq_exchange_B";
-    public static final String EXCHANGE_C = "my_mq_exchange_C";
+    public static final String EXCHANGE_FOR_SHIPPING_ORDER = "exchange_for_shippingOrder";
+//    public static final String EXCHANGE_B = "my_mq_exchange_B";
+//    public static final String EXCHANGE_C = "my_mq_exchange_C";
 
-    public static final String QUEUE_A="QUEUE_A";
-    public static final String QUEUE_B="QUEUE_B";
-    public static final String QUEUE_C="QUEUE_C";
+    public static final String QUEUE_FOR_SHIPPING_ORDER="QUEUE_FOR_SHIPPING_ORDER";
+//    public static final String QUEUE_B="QUEUE_B";
+//    public static final String QUEUE_C="QUEUE_C";
 
 
-    public static final String ROUTINGKEY_A = "spring-boot-routingKey_A";
-    public static final String ROUTINGKEY_B = "spring-boot-routingKey_B";
-    public static final String ROUTINGKEY_C = "spring-boot-routingKey_C";
+    public static final String ROUTINGKEY_FOR_SHIPPING_ORDER = "routingKey_shipping_order";
+//    public static final String ROUTINGKEY_B = "spring-boot-routingKey_B";
+//    public static final String ROUTINGKEY_C = "spring-boot-routingKey_C";
 
     @Bean
     public ConnectionFactory connectionFactory(){
@@ -100,17 +100,12 @@ public class RabbitConfig {
      */
     @Bean
     public DirectExchange defaultExchange(){
-        return new DirectExchange(EXCHANGE_A,true,false);
+        return new DirectExchange(EXCHANGE_FOR_SHIPPING_ORDER,true,false);
     }
 
     @Bean
-    public Queue queueA(){
-        return  new Queue(QUEUE_A,true);// 队列持久化
-    }
-
-    @Bean
-    public Queue queueB(){
-        return  new Queue(QUEUE_B,true);// 队列持久化
+    public Queue queueForShippingOrder(){
+        return  new Queue(QUEUE_FOR_SHIPPING_ORDER,true);// 队列持久化
     }
 
     /**
@@ -119,12 +114,8 @@ public class RabbitConfig {
      */
     @Bean
     public Binding binding(){
-        return BindingBuilder.bind( queueA()).to(defaultExchange()).with(RabbitConfig.ROUTINGKEY_A);
+        return BindingBuilder.bind( queueForShippingOrder()).to(defaultExchange()).with(RabbitConfig.ROUTINGKEY_FOR_SHIPPING_ORDER);
     }
 
-    @Bean
-    public Binding bindingB(){
-        return BindingBuilder.bind( queueB()).to(defaultExchange()).with(RabbitConfig.ROUTINGKEY_B);
-    }
 
 }
