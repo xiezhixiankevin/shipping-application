@@ -43,12 +43,11 @@ public class ProducerMessage implements  RabbitTemplate.ConfirmCallback , Rabbit
 
     public void  sendMsg (Object content,String exchangeName,String routingKey){
         String jsonString = JSON.toJSONString(content);
-        CorrelationData correlationId = new CorrelationData(UUID.randomUUID().toString());
+        CorrelationData correlationId = new CorrelationData(UUID.randomUUID().toString());//？？
 
         // 本地缓存消息
-        HashOperations hashOperations = redisTemplate.opsForHash();
         String value = JSON.toJSONString(new CorrelationDataPack(correlationId, exchangeName, routingKey, jsonString));
-        hashOperations.put(REDIS_HASHMAP_KEY,correlationId.getId(),value);
+        redisTemplate.opsForHash().put(REDIS_HASHMAP_KEY,correlationId.getId(),value);
 
         rabbitTemplate.convertAndSend(exchangeName,routingKey,jsonString,correlationId);
 

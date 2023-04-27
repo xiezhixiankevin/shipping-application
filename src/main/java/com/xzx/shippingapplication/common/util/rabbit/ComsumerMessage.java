@@ -38,6 +38,8 @@ public class ComsumerMessage {
              * 3、如果消息 处理异常则，可以存入数据库中，手动处理（可以增加短信和邮件提醒功能）
              */
 
+
+
             //手动应答
             channel.basicAck(message.getMessageProperties().getDeliveryTag(),false);
         }catch (Exception e){
