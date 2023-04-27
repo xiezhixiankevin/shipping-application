@@ -31,7 +31,7 @@ public class ShippingOrderController {
 
     @BlockHandler(value = 30,method = "commonReduceDeal",aClass = CommonReduce.class) // 降级注解，1s内限制30个请求
     @PostMapping("/create")
-    public R createShippingOrder(ShippingOrder shippingOrder){
+    public R createShippingOrder(@RequestBody ShippingOrder shippingOrder){
         return service.createShippingOrder(shippingOrder);
     }
 
