@@ -32,16 +32,14 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
     ProducerMessage producerMessage;
 
     // 生成唯一订单id
-    private long generateOrderId() {
-        String nanoRandom = System.nanoTime() + "" + random.nextInt(99999);
-        int hash = Math.abs(UUID.randomUUID().hashCode());
-        int needAdd = 19 - String.valueOf(hash).length() + 1;
-        return Long.parseLong(hash + "" + nanoRandom.substring(needAdd));
+    private String generateOrderId() {
+        String replaceUUID = UUID.randomUUID().toString().replace("-", "");
+        return replaceUUID;
     }
 
     private double estimateCapacity(double weight,int lastHours,double km){
         // weight x km / lastHours
-        return weight * km / lastHours;
+        return weight * km / (lastHours <= 0? 1: lastHours);
     }
 
     @Override

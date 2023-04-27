@@ -30,7 +30,7 @@ public class TaskJob {
     ProducerMessage producerMessage;
 
     /**
-     * 重新发送未成功发送的定时任务
+     * 重新发送未成功发送的消息的定时任务
      * 每小时执行一次
      * */
     @Scheduled(cron = "0 0 */1 * * ?")

@@ -61,10 +61,10 @@ public class CodeGenerator {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/shipping_app?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8");
+        dsc.setUrl("jdbc:mysql://121.4.113.134:3306/shipping_app?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("shiwo2002625");
+        dsc.setPassword("root");
         mpg.setDataSource(dsc);
 
         // 包配置
@@ -86,7 +86,7 @@ public class CodeGenerator {
         sc.setRestControllerStyle(true);
         sc.setControllerMappingHyphenStyle(true);
 
-        sc.setLogicDeleteFieldName("deleted");//设置逻辑删除
+        sc.setLogicDeleteFieldName("status");//设置逻辑删除
 
         //设置自动填充配置
         TableFill gmt_create = new TableFill("create_timestamp", FieldFill.INSERT);
