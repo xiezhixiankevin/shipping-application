@@ -1,4 +1,4 @@
-package com.xzx.shippingapplication.controller;
+package com.xzx.shippingapplication.controller.user;
 
 
 import com.xzx.shippingapplication.common.R;
@@ -53,6 +53,7 @@ public class UserAccountController {
         }
         return R.error().message("注册失败!验证码错误或已有账号");
     }
+
     private static String randomCode() {
         StringBuilder str = new StringBuilder();
         Random random = new Random();

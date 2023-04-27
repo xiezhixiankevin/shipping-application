@@ -10,7 +10,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
 import java.lang.reflect.Method;
 import java.util.concurrent.TimeUnit;
 /**
@@ -29,6 +28,9 @@ public class BlockHandlerAspect {
     private RedisTemplate redisTemplate;
     @Autowired
     private ApplicationContext applicationContext;
+
+    public static final String COMMON_REDUCE_CLASS_NAME = "com.xzx.shippingapplication.controller.degradation.CommonReduce";
+
     /**
      * @Description : 使用Around可以修改方法的参数，返回值，
      * 甚至不执行原来的方法,但是原来的方法不执行会导致before和after注解的内容不执行
@@ -75,7 +77,13 @@ public class BlockHandlerAspect {
                     redisTemplate.opsForValue().set(key,num,blockHandler.timeOut(), TimeUnit.SECONDS);
                 }
                 else {
-                    proceed = method.invoke(bean, args);
+                    // 调用降级方法
+                    if(aClass.getName().equals(COMMON_REDUCE_CLASS_NAME)){
+                        // 通用降级方法，无需参数
+                        proceed = method.invoke(bean);
+                    }else {
+                        proceed = method.invoke(bean, args);
+                    }
                 }
                 break;
             }
