@@ -19,10 +19,12 @@ spring:
         min-idle: 1
         time-between-eviction-runs: 10s
   rabbitmq:
-    host: 127.0.0.1
+    host: 121.4.113.134
     port: 5672
     username: admin
     password: shiwo2002625
+    publisher-confirm-type: correlated
+    publisher-returns: true
   mail:
     host: smtp.qq.com #发送邮件服务器
     username: 268022625@qq.com  #发送邮件的邮箱地址

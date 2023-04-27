@@ -29,7 +29,7 @@ public class ShippingOrder implements Serializable {
     /**
      * 订单号
      */
-    private Long orderId;
+    private String orderId;
 
     /**
      * 订单下单人id

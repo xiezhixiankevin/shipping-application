@@ -102,17 +102,12 @@ public class RabbitConfig {
      */
     @Bean
     public DirectExchange defaultExchange(){
-        return new DirectExchange(EXCHANGE_A,true,false);
+        return new DirectExchange(EXCHANGE_FOR_SHIPPING_ORDER,true,false);
     }
 
     @Bean
-    public Queue queueA(){
-        return  new Queue(QUEUE_A,true);// 队列持久化
-    }
-
-    @Bean
-    public Queue queueB(){
-        return  new Queue(QUEUE_B,true);// 队列持久化
+    public Queue queueForShippingOrder(){
+        return  new Queue(QUEUE_FOR_SHIPPING_ORDER,true);// 队列持久化
     }
 
     /**
@@ -121,12 +116,8 @@ public class RabbitConfig {
      */
     @Bean
     public Binding binding(){
-        return BindingBuilder.bind( queueA()).to(defaultExchange()).with(RabbitConfig.ROUTINGKEY_A);
+        return BindingBuilder.bind( queueForShippingOrder()).to(defaultExchange()).with(RabbitConfig.ROUTINGKEY_FOR_SHIPPING_ORDER);
     }
 
-    @Bean
-    public Binding bindingB(){
-        return BindingBuilder.bind( queueB()).to(defaultExchange()).with(RabbitConfig.ROUTINGKEY_B);
-    }
 
 }
