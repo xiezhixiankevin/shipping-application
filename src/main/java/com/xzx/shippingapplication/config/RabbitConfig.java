@@ -51,19 +51,13 @@ public class RabbitConfig {
     private String password;
 
     //交换机
-    public static final String EXCHANGE_A = "my_mq_exchange_A";
-    public static final String EXCHANGE_B = "my_mq_exchange_B";
-    public static final String EXCHANGE_C = "my_mq_exchange_C";
+    public static final String EXCHANGE_FOR_SHIPPING_ORDER = "exchange_for_shipping_order";
 
     //队列
-    public static final String QUEUE_A="QUEUE_A";
-    public static final String QUEUE_B="QUEUE_B";
-    public static final String QUEUE_C="QUEUE_C";
+    public static final String QUEUE_FOR_SHIPPING_ORDER="queue_for_shipping_order";
 
     //binding key
-    public static final String ROUTINGKEY_A = "spring-boot-routingKey_A";
-    public static final String ROUTINGKEY_B = "spring-boot-routingKey_B";
-    public static final String ROUTINGKEY_C = "spring-boot-routingKey_C";
+    public static final String ROUTINGKEY_FOR_SHIPPING_ORDER = "routingkey_for_shipping_order";
 
     @Bean
     public ConnectionFactory connectionFactory(){       //初始化
