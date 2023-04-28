@@ -1,5 +1,6 @@
 package com.xzx.shippingapplication.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.xzx.shippingapplication.common.R;
 import com.xzx.shippingapplication.common.util.TimeUtils;
 import com.xzx.shippingapplication.common.util.rabbit.ProducerMessage;
@@ -61,6 +62,13 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
         }
 
         return null;
+    }
+
+    @Override
+    public ShippingOrder getOrderByOrderId(String orderId) {
+        QueryWrapper<ShippingOrder> shippingOrderQueryWrapper = new QueryWrapper<>();
+        shippingOrderQueryWrapper.eq("order_id",orderId);
+        return getOne(shippingOrderQueryWrapper);
     }
 
 }

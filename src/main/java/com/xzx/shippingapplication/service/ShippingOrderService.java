@@ -14,4 +14,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ShippingOrderService extends IService<ShippingOrder> {
     R createShippingOrder(ShippingOrder shippingOrder);
+
+    ShippingOrder getOrderByOrderId(String orderId);
 }

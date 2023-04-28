@@ -36,6 +36,11 @@ public class ShippingOrderController {
         return service.createShippingOrder(shippingOrder);
     }
 
+    @GetMapping("/get-order-by-order-id")
+    public R getOrderByOrderId(@RequestParam String orderId){
+        return R.ok().data("order",service.getOrderByOrderId(orderId));
+    }
+
     @BlockHandler(value = 1,method = "commonReduceDeal",aClass = CommonReduce.class) // 降级注解，1s内限制30个请求
     @PostMapping("/test")
     public R test(String s){
