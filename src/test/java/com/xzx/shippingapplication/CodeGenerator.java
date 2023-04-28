@@ -44,8 +44,8 @@ public class CodeGenerator {
         AutoGenerator mpg = new AutoGenerator();
 
 //        // 注意：更新数据库后使用代码生成器请打开这两行注释
-//        TemplateConfig templateConfig = new TemplateConfig().setController("").setService("").setServiceImpl("");
-//        mpg.setTemplate(templateConfig);
+        TemplateConfig templateConfig = new TemplateConfig().setController("").setService("").setServiceImpl("");
+        mpg.setTemplate(templateConfig);
 
 
         // 全局配置

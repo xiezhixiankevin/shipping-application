@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.Version;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,7 +16,7 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author xzx
- * @since 2023-04-28
+ * @since 2023-04-29
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
@@ -65,10 +66,10 @@ public class CarrierInTransit implements Serializable {
     /**
      * 该运输工具所装货物的重量
      */
-    private Double weight;
+    private Integer weight;
 
     /**
-     * 是否已经完成 1 2 3
+     * 0:未出发 1:在路上 2:已完成
      */
     private Integer status;
 
@@ -76,6 +77,11 @@ public class CarrierInTransit implements Serializable {
      * 包含几个订单
      */
     private Integer orderNum;
+
+    /**
+     * 对应的订单的id字符串数组，（对应id不是order_id）
+     */
+    private String orderIds;
 
 
 }

@@ -30,15 +30,38 @@ public class ShippingOrderController {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
+    /**
+     * 创建订单
+     * */
     @BlockHandler(value = 30,method = "commonReduceDeal",aClass = CommonReduce.class) // 降级注解，1s内限制30个请求
     @PostMapping("/create")
     public R createShippingOrder(@RequestBody ShippingOrder shippingOrder){
         return service.createShippingOrder(shippingOrder);
     }
 
+    /**
+     * 根据订单id返回订单信息
+     * */
     @GetMapping("/get-order-by-order-id")
     public R getOrderByOrderId(@RequestParam String orderId){
         return R.ok().data("order",service.getOrderByOrderId(orderId));
+    }
+
+    /**
+     * 列出某个客户的订单
+     * */
+    @GetMapping("/get-consumer-uncompleted-orders")
+    public R getConsumerUncompletedOrders(@RequestParam Integer consumerId,
+                                          @RequestParam Boolean ifCompleted){
+        return R.ok().data("order_list",service.listOrdersOfConsumer(ifCompleted,consumerId));
+    }
+
+    /**
+     * 修改某个订单的信息
+     * */
+    @PutMapping("/update-order-by-id")
+    public R updateOrderById(@RequestBody ShippingOrder shippingOrder){
+        return R.ok().data("order",service.updateById(shippingOrder));
     }
 
     @BlockHandler(value = 1,method = "commonReduceDeal",aClass = CommonReduce.class) // 降级注解，1s内限制30个请求

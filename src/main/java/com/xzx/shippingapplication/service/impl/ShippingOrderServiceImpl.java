@@ -12,9 +12,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * <p>
@@ -27,7 +25,12 @@ import java.util.UUID;
 @Service
 public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, ShippingOrder> implements ShippingOrderService {
 
-    private final Random random = new Random();
+    public static final Integer STATE_PUBLISH = 0;
+    public static final Integer STATE_NEGOTIATE = 1;
+    public static final Integer STATE_WAITING = 2;
+    public static final Integer STATE_TRANSPORT = 3;
+    public static final Integer STATE_ARRIVED = 4;
+    public static final Integer STATE_COMPLETED = 5;
 
     @Autowired
     ProducerMessage producerMessage;
@@ -69,6 +72,25 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
         QueryWrapper<ShippingOrder> shippingOrderQueryWrapper = new QueryWrapper<>();
         shippingOrderQueryWrapper.eq("order_id",orderId);
         return getOne(shippingOrderQueryWrapper);
+    }
+
+    @Override
+    public List<ShippingOrder> listOrdersOfConsumer(Boolean ifCompleted,Integer consumerId) {
+        QueryWrapper<ShippingOrder> shippingOrderQueryWrapper = new QueryWrapper<>();
+        shippingOrderQueryWrapper.eq("consumer_id",consumerId);
+        if(ifCompleted){
+            shippingOrderQueryWrapper.eq("state",STATE_COMPLETED);
+        }else {
+            shippingOrderQueryWrapper.ne("state",STATE_COMPLETED);
+        }
+        return list(shippingOrderQueryWrapper);
+    }
+
+    @Override
+    public List<ShippingOrder> listOrdersOfConsumer(Integer consumerId) {
+        QueryWrapper<ShippingOrder> shippingOrderQueryWrapper = new QueryWrapper<>();
+        shippingOrderQueryWrapper.eq("consumer_id",consumerId);
+        return list(shippingOrderQueryWrapper);
     }
 
 }

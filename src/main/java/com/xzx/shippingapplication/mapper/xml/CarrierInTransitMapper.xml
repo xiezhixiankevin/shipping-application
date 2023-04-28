@@ -13,13 +13,14 @@
         <result column="begin_time" property="beginTime" />
         <result column="end_time" property="endTime" />
         <result column="weight" property="weight" />
-        <result column="finish" property="finish" />
+        <result column="status" property="status" />
         <result column="order_num" property="orderNum" />
+        <result column="order_ids" property="orderIds" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, carrier_id, type, transport_id, begin_city_id, end_city_id, begin_time, end_time, weight, finish, order_num
+        id, carrier_id, type, transport_id, begin_city_id, end_city_id, begin_time, end_time, weight, status, order_num, order_ids
     </sql>
 
 </mapper>
