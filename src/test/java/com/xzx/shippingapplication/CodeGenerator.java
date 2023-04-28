@@ -12,10 +12,7 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
-import com.baomidou.mybatisplus.generator.config.GlobalConfig;
-import com.baomidou.mybatisplus.generator.config.PackageConfig;
-import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.*;
 import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
@@ -42,8 +39,14 @@ public class CodeGenerator {
     }
 
     public static void main(String[] args) {
+
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
+
+//        // 注意：更新数据库后使用代码生成器请打开这两行注释
+//        TemplateConfig templateConfig = new TemplateConfig().setController("").setService("").setServiceImpl("");
+//        mpg.setTemplate(templateConfig);
+
 
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
@@ -64,7 +67,7 @@ public class CodeGenerator {
         dsc.setUrl("jdbc:mysql://121.4.113.134:3306/shipping_app?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("root");
+        dsc.setPassword("shiwo2002625");
         mpg.setDataSource(dsc);
 
         // 包配置

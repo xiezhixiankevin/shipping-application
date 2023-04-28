@@ -128,6 +128,16 @@ public class ShippingOrder implements Serializable {
     private Integer status;
 
     /**
+     * 加急级别
+     */
+    private Integer urgentLevel;
+
+    /**
+     * 是否冷藏
+     */
+    private Boolean refrigerated;
+
+    /**
      * 创建时间
      */
     @TableField(fill = FieldFill.INSERT)

@@ -25,13 +25,15 @@
         <result column="estimate_distance" property="estimateDistance" />
         <result column="state" property="state" />
         <result column="status" property="status" />
+        <result column="urgent_level" property="urgentLevel" />
+        <result column="refrigerated" property="refrigerated" />
         <result column="create_timestamp" property="createTimestamp" />
         <result column="update_timestamp" property="updateTimestamp" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, order_id, consumer_id, provider_id, sender_name, sender_address, sender_phone_number, receiver_name, receiver_address, receiver_phone_number, cargo_name, cargo_weight, cargo_info, order_real_charge, order_sender_charge, order_provider_charge, estimate_capacity, latest_delivery_time, estimate_distance, state, status, create_timestamp, update_timestamp
+        id, order_id, consumer_id, provider_id, sender_name, sender_address, sender_phone_number, receiver_name, receiver_address, receiver_phone_number, cargo_name, cargo_weight, cargo_info, order_real_charge, order_sender_charge, order_provider_charge, estimate_capacity, latest_delivery_time, estimate_distance, state, status, create_timestamp, update_timestamp,urgent_level,refrigerated
     </sql>
 
 </mapper>

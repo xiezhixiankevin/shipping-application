@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:mysql://121.4.113.134:3306/shipping_app?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
-    password: root
+    password: shiwo2002625
     driver-class-name: com.mysql.cj.jdbc.Driver
   application:
     name: shippingApp
