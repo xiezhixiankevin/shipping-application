@@ -64,7 +64,7 @@ public class CodeGenerator {
         dsc.setUrl("jdbc:mysql://121.4.113.134:3306/shipping_app?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("root");
+        dsc.setPassword("shiwo2002625");
         mpg.setDataSource(dsc);
 
         // 包配置

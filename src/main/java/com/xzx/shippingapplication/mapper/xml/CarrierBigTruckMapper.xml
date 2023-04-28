@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzx.shippingapplication.mapper.CarrierBigTruckMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xzx.shippingapplication.pojo.CarrierBigTruck">
+        <id column="id" property="id" />
+        <result column="status" property="status" />
+        <result column="city_id" property="cityId" />
+        <result column="license_plate_number" property="licensePlateNumber" />
+        <result column="refrigerated" property="refrigerated" />
+        <result column="max_capacity" property="maxCapacity" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, status, city_id, license_plate_number, refrigerated, max_capacity
+    </sql>
+
+</mapper>
