@@ -10,10 +10,14 @@ package com.xzx.shippingapplication.common.util.rabbit;
 import com.alibaba.fastjson.JSONObject;
 import com.rabbitmq.client.Channel;
 import com.xzx.shippingapplication.config.RabbitConfig;
+import com.xzx.shippingapplication.pojo.ShippingOrder;
+import com.xzx.shippingapplication.service.CarrierService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import springfox.documentation.spring.web.json.Json;
 
 import java.io.IOException;
 
@@ -24,13 +28,17 @@ import java.io.IOException;
 @Slf4j
 @Component
 public class ComsumerMessage {
+    @Autowired
+    CarrierService carrierService;
 
     @RabbitListener(queues = RabbitConfig.QUEUE_FOR_SHIPPING_ORDER)
     public void handleMessage(Message message,Channel channel) throws  IOException{
         try {
             String json = new String(message.getBody());
+
             JSONObject jsonObject = JSONObject.parseObject(json);
-            log.info("消息了【】handleMessage" +  json);
+            ShippingOrder shippingOrder = JSONObject.toJavaObject(jsonObject, ShippingOrder.class);
+            log.info("收到消息：" + shippingOrder);
             //业务处理。
             /**
              * 防止重复消费，可以根据传过来的唯一ID先判断缓存数据中是否有数据
@@ -39,7 +47,7 @@ public class ComsumerMessage {
              * 3、如果消息 处理异常则，可以存入数据库中，手动处理（可以增加短信和邮件提醒功能）
              */
 
-
+            carrierService.allocation(shippingOrder);
 
             //手动应答
             channel.basicAck(message.getMessageProperties().getDeliveryTag(),false);

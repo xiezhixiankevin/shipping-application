@@ -53,12 +53,14 @@ public class ShippingOrderControllerTests extends ShippingApplicationTests {
         shippingOrder.setCreateTimestamp(new Date());
         shippingOrder.setUpdateTimestamp(new Date());
         shippingOrder.setOrderSenderCharge(118.0);
-        shippingOrder.setSenderAddress("北京市海淀区");
+        shippingOrder.setSenderAddress("北京");
         shippingOrder.setSenderName("xzx");
         shippingOrder.setSenderPhoneNumber("123124124");
-        shippingOrder.setReceiverAddress("湖南省市长沙市");
+        shippingOrder.setReceiverAddress("湖南");
         shippingOrder.setReceiverName("hzl");
         shippingOrder.setReceiverPhoneNumber("123123123");
+
+        shippingOrder.setProviderId(1);
 
         String requestJson = JSONObject.toJSONString(shippingOrder);
         MvcResult mvcResult = mockMvc.perform(

@@ -57,5 +57,11 @@ public class CarrierSamllTruck implements Serializable {
      */
     private Integer maxCapacity;
 
+    private Integer carrierId;
+
+    private Integer targetCityId;
+
+
+
 
 }
