@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author xzx
- * @since 2023-04-27
+ * @since 2023-04-28
  */
 public interface CarrierSamllTruckMapper extends BaseMapper<CarrierSamllTruck> {
 

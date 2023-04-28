@@ -56,9 +56,11 @@ public class ShippingOrderControllerTests extends ShippingApplicationTests {
         shippingOrder.setSenderAddress("北京");
         shippingOrder.setSenderName("xzx");
         shippingOrder.setSenderPhoneNumber("123124124");
-        shippingOrder.setReceiverAddress("湖南");
+        shippingOrder.setReceiverAddress("上海");
         shippingOrder.setReceiverName("hzl");
         shippingOrder.setReceiverPhoneNumber("123123123");
+        shippingOrder.setRefrigerated(false);
+        shippingOrder.setUrgentLevel(2);
 
         shippingOrder.setProviderId(1);
 

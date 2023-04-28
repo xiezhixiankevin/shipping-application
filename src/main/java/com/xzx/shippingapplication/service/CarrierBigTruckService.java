@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author xzx
- * @since 2023-04-27
+ * @since 2023-04-28
  */
 public interface CarrierBigTruckService extends IService<CarrierBigTruck> {
 

@@ -1,6 +1,6 @@
 package com.xzx.shippingapplication.service;
 
-import com.xzx.shippingapplication.pojo.CarrierSamllTruck;
+import com.xzx.shippingapplication.pojo.CarrierInTransit;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author xzx
  * @since 2023-04-28
  */
-public interface CarrierSamllTruckService extends IService<CarrierSamllTruck> {
+public interface CarrierInTransitService extends IService<CarrierInTransit> {
 
 }

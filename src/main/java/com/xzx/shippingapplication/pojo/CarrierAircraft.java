@@ -15,12 +15,12 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author xzx
- * @since 2023-04-27
+ * @since 2023-04-28
  */
-@Data
+
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class CarrierAircraft implements Serializable {
+public class CarrierAircraft extends CarrierTransportation  implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -38,7 +38,7 @@ public class CarrierAircraft implements Serializable {
     private Integer status;
 
     /**
-     * 所在城市id
+     * 当前所在城市id
      */
     private Integer cityId;
 
@@ -56,6 +56,33 @@ public class CarrierAircraft implements Serializable {
      * 最大容量
      */
     private Integer maxCapacity;
+
+    /**
+     * 所属承运商
+
+     */
+    private Integer carrierId;
+
+    /**
+     * 固定往返城市（目标城市）
+     */
+    private Integer targetCityId;
+
+    /**
+     * 当前剩余容量
+     */
+    private Integer residualCapacity;
+
+    /**
+     * 全程所需时间 单位：小时h
+     */
+    private Integer holeTime;
+
+    /**
+     * 这辆车每天固定的发车时间 24小时制 单位：小时
+
+     */
+    private Integer beginTime;
 
 
 }

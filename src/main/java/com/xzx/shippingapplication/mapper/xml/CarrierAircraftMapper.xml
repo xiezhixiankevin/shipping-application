@@ -10,11 +10,16 @@
         <result column="license_plate_number" property="licensePlateNumber" />
         <result column="refrigerated" property="refrigerated" />
         <result column="max_capacity" property="maxCapacity" />
+        <result column="carrier_id" property="carrierId" />
+        <result column="target_city_id" property="targetCityId" />
+        <result column="residual_capacity" property="residualCapacity" />
+        <result column="hole_time" property="holeTime" />
+        <result column="begin_time" property="beginTime" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, status, city_id, license_plate_number, refrigerated, max_capacity
+        id, status, city_id, license_plate_number, refrigerated, max_capacity, carrier_id, target_city_id, residual_capacity, hole_time, begin_time
     </sql>
 
 </mapper>

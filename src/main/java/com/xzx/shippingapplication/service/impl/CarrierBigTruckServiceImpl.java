@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author xzx
- * @since 2023-04-27
+ * @since 2023-04-28
  */
 @Service
 public class CarrierBigTruckServiceImpl extends ServiceImpl<CarrierBigTruckMapper, CarrierBigTruck> implements CarrierBigTruckService {

@@ -1,40 +1,20 @@
 package com.xzx.shippingapplication.pojo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.Version;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
-import java.io.Serializable;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
 
-/**
- * <p>
- * 
- * </p>
- *
- * @author xzx
- * @since 2023-04-28
- */
+@Data
+public abstract class CarrierTransportation {
 
-@EqualsAndHashCode(callSuper = false)
-@Accessors(chain = true)
-public class CarrierSamllTruck extends CarrierTransportation implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * 小货车id
-     */
-    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     /**
      * 当前状态：1：等待发车 2：正在路上 3：其他
 
      */
-    @TableLogic
     private Integer status;
 
     /**
@@ -83,6 +63,5 @@ public class CarrierSamllTruck extends CarrierTransportation implements Serializ
 
      */
     private Integer beginTime;
-
 
 }

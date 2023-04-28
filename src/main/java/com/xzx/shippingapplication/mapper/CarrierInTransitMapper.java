@@ -1,6 +1,6 @@
 package com.xzx.shippingapplication.mapper;
 
-import com.xzx.shippingapplication.pojo.CarrierBigTruck;
+import com.xzx.shippingapplication.pojo.CarrierInTransit;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author xzx
  * @since 2023-04-28
  */
-public interface CarrierBigTruckMapper extends BaseMapper<CarrierBigTruck> {
+public interface CarrierInTransitMapper extends BaseMapper<CarrierInTransit> {
 
 }
