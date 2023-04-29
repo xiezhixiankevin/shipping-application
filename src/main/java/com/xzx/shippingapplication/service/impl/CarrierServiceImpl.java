@@ -3,6 +3,7 @@ package com.xzx.shippingapplication.service.impl;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.xzx.shippingapplication.common.R;
 import com.xzx.shippingapplication.mapper.CarrierMapper;
 import com.xzx.shippingapplication.pojo.*;
 import com.xzx.shippingapplication.service.*;
@@ -79,6 +80,11 @@ public class CarrierServiceImpl extends ServiceImpl<CarrierMapper, Carrier> impl
         order.setInTransitId(inTransitId);
         shippingOrderService.updateById(order);
 
+    }
+
+    @Override
+    public R getAllTransportationInfo() {
+        return null;
     }
 
     /**

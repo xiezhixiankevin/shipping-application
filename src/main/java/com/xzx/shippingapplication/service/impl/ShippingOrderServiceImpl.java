@@ -8,6 +8,7 @@ import com.xzx.shippingapplication.config.RabbitConfig;
 import com.xzx.shippingapplication.pojo.LogisticsRecord;
 import com.xzx.shippingapplication.pojo.ShippingOrder;
 import com.xzx.shippingapplication.mapper.ShippingOrderMapper;
+import com.xzx.shippingapplication.service.LogisticsRecordService;
 import com.xzx.shippingapplication.service.ShippingOrderService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -40,7 +41,7 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
     ProducerMessage producerMessage;
 
     @Autowired
-    private ApplicationContext applicationContext;
+    private LogisticsRecordService logisticsRecordService;
 
     // 生成唯一订单id
     private String generateOrderId() {
@@ -126,7 +127,6 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
                 }
             }
             // 更新物流记录表
-            LogisticsRecordServiceImpl logisticsRecordService = applicationContext.getBean(LogisticsRecordServiceImpl.class);
             logisticsRecordService.saveBatch(logisticsRecordList);
 
             return true;
@@ -145,6 +145,19 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
         shippingOrder.setState(state);
 
         return update(shippingOrder,shippingOrderQueryWrapper);
+    }
+
+    @Override
+    public Boolean addLogisticsRecord(LogisticsRecord logisticsRecord) {
+        return logisticsRecordService.save(logisticsRecord);
+    }
+
+    @Override
+    public List<LogisticsRecord> listLogisticsRecord(Integer orderId) {
+        QueryWrapper<LogisticsRecord> logisticsRecordQueryWrapper = new QueryWrapper<>();
+        logisticsRecordQueryWrapper.eq("order_id",orderId).orderByAsc("create_timestamp");
+
+        return logisticsRecordService.list(logisticsRecordQueryWrapper);
     }
 
 }
