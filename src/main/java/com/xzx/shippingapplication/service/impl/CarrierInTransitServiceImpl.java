@@ -254,6 +254,7 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
     @Override
     public R getCarrierInfo(Integer carrierId) {
         CarrierInfoPack carrierInfo = carrierInTransitMapper.getCarrierInfo(carrierId);
+        System.out.println(carrierInfo);
         return R.ok().data("info",carrierInfo);
     }
 }
