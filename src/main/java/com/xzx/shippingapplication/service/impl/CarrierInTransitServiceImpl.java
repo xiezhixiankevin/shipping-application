@@ -78,7 +78,7 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
         }
 
         //4.更新订单表中所有涉及到的订单的状态
-//        shippingOrderService.
+        shippingOrderService.updateOrderStateByInTransitId(carrierInTransit.getCarrierId(),ShippingOrderServiceImpl.STATE_TRANSPORT);
 
 
 
@@ -130,7 +130,8 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
         }
 
         //4.更新订单表中所有涉及到的订单的状态
-//        shippingOrderService.
+        shippingOrderService.updateOrderStateByInTransitId(carrierInTransit.getCarrierId(),ShippingOrderServiceImpl.STATE_ARRIVED);
+
 
 
         return true;

@@ -3,6 +3,7 @@ package com.xzx.shippingapplication.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.xzx.shippingapplication.ShippingApplicationTests;
 import com.xzx.shippingapplication.controller.order.ShippingOrderController;
+import com.xzx.shippingapplication.pojo.LogisticsRecord;
 import com.xzx.shippingapplication.pojo.ShippingOrder;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
@@ -75,5 +76,36 @@ public class ShippingOrderControllerTests extends ShippingApplicationTests {
         log.info(mvcResult.getResponse().getContentAsString());
     }
 
+    @Test
+    public void testAddLogisticsRecordById() throws Exception {
+
+        LogisticsRecord logisticsRecord = new LogisticsRecord();
+        logisticsRecord.setOrderId(8);
+        logisticsRecord.setState(3);
+        logisticsRecord.setContent("测试123");
+        String requestJson = JSONObject.toJSONString(logisticsRecord);
+        MvcResult mvcResult = mockMvc.perform(
+                MockMvcRequestBuilders.post("/order/add-logistics-record-by-id").content(requestJson).contentType(MediaType.APPLICATION_JSON)
+        )
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andDo(MockMvcResultHandlers.print())
+                .andReturn();
+
+        log.info(mvcResult.getResponse().getContentAsString());
+    }
+
+    @Test
+    public void testListLogisticsRecord() throws Exception {
+
+
+        MvcResult mvcResult = mockMvc.perform(
+                MockMvcRequestBuilders.get("/order/list-logistics-record?orderId="+"8")
+        )
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andDo(MockMvcResultHandlers.print())
+                .andReturn();
+
+        log.info(mvcResult.getResponse().getContentAsString());
+    }
 
 }

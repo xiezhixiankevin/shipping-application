@@ -58,8 +58,8 @@ public class ShippingOrderController {
     /**
      * 列出某个客户的订单
      * */
-    @GetMapping("/get-consumer-uncompleted-orders")
-    public R getConsumerUncompletedOrders(@RequestParam Integer consumerId,
+    @GetMapping("/get-consumer-orders")
+    public R getConsumerOrders(@RequestParam Integer consumerId,
                                           @RequestParam Boolean ifCompleted){
         return R.ok().data("order_list",shippingOrderService.listOrdersOfConsumer(ifCompleted,consumerId));
     }
@@ -69,7 +69,10 @@ public class ShippingOrderController {
      * */
     @PutMapping("/update-order-by-id")
     public R updateOrderById(@RequestBody ShippingOrder shippingOrder){
-        return R.ok().data("order",shippingOrderService.updateById(shippingOrder));
+        if(shippingOrderService.updateById(shippingOrder)){
+            return R.ok();
+        }
+        return R.error();
     }
 
     /**
@@ -89,8 +92,8 @@ public class ShippingOrderController {
      * 获取订单的所有物流信息，默认时间排序
      * */
     @GetMapping("/list-logistics-record")
-    public R listLogisticsRecord(@RequestParam Integer OrderId){
-        return R.ok().data("logistics_record_list",shippingOrderService.listLogisticsRecord(OrderId));
+    public R listLogisticsRecord(@RequestParam Integer orderId){
+        return R.ok().data("logistics_record_list",shippingOrderService.listLogisticsRecord(orderId));
     }
 
     @BlockHandler(value = 1,method = "commonReduceDeal",aClass = CommonReduce.class) // 降级注解，1s内限制1个请求
