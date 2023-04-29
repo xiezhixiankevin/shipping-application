@@ -27,7 +27,7 @@ public interface ShippingOrderService extends IService<ShippingOrder> {
 
     Boolean updateOrderStateByInTransitId(Integer inTransitId,Integer state);
 
-    Boolean updateOrderStateById(Integer inTransitId,Integer state);
+    Boolean updateOrderStateById(Integer id,Integer state);
 
     Boolean addLogisticsRecord(LogisticsRecord logisticsRecord);
 

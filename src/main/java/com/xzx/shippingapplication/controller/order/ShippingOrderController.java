@@ -69,7 +69,10 @@ public class ShippingOrderController {
      * */
     @PutMapping("/update-order-by-id")
     public R updateOrderById(@RequestBody ShippingOrder shippingOrder){
-        return R.ok().data("order",shippingOrderService.updateById(shippingOrder));
+        if(shippingOrderService.updateById(shippingOrder)){
+            return R.ok();
+        }
+        return R.error();
     }
 
     /**
