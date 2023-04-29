@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
@@ -29,7 +30,16 @@ public class TokenInterceptor implements HandlerInterceptor {
         log.info("在token检查与解析 被拦截了");
         Map<String,Object> map = new HashMap<>();
         // 获取请求头中令牌
-        String token = request.getHeader("token");
+//        String token = request.getHeader("token");
+        String token="" ;
+        Cookie[] cookies = request.getCookies();
+        if(cookies != null && cookies.length > 0){
+            for (Cookie cookie : cookies){
+//                return cookie.getName() + " " + cookie.getValue();
+                token=cookie.getValue();
+            }
+        }
+
         System.out.println(token);
         try {
             // 验证令牌
