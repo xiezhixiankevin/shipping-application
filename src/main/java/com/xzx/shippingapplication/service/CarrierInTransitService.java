@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface CarrierInTransitService extends IService<CarrierInTransit> {
 
+    boolean startTransportation(CarrierInTransit carrierInTransit);
 }

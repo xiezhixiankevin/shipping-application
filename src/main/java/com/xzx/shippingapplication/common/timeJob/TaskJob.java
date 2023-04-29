@@ -79,50 +79,50 @@ public class TaskJob {
      * 发货
      * 周期从16到19小时 每天执行3次 每小时执行一次
      */
-    @Scheduled(cron = "1 0 16-19 * * ? ")
-    @Async
-    public void deliver() {
-        //发货 查看未出发的在途运力
-        QueryWrapper<CarrierInTransit> transitQueryWrapper = new QueryWrapper<>();
-        transitQueryWrapper.eq("status",TRANSPORTATION_STATUS_WAITING)
-                            .lt("begin_time",new Date());
-        List<CarrierInTransit> list = carrierInTransitService.list(transitQueryWrapper);
-
-        //没有未出发的运力 直接返回
-        if(list.isEmpty())return;
-        //发车！ 将相应的运力状态改为在路上
-        ArrayList<CarrierSamllTruck> carrierSamllTruckList = new ArrayList<>();
-        ArrayList<CarrierBigTruck> carrierBigTruckList = new ArrayList<>();
-        ArrayList<CarrierAircraft> carrierAircraftList = new ArrayList<>();
-        for (CarrierInTransit carrierInTransit : list) {
-            carrierInTransit.setStatus(TRANSPORTATION_STATUS_IN_TRANSIT);
-            if(carrierInTransit.getType()==TRANSPORTATION_TYPE_SMALL_TRUCK){
-                CarrierSamllTruck samllTruck = new CarrierSamllTruck();
-                samllTruck.setId(carrierInTransit.getTransportId());
-                samllTruck.setStatus(TRANSPORTATION_STATUS_IN_TRANSIT);
-                carrierSamllTruckList.add(samllTruck);
-            }else if(carrierInTransit.getType()==TRANSPORTATION_TYPE_BIG_TRUCK){
-                CarrierBigTruck bigTruck = new CarrierBigTruck();
-                bigTruck.setId(carrierInTransit.getTransportId());
-                bigTruck.setStatus(TRANSPORTATION_STATUS_IN_TRANSIT);
-                carrierBigTruckList.add(bigTruck);
-            }else if(carrierInTransit.getType()==TRANSPORTATION_TYPE_AIRCRAFT){
-                CarrierAircraft aircraft = new CarrierAircraft();
-                aircraft.setId(carrierInTransit.getTransportId());
-                aircraft.setStatus(TRANSPORTATION_STATUS_IN_TRANSIT);
-                carrierAircraftList.add(aircraft);
-            }
-        }
-
-        //更新数据库
-        carrierInTransitService.updateBatchById(list);
-        if(!carrierSamllTruckList.isEmpty())samllTruckService.updateBatchById(carrierSamllTruckList);
-        if(!carrierBigTruckList.isEmpty())bigTruckService.updateBatchById(carrierBigTruckList);
-        if(!carrierAircraftList.isEmpty())aircraftService.updateBatchById(carrierAircraftList);
-
-
-
-    }
+//    @Scheduled(cron = "1 0 16-19 * * ? ")
+//    @Async
+//    public void deliver() {
+//        //发货 查看未出发的在途运力
+//        QueryWrapper<CarrierInTransit> transitQueryWrapper = new QueryWrapper<>();
+//        transitQueryWrapper.eq("status",TRANSPORTATION_STATUS_WAITING)
+//                .lt("begin_time",new Date());
+//        List<CarrierInTransit> list = carrierInTransitService.list(transitQueryWrapper);
+//
+//        //没有未出发的运力 直接返回
+//        if(list.isEmpty())return;
+//        //发车！ 将相应的运力状态改为在路上
+//        ArrayList<CarrierSamllTruck> carrierSamllTruckList = new ArrayList<>();
+//        ArrayList<CarrierBigTruck> carrierBigTruckList = new ArrayList<>();
+//        ArrayList<CarrierAircraft> carrierAircraftList = new ArrayList<>();
+//        for (CarrierInTransit carrierInTransit : list) {
+//            carrierInTransit.setStatus(TRANSPORTATION_STATUS_IN_TRANSIT);
+//            if(carrierInTransit.getType()==TRANSPORTATION_TYPE_SMALL_TRUCK){
+//                CarrierSamllTruck samllTruck = new CarrierSamllTruck();
+//                samllTruck.setId(carrierInTransit.getTransportId());
+//                samllTruck.setStatus(TRANSPORTATION_STATUS_IN_TRANSIT);
+//                carrierSamllTruckList.add(samllTruck);
+//            }else if(carrierInTransit.getType()==TRANSPORTATION_TYPE_BIG_TRUCK){
+//                CarrierBigTruck bigTruck = new CarrierBigTruck();
+//                bigTruck.setId(carrierInTransit.getTransportId());
+//                bigTruck.setStatus(TRANSPORTATION_STATUS_IN_TRANSIT);
+//                carrierBigTruckList.add(bigTruck);
+//            }else if(carrierInTransit.getType()==TRANSPORTATION_TYPE_AIRCRAFT){
+//                CarrierAircraft aircraft = new CarrierAircraft();
+//                aircraft.setId(carrierInTransit.getTransportId());
+//                aircraft.setStatus(TRANSPORTATION_STATUS_IN_TRANSIT);
+//                carrierAircraftList.add(aircraft);
+//            }
+//        }
+//
+//        //更新数据库
+//        carrierInTransitService.updateBatchById(list);
+//        if(!carrierSamllTruckList.isEmpty())samllTruckService.updateBatchById(carrierSamllTruckList);
+//        if(!carrierBigTruckList.isEmpty())bigTruckService.updateBatchById(carrierBigTruckList);
+//        if(!carrierAircraftList.isEmpty())aircraftService.updateBatchById(carrierAircraftList);
+//
+//
+//
+//    }
 
 
 
