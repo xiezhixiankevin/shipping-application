@@ -88,6 +88,15 @@ public class CarrierServiceImpl extends ServiceImpl<CarrierMapper, Carrier> impl
     }
 
     /**
+     * 获得当前全部的运力
+     * @return
+     */
+    @Override
+    public R getAllTransportationInfo() {
+        return null;
+    }
+
+    /**
      * 调度小货车的运力
      *
      * @param carrierId

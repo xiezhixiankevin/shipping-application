@@ -3,7 +3,6 @@ package com.xzx.shippingapplication.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xzx.shippingapplication.common.util.JWTUtils;
-import com.xzx.shippingapplication.common.util.JwtDemo;
 import com.xzx.shippingapplication.mapper.UserAccountMapper;
 import com.xzx.shippingapplication.pojo.UserAccount;
 import com.xzx.shippingapplication.pojo.pack.UserAccountPack;

@@ -51,6 +51,10 @@ public class Constant {
     public static final double TRANSPORTATION_MAX_CAPACITY_AIRCRAFT =100000;//飞机
 
 
+    //用户身份
+    public static final int USER_IDENTITY_OWNER =0;//货主
+    public static final int USER_IDENTITY_CARRIER =1;//承运商
+    public static final int USER_IDENTITY_ADMIN =2;//管理员
 
 
 

@@ -1,5 +1,6 @@
 package com.xzx.shippingapplication.config;
 
+import com.xzx.shippingapplication.interceptor.OwnerInterceptor;
 import com.xzx.shippingapplication.interceptor.TokenInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -23,13 +24,15 @@ public class MyInterceptorConfig extends WebMvcConfigurationSupport {
                 .addPathPatterns("/**")
                 .excludePathPatterns("/user/login", "/user/register", "/user/get-register-code")
                 .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**")
-                .excludePathPatterns("/carrier/**")
                 .excludePathPatterns("/city/**")
                 .order(0);
 
-        registry.addInterceptor(new TokenInterceptor())
-                .addPathPatterns("/**")
+        registry.addInterceptor(new OwnerInterceptor())
+                .addPathPatterns("/order/**")
+                .order(1);
 
+        registry.addInterceptor(new OwnerInterceptor())
+                .addPathPatterns("/carrier/**")
                 .order(1);
 
 //        super.addInterceptors(registry);

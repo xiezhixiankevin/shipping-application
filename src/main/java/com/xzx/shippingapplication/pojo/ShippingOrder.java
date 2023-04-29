@@ -151,7 +151,7 @@ public class ShippingOrder implements Serializable {
     /**
      * 是否需要冷藏
      */
-    private Long refrigerated;
+    private Boolean refrigerated;
 
     /**
      * 分配到哪个运力上 在途id
