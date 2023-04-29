@@ -3,9 +3,11 @@ package com.xzx.shippingapplication.controller.order;
 
 import com.xzx.shippingapplication.annota.BlockHandler;
 import com.xzx.shippingapplication.common.R;
+import com.xzx.shippingapplication.common.util.UserAccountPackHolder;
 import com.xzx.shippingapplication.controller.degradation.CommonReduce;
 import com.xzx.shippingapplication.controller.degradation.order.ShippingOrderReduce;
 import com.xzx.shippingapplication.pojo.ShippingOrder;
+import com.xzx.shippingapplication.pojo.pack.UserAccountPack;
 import com.xzx.shippingapplication.service.ShippingOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -36,6 +38,9 @@ public class ShippingOrderController {
     @BlockHandler(value = 30,method = "commonReduceDeal",aClass = CommonReduce.class) // 降级注解，1s内限制30个请求
     @PostMapping("/create")
     public R createShippingOrder(@RequestBody ShippingOrder shippingOrder){
+        UserAccountPack user = UserAccountPackHolder.getUser();
+        System.out.println("非常重要！！！！！！！！！:"+user);
+//        shippingOrder.setConsumerId()
         return service.createShippingOrder(shippingOrder);
     }
 
