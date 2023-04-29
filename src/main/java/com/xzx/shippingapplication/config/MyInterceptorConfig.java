@@ -1,5 +1,6 @@
 package com.xzx.shippingapplication.config;
 
+import com.xzx.shippingapplication.interceptor.CarrierInterceptor;
 import com.xzx.shippingapplication.interceptor.OwnerInterceptor;
 import com.xzx.shippingapplication.interceptor.TokenInterceptor;
 import org.springframework.context.annotation.Configuration;
@@ -28,11 +29,12 @@ public class MyInterceptorConfig extends WebMvcConfigurationSupport {
                 .order(0);
 
         registry.addInterceptor(new OwnerInterceptor())
-                .addPathPatterns("/order/**")
+                .addPathPatterns("/order/**","/carrier/get-all-carrier-name")
                 .order(1);
 
-        registry.addInterceptor(new OwnerInterceptor())
+        registry.addInterceptor(new CarrierInterceptor())
                 .addPathPatterns("/carrier/**")
+                .excludePathPatterns("/carrier/get-all-carrier-name")
                 .order(1);
 
 //        super.addInterceptors(registry);

@@ -30,6 +30,7 @@ public class TokenInterceptor implements HandlerInterceptor {
         Map<String,Object> map = new HashMap<>();
         // 获取请求头中令牌
         String token = request.getHeader("token");
+        System.out.println(token);
         try {
             // 验证令牌
             DecodedJWT verify = JWTUtils.verify(token);
@@ -37,9 +38,11 @@ public class TokenInterceptor implements HandlerInterceptor {
             //将用户信息放到treadLocal中
 
             UserAccountPack userAccountPack = new UserAccountPack();
-            userAccountPack.setIdentity(verify.getClaim("identity").asInt());
+
+            userAccountPack.setIdentity(verify.getClaim("identity").toString().charAt(1)-'0');
             userAccountPack.setEmail(verify.getClaim("email").toString());
             userAccountPack.setUsername(verify.getClaim("username").toString());
+            System.out.println(userAccountPack);
             UserAccountPackHolder.saveUser(userAccountPack);
 
             return true;  // 放行请求
