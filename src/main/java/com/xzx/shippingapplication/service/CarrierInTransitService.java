@@ -23,4 +23,6 @@ public interface CarrierInTransitService extends IService<CarrierInTransit> {
     R getInTransitInTransitInfo(Integer carrierId);
 
     R getInTransitFinishInfo(Integer carrierId);
+
+    R getCarrierInfo(Integer carrierId);
 }

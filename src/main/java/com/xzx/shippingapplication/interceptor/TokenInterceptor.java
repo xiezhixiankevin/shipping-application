@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 
 @Slf4j
@@ -51,12 +52,13 @@ public class TokenInterceptor implements HandlerInterceptor {
             UserAccountPack userAccountPack = new UserAccountPack();
             String idString = verify.getClaim("id").toString();
             String carrierIdString = verify.getClaim("carrierId").toString();
+//            System.out.println(Objects.equals(verify.getClaim("carrierId").toString(), "Null Claim"));
 
             userAccountPack.setIdentity(verify.getClaim("identity").toString().charAt(1)-'0');
             userAccountPack.setEmail(verify.getClaim("email").toString());
             userAccountPack.setUsername(verify.getClaim("username").toString());
             userAccountPack.setId(Integer.valueOf(idString.substring(1,idString.length()-1)));
-            if(StrUtil.isNotBlank(carrierIdString))userAccountPack.setCarrierId(Integer.valueOf(carrierIdString.substring(1,carrierIdString.length()-1)));
+            if(!carrierIdString.equals("Null Claim"))userAccountPack.setCarrierId(Integer.valueOf(carrierIdString.substring(1,carrierIdString.length()-1)));
             System.out.println(userAccountPack);
             UserAccountPackHolder.saveUser(userAccountPack);
 

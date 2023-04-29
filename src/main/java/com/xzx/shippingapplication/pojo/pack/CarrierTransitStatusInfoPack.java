@@ -1,14 +1,7 @@
 package com.xzx.shippingapplication.pojo.pack;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import java.util.Date;
-
-import com.baomidou.mybatisplus.annotation.TableId;
-
 import java.io.Serializable;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
 
 /**
  * <p>
@@ -19,7 +12,7 @@ import lombok.experimental.Accessors;
  * @since 2023-04-29
  */
 @Data
-public class CarrierWaitingInfoPack implements Serializable {
+public class CarrierTransitStatusInfoPack implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

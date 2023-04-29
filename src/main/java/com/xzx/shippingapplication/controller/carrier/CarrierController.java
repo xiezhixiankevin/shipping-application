@@ -97,6 +97,12 @@ public class CarrierController {
     }
 
 
+    @GetMapping("/get-carrier-info")
+    public R getCarrierInfo(){
+        Integer carrierId = UserAccountPackHolder.getUser().getCarrierId();
+        return carrierInTransitService.getCarrierInfo(carrierId);
+    }
+
 
 
 //    /**

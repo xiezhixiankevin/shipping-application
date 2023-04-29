@@ -1,5 +1,6 @@
 package com.xzx.shippingapplication.service.impl;
 
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xzx.shippingapplication.common.util.JWTUtils;
@@ -72,7 +73,7 @@ public class UserAccountServiceImpl extends ServiceImpl<UserAccountMapper, UserA
             map.put("username",userAccount.getUsername());
             map.put("identity",userAccount.getIdentity().toString());
             map.put("id",userAccount.getId().toString());
-            map.put("carrierId",userAccount.getCarrierId().toString());
+            if(userAccount.getCarrierId()!=null)map.put("carrierId",userAccount.getCarrierId().toString());
             String token = JWTUtils.getToken(map);
 
             UserAccountPack userAccountPack = new UserAccountPack();

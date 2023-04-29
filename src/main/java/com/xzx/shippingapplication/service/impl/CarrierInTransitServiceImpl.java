@@ -8,7 +8,8 @@ import com.xzx.shippingapplication.pojo.CarrierBigTruck;
 import com.xzx.shippingapplication.pojo.CarrierInTransit;
 import com.xzx.shippingapplication.mapper.CarrierInTransitMapper;
 import com.xzx.shippingapplication.pojo.CarrierSamllTruck;
-import com.xzx.shippingapplication.pojo.pack.CarrierWaitingInfoPack;
+import com.xzx.shippingapplication.pojo.pack.CarrierInfoPack;
+import com.xzx.shippingapplication.pojo.pack.CarrierTransitStatusInfoPack;
 import com.xzx.shippingapplication.service.*;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.SimpleFormatter;
 
 import static com.xzx.shippingapplication.common.util.Constant.*;
 import static com.xzx.shippingapplication.common.util.Constant.TRANSPORTATION_STATUS_IN_TRANSIT;
@@ -159,9 +159,9 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
         queryWrapper.eq("carrier_id",carrierId);
         queryWrapper.eq("status",TRANSPORTATION_STATUS_WAITING);
         List<CarrierInTransit> list1 = list(queryWrapper);
-        List<CarrierWaitingInfoPack> list=new ArrayList<>();
+        List<CarrierTransitStatusInfoPack> list=new ArrayList<>();
         for (CarrierInTransit carrierInTransit : list1) {
-            CarrierWaitingInfoPack infoPack = new CarrierWaitingInfoPack();
+            CarrierTransitStatusInfoPack infoPack = new CarrierTransitStatusInfoPack();
 
             Integer type = carrierInTransit.getType();
             if(type==TRANSPORTATION_TYPE_SMALL_TRUCK)infoPack.setType("小货车");
@@ -189,9 +189,9 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
         queryWrapper.eq("carrier_id",carrierId);
         queryWrapper.eq("status",TRANSPORTATION_STATUS_IN_TRANSIT);
         List<CarrierInTransit> list1 = list(queryWrapper);
-        List<CarrierWaitingInfoPack> list=new ArrayList<>();
+        List<CarrierTransitStatusInfoPack> list=new ArrayList<>();
         for (CarrierInTransit carrierInTransit : list1) {
-            CarrierWaitingInfoPack infoPack = new CarrierWaitingInfoPack();
+            CarrierTransitStatusInfoPack infoPack = new CarrierTransitStatusInfoPack();
 
             Integer type = carrierInTransit.getType();
             if(type==TRANSPORTATION_TYPE_SMALL_TRUCK)infoPack.setType("小货车");
@@ -224,9 +224,9 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
         queryWrapper.eq("carrier_id",carrierId);
         queryWrapper.eq("status",TRANSPORTATION_STATUS_FINISH);
         List<CarrierInTransit> list1 = list(queryWrapper);
-        List<CarrierWaitingInfoPack> list=new ArrayList<>();
+        List<CarrierTransitStatusInfoPack> list=new ArrayList<>();
         for (CarrierInTransit carrierInTransit : list1) {
-            CarrierWaitingInfoPack infoPack = new CarrierWaitingInfoPack();
+            CarrierTransitStatusInfoPack infoPack = new CarrierTransitStatusInfoPack();
 
             Integer type = carrierInTransit.getType();
             if(type==TRANSPORTATION_TYPE_SMALL_TRUCK)infoPack.setType("小货车");
@@ -249,5 +249,11 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
 
 
         return R.ok().data("list",list);
+    }
+
+    @Override
+    public R getCarrierInfo(Integer carrierId) {
+        CarrierInfoPack carrierInfo = carrierInTransitMapper.getCarrierInfo(carrierId);
+        return R.ok().data("info",carrierInfo);
     }
 }
