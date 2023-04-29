@@ -66,7 +66,7 @@ public class CarrierInTransit implements Serializable {
     /**
      * 该运输工具所装货物的重量
      */
-    private Integer weight;
+    private Double weight;
 
     /**
      * 0:未出发 1:在路上 2:已完成
