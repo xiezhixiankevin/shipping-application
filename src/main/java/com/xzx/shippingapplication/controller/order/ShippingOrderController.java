@@ -58,8 +58,8 @@ public class ShippingOrderController {
     /**
      * 列出某个客户的订单
      * */
-    @GetMapping("/get-consumer-uncompleted-orders")
-    public R getConsumerUncompletedOrders(@RequestParam Integer consumerId,
+    @GetMapping("/get-consumer-orders")
+    public R getConsumerOrders(@RequestParam Integer consumerId,
                                           @RequestParam Boolean ifCompleted){
         return R.ok().data("order_list",shippingOrderService.listOrdersOfConsumer(ifCompleted,consumerId));
     }
