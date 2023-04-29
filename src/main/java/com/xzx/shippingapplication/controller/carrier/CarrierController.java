@@ -28,7 +28,7 @@ public class CarrierController {
      * 获取承运商公司详情
      * @return R
      */
-    @GetMapping("/gat-all-carrier-name")
+    @GetMapping("/get-all-carrier-name")
     public R getAllCarrier(){
         List<Carrier> list = carrierService.list(new QueryWrapper<Carrier>());
         List<CarrierNamePack> carrierNamePacks = BeanUtil.copyToList(list, CarrierNamePack.class);
