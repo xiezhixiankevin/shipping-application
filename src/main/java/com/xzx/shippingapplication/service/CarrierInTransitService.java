@@ -19,4 +19,8 @@ public interface CarrierInTransitService extends IService<CarrierInTransit> {
     boolean endTransportation(CarrierInTransit carrierInTransit);
 
     R getInTransitWaitingInfo(Integer carrierId);
+
+    R getInTransitInTransitInfo(Integer carrierId);
+
+    R getInTransitFinishInfo(Integer carrierId);
 }

@@ -62,9 +62,14 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
         carrierInTransit = getById(carrierInTransit.getId());
         //2.发货 使用乐观锁 更新在途运力的状态
         carrierInTransit.setStatus(TRANSPORTATION_STATUS_IN_TRANSIT);
-        carrierInTransit.setBeginTime(new Date());
-        boolean success = update(carrierInTransit,
-                new UpdateWrapper<CarrierInTransit>().eq("status", TRANSPORTATION_STATUS_WAITING));
+        Date beginTime = new Date();
+        carrierInTransit.setBeginTime(beginTime);      //设置当前时间
+//        Date endTime = new Date();
+//        endTime.setTime(beginTime.getTime() + 1000L * 60 * 60 * truck.getHoleTime());
+        UpdateWrapper<CarrierInTransit> updateWrapper = new UpdateWrapper<CarrierInTransit>();
+        updateWrapper.eq("status", TRANSPORTATION_STATUS_WAITING)
+                .eq("id",carrierInTransit.getId());
+        boolean success = update(carrierInTransit,updateWrapper);
         if(!success)return false;
         //3.更新运力状态
         if(carrierInTransit.getType()==TRANSPORTATION_TYPE_SMALL_TRUCK){
@@ -87,10 +92,10 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
         //4.更新订单表中所有涉及到的订单的状态
         shippingOrderService.updateOrderStateByInTransitId(carrierInTransit.getCarrierId(),ShippingOrderServiceImpl.STATE_TRANSPORT);
 
-
-
         return true;
     }
+
+
 
     /**
      * 手动到货
@@ -105,8 +110,10 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
         //2.到货 使用乐观锁 更新在途运力的状态
         carrierInTransit.setStatus(TRANSPORTATION_STATUS_FINISH);
         carrierInTransit.setEndTime(new Date());
-        boolean success = update(carrierInTransit,
-                new UpdateWrapper<CarrierInTransit>().eq("status", TRANSPORTATION_STATUS_IN_TRANSIT));
+        UpdateWrapper<CarrierInTransit> updateWrapper = new UpdateWrapper<CarrierInTransit>();
+        updateWrapper.eq("status", TRANSPORTATION_STATUS_IN_TRANSIT)
+                .eq("id",carrierInTransit.getId());
+        boolean success = update(carrierInTransit,updateWrapper);
         if(!success)return false;//已经被其他线程处理了
 
         //3.更新运力状态 //更新运力的状态 当前所在位置 目标地 重置剩余容量
@@ -168,6 +175,74 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
             infoPack.setOrderNum(carrierInTransit.getOrderNum());
 //            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 //            simpleDateFormat.format(carrierInTransit.getBeginTime());
+
+            list.add(infoPack);
+        }
+
+
+        return R.ok().data("list",list);
+    }
+
+    @Override
+    public R getInTransitInTransitInfo(Integer carrierId) {
+        QueryWrapper<CarrierInTransit> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("carrier_id",carrierId);
+        queryWrapper.eq("status",TRANSPORTATION_STATUS_IN_TRANSIT);
+        List<CarrierInTransit> list1 = list(queryWrapper);
+        List<CarrierWaitingInfoPack> list=new ArrayList<>();
+        for (CarrierInTransit carrierInTransit : list1) {
+            CarrierWaitingInfoPack infoPack = new CarrierWaitingInfoPack();
+
+            Integer type = carrierInTransit.getType();
+            if(type==TRANSPORTATION_TYPE_SMALL_TRUCK)infoPack.setType("小货车");
+            else if(type==TRANSPORTATION_TYPE_BIG_TRUCK)infoPack.setType("大货车");
+            else if(type==TRANSPORTATION_TYPE_AIRCRAFT)infoPack.setType("飞机");
+            infoPack.setId(carrierInTransit.getId());
+            infoPack.setTransportId(carrierInTransit.getTransportId());
+            infoPack.setBeginCity(ID_TO_CITY_MAP.get(carrierInTransit.getBeginCityId()));
+            infoPack.setEndCity(ID_TO_CITY_MAP.get(carrierInTransit.getEndCityId()));
+            infoPack.setWeight(carrierInTransit.getWeight());
+            infoPack.setOrderNum(carrierInTransit.getOrderNum());
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            infoPack.setBeginTime(simpleDateFormat.format(carrierInTransit.getBeginTime()));
+
+
+//            infoPack.setEndTime(simpleDateFormat.format(carrierInTransit.getEndTime()));
+//            simpleDateFormat.format(carrierInTransit.getBeginTime());
+
+            list.add(infoPack);
+        }
+
+
+        return R.ok().data("list",list);
+    }
+
+    @Override
+    public R getInTransitFinishInfo(Integer carrierId) {
+        QueryWrapper<CarrierInTransit> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("carrier_id",carrierId);
+        queryWrapper.eq("status",TRANSPORTATION_STATUS_FINISH);
+        List<CarrierInTransit> list1 = list(queryWrapper);
+        List<CarrierWaitingInfoPack> list=new ArrayList<>();
+        for (CarrierInTransit carrierInTransit : list1) {
+            CarrierWaitingInfoPack infoPack = new CarrierWaitingInfoPack();
+
+            Integer type = carrierInTransit.getType();
+            if(type==TRANSPORTATION_TYPE_SMALL_TRUCK)infoPack.setType("小货车");
+            else if(type==TRANSPORTATION_TYPE_BIG_TRUCK)infoPack.setType("大货车");
+            else if(type==TRANSPORTATION_TYPE_AIRCRAFT)infoPack.setType("飞机");
+            infoPack.setId(carrierInTransit.getId());
+            infoPack.setTransportId(carrierInTransit.getTransportId());
+            infoPack.setBeginCity(ID_TO_CITY_MAP.get(carrierInTransit.getBeginCityId()));
+            infoPack.setEndCity(ID_TO_CITY_MAP.get(carrierInTransit.getEndCityId()));
+            infoPack.setWeight(carrierInTransit.getWeight());
+            infoPack.setOrderNum(carrierInTransit.getOrderNum());
+
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            infoPack.setBeginTime(simpleDateFormat.format(carrierInTransit.getBeginTime()));
+            infoPack.setEndTime(simpleDateFormat.format(carrierInTransit.getEndTime()));
+
 
             list.add(infoPack);
         }

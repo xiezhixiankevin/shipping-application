@@ -37,7 +37,7 @@ public class CarrierController {
     }
 
     /**
-     * 承运商手动到货
+     * 承运商手动发货
      *
      * 参数需要的：inTransitId
      * @return
@@ -63,8 +63,10 @@ public class CarrierController {
     }
 
 
-
-    //在途运力(还未发车)查询
+    /**
+     * 在途运力(还未发车)查询
+     * @return
+     */
     @GetMapping("/get-transportation-waiting-info")
     public R getInTransitWaitingInfo(){
         Integer carrierId = UserAccountPackHolder.getUser().getCarrierId();
@@ -72,23 +74,27 @@ public class CarrierController {
         return carrierInTransitService.getInTransitWaitingInfo(carrierId);
     }
 
-//    //TODO
-//    //在途运力(运输中)查询
-//    @GetMapping("/get-transportation-in-transit-info")
-//    public R getInTransitInTransitInfo(){
-//        Integer carrierId = UserAccountPackHolder.getUser().getCarrierId();
-//        //TODO
-//        return carrierInTransitService.getInTransitInTransitInfo(carrierId);
-//    }
-//
-//    //TODO
-//    //在途运力(已结束)查询
-//    @GetMapping("/get-transportation-finish-info")
-//    public R getInTransitFinishInfo(){
-//        Integer carrierId = UserAccountPackHolder.getUser().getCarrierId();
-//        //TODO
-//        return carrierInTransitService.getInTransitFinishInfo(carrierId);
-//    }
+
+    /**
+     * 在途运力(运输中)查询
+     * @return
+     */
+    @GetMapping("/get-transportation-in-transit-info")
+    public R getInTransitInTransitInfo(){
+        Integer carrierId = UserAccountPackHolder.getUser().getCarrierId();
+        return carrierInTransitService.getInTransitInTransitInfo(carrierId);
+    }
+
+
+    /**
+     * 在途运力(已结束)查询
+     * @return
+     */
+    @GetMapping("/get-transportation-finish-info")
+    public R getInTransitFinishInfo(){
+        Integer carrierId = UserAccountPackHolder.getUser().getCarrierId();
+        return carrierInTransitService.getInTransitFinishInfo(carrierId);
+    }
 
 
 
