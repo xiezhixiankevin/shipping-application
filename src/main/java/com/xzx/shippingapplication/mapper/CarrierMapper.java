@@ -1,6 +1,6 @@
 package com.xzx.shippingapplication.mapper;
 
-import com.xzx.shippingapplication.pojo.AreaProvincialCapital;
+import com.xzx.shippingapplication.pojo.Carrier;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author xzx
  * @since 2023-04-29
  */
-public interface AreaProvincialCapitalMapper extends BaseMapper<AreaProvincialCapital> {
+public interface CarrierMapper extends BaseMapper<Carrier> {
 
 }

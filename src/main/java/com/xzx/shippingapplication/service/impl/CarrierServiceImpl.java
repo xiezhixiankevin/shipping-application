@@ -2,6 +2,8 @@ package com.xzx.shippingapplication.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.xzx.shippingapplication.mapper.CarrierMapper;
 import com.xzx.shippingapplication.pojo.*;
 import com.xzx.shippingapplication.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +24,11 @@ import static com.xzx.shippingapplication.common.util.Constant.*;
  *  服务实现类
  * </p>
  *
- * @author xzx
+ * @author hzl
  * @since 2023-04-27
  */
 @Service
-public class CarrierServiceImpl implements CarrierService {
+public class CarrierServiceImpl extends ServiceImpl<CarrierMapper, Carrier> implements CarrierService {
 
     @Autowired
     CarrierSamllTruckService samllTruckService;
@@ -41,7 +43,14 @@ public class CarrierServiceImpl implements CarrierService {
     @Autowired
     CarrierInTransitService inTransitService;
 
+    @Autowired
+    ShippingOrderService shippingOrderService;
 
+
+    /**
+     * 分配运力
+     * @param order
+     */
     @Override
     @Transactional
     public void allocation(ShippingOrder order) {
@@ -55,21 +64,34 @@ public class CarrierServiceImpl implements CarrierService {
         Boolean refrigerated = order.getRefrigerated();
         Double weight = order.getCargoWeight();
 
-
+        Integer inTransitId=null;
         if(urgentLevel==2){//分配小货车
-            smallTruckAllocation(carrierId, beginCityId, endCityId, refrigerated, weight);
+            inTransitId= smallTruckAllocation(carrierId, beginCityId, endCityId, refrigerated, weight);
 
         }else if(urgentLevel==1){//分配大货车
-            bigTruckAllocation(carrierId, beginCityId, endCityId, refrigerated, weight);
+            inTransitId= bigTruckAllocation(carrierId, beginCityId, endCityId, refrigerated, weight);
 
         }else if(urgentLevel==3){//分配飞机
-            aircraftAllocation(carrierId, beginCityId, endCityId, refrigerated, weight);
+            inTransitId= aircraftAllocation(carrierId, beginCityId, endCityId, refrigerated, weight);
         }
+        //更新订单表
+        order.setInTransitId(inTransitId);
+        shippingOrderService.updateById(order);
 
     }
 
-
-    private <T> void smallTruckAllocation(Integer carrierId, Integer beginCityId, Integer endCityId, Boolean refrigerated, Double weight) {
+    /**
+     * 调度小货车的运力
+     *
+     * @param carrierId
+     * @param beginCityId
+     * @param endCityId
+     * @param refrigerated
+     * @param weight
+     * @param <T>
+     * @return
+     */
+    private <T> Integer smallTruckAllocation(Integer carrierId, Integer beginCityId, Integer endCityId, Boolean refrigerated, Double weight) {
         CarrierSamllTruck carrierSamllTruck = new CarrierSamllTruck();
         carrierSamllTruck.setCarrierId(carrierId);
         carrierSamllTruck.setStatus(TRANSPORTATION_STATUS_WAITING);
@@ -92,11 +114,21 @@ public class CarrierServiceImpl implements CarrierService {
         samllTruckService.updateById(carrierSamllTruck);
 
         //装车
-        AddOrUpdateIntransitive(carrierId, beginCityId, endCityId, weight, carrierSamllTruck,TRANSPORTATION_TYPE_SMALL_TRUCK);
+        return AddOrUpdateIntransitive(carrierId, beginCityId, endCityId, weight, carrierSamllTruck,TRANSPORTATION_TYPE_SMALL_TRUCK);
 
     }
 
-    private void bigTruckAllocation(Integer carrierId, Integer beginCityId, Integer endCityId, Boolean refrigerated, Double weight) {
+    /**
+     * 调度大货车的运力
+     *
+     * @param carrierId
+     * @param beginCityId
+     * @param endCityId
+     * @param refrigerated
+     * @param weight
+     * @return
+     */
+    private Integer bigTruckAllocation(Integer carrierId, Integer beginCityId, Integer endCityId, Boolean refrigerated, Double weight) {
         CarrierBigTruck carrierBigTruck = new CarrierBigTruck();
         carrierBigTruck.setCarrierId(carrierId);
         carrierBigTruck.setStatus(TRANSPORTATION_STATUS_WAITING);
@@ -119,10 +151,21 @@ public class CarrierServiceImpl implements CarrierService {
         bigTruckService.updateById(carrierBigTruck);
 
         //装车
-        AddOrUpdateIntransitive(carrierId, beginCityId, endCityId, weight, carrierBigTruck,TRANSPORTATION_TYPE_BIG_TRUCK);
+        return AddOrUpdateIntransitive(carrierId, beginCityId, endCityId, weight, carrierBigTruck,TRANSPORTATION_TYPE_BIG_TRUCK);
     }
 
-    private void aircraftAllocation(Integer carrierId, Integer beginCityId, Integer endCityId, Boolean refrigerated, Double weight) {
+
+    /**
+     * 调度飞机的运力
+     *
+     * @param carrierId
+     * @param beginCityId
+     * @param endCityId
+     * @param refrigerated
+     * @param weight
+     * @return
+     */
+    private Integer aircraftAllocation(Integer carrierId, Integer beginCityId, Integer endCityId, Boolean refrigerated, Double weight) {
         CarrierAircraft carrierAircraft = new CarrierAircraft();
         carrierAircraft.setCarrierId(carrierId);
         carrierAircraft.setStatus(TRANSPORTATION_STATUS_WAITING);
@@ -145,13 +188,13 @@ public class CarrierServiceImpl implements CarrierService {
         aircraftService.updateById(carrierAircraft);
 
         //装车
-        AddOrUpdateIntransitive(carrierId, beginCityId, endCityId, weight, carrierAircraft,TRANSPORTATION_TYPE_AIRCRAFT);
+        return AddOrUpdateIntransitive(carrierId, beginCityId, endCityId, weight, carrierAircraft,TRANSPORTATION_TYPE_AIRCRAFT);
 
     }
 
 
 
-    private <T extends CarrierTransportation> void AddOrUpdateIntransitive(Integer carrierId, Integer beginCityId, Integer endCityId, Double weight, T truck, int type) {
+    private <T extends CarrierTransportation> Integer AddOrUpdateIntransitive(Integer carrierId, Integer beginCityId, Integer endCityId, Double weight, T truck, int type) {
         //生成在途记录
         CarrierInTransit carrierInTransit = new CarrierInTransit();
         carrierInTransit.setType(type);//要改的
@@ -184,6 +227,8 @@ public class CarrierServiceImpl implements CarrierService {
 
             inTransitService.updateById(inTransit);
         }
+
+        return inTransit.getId();
     }
 
 

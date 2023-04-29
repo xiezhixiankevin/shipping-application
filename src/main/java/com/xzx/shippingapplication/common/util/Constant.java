@@ -13,6 +13,16 @@ public class Constant {
 
     public static final int CITY_GUANGZHOU=4;
 
+    public static final int CITY_FUZHOU=5;
+
+    public static final int CITY_WULUMUQI=6;
+
+    public static final int CITY_GUIYANG=7;
+
+    public static final int CITY_XIAN=8;
+
+    public static final int CITY_NANCHANG=9;
+
     public static final HashMap<String,Integer> CITY_TO_ID_MAP;
     static {
         CITY_TO_ID_MAP=new HashMap<>();

@@ -20,7 +20,10 @@ public class MyInterceptorConfig extends WebMvcConfigurationSupport {
     protected void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new TokenInterceptor()).addPathPatterns("/**")
                 .excludePathPatterns("/user/login", "/user/register", "/user/get-register-code")
-                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**");;
+                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**")
+                .excludePathPatterns("/carrier/**")
+                .excludePathPatterns("/city/**");
+
         super.addInterceptors(registry);
     }
 

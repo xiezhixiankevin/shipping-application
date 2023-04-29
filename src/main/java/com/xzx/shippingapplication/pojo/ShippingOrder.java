@@ -137,6 +137,9 @@ public class ShippingOrder implements Serializable {
      */
     private Boolean refrigerated;
 
+
+    private Integer inTransitId;
+
     /**
      * 创建时间
      */

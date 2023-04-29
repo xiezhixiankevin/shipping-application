@@ -19,17 +19,20 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-public class AreaProvincialCapital implements Serializable {
+public class Carrier implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    /**
+     * 承运商id
+     */
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     /**
-     * 省会城市名
+     * 承运商名
      */
-    private String city;
+    private String name;
 
 
 }
