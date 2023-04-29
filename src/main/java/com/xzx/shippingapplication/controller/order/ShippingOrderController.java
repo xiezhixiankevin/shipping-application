@@ -92,8 +92,8 @@ public class ShippingOrderController {
      * 获取订单的所有物流信息，默认时间排序
      * */
     @GetMapping("/list-logistics-record")
-    public R listLogisticsRecord(@RequestParam Integer OrderId){
-        return R.ok().data("logistics_record_list",shippingOrderService.listLogisticsRecord(OrderId));
+    public R listLogisticsRecord(@RequestParam Integer orderId){
+        return R.ok().data("logistics_record_list",shippingOrderService.listLogisticsRecord(orderId));
     }
 
     @BlockHandler(value = 1,method = "commonReduceDeal",aClass = CommonReduce.class) // 降级注解，1s内限制1个请求

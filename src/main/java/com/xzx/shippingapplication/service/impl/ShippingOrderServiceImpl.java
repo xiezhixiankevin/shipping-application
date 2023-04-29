@@ -63,7 +63,7 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
         Date latestDeliveryTime = shippingOrder.getLatestDeliveryTime();
         double capacity = estimateCapacity(shippingOrder.getCargoWeight(), TimeUtils.getDifferHour(nowTime, latestDeliveryTime), shippingOrder.getEstimateDistance());
         shippingOrder.setEstimateCapacity(capacity);
-        // 将订单信息写入数据库
+
         if(save(shippingOrder)){
             /**
              * 生成消息放到rabbitMQ队列
