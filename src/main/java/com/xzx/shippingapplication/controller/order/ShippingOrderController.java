@@ -42,8 +42,7 @@ public class ShippingOrderController {
     @PostMapping("/create")
     public R createShippingOrder(@RequestBody ShippingOrder shippingOrder){
         UserAccountPack user = UserAccountPackHolder.getUser();
-        System.out.println("非常重要！！！！！！！！！:"+user);
-//        shippingOrder.setConsumerId()
+        shippingOrder.setConsumerId(user.getId());
         return shippingOrderService.createShippingOrder(shippingOrder);
     }
 

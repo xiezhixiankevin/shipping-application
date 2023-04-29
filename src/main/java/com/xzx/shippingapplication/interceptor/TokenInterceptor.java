@@ -48,10 +48,12 @@ public class TokenInterceptor implements HandlerInterceptor {
             //将用户信息放到treadLocal中
 
             UserAccountPack userAccountPack = new UserAccountPack();
+            String idString = verify.getClaim("id").toString();
 
             userAccountPack.setIdentity(verify.getClaim("identity").toString().charAt(1)-'0');
             userAccountPack.setEmail(verify.getClaim("email").toString());
             userAccountPack.setUsername(verify.getClaim("username").toString());
+            userAccountPack.setId(Integer.valueOf(idString.substring(1,idString.length()-1)));
             System.out.println(userAccountPack);
             UserAccountPackHolder.saveUser(userAccountPack);
 

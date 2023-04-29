@@ -62,8 +62,7 @@ public class CarrierServiceImpl extends ServiceImpl<CarrierMapper, Carrier> impl
         Integer beginCityId = CITY_TO_ID_MAP.get(order.getSenderAddress());
         Integer endCityId = CITY_TO_ID_MAP.get(order.getReceiverAddress());
         Integer urgentLevel = order.getUrgentLevel();
-//        Boolean refrigerated = order.getRefrigerated();
-        Boolean refrigerated = true;
+        Boolean refrigerated = order.getRefrigerated();
         Double weight = order.getCargoWeight();
 
         Integer inTransitId=null;
@@ -230,13 +229,14 @@ public class CarrierServiceImpl extends ServiceImpl<CarrierMapper, Carrier> impl
         }
         //不是第一单，更新数据
         else{
-            inTransit.setWeight(weight +inTransit.getWeight());
-            inTransit.setOrderNum(1+inTransit.getOrderNum());
+            carrierInTransit=inTransit;
+            carrierInTransit.setWeight(weight +inTransit.getWeight());
+            carrierInTransit.setOrderNum(1+inTransit.getOrderNum());
 
             inTransitService.updateById(inTransit);
         }
 
-        return inTransit.getId();
+        return carrierInTransit.getId();
     }
 
 

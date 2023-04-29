@@ -15,6 +15,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class UserAccountPack {
+    private Integer id;
+
     private String username;
 
     private String password;
