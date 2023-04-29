@@ -26,11 +26,31 @@ public class Constant {
     public static final HashMap<String,Integer> CITY_TO_ID_MAP;
     static {
         CITY_TO_ID_MAP=new HashMap<>();
-        CITY_TO_ID_MAP.put("北京",CITY_BEIJING);
-        CITY_TO_ID_MAP.put("上海",CITY_SHANGHAI);
-        CITY_TO_ID_MAP.put("昆明",CITY_KUNMING);
-        CITY_TO_ID_MAP.put("广州",CITY_GUANGZHOU);
+        CITY_TO_ID_MAP.put("北京", CITY_BEIJING);
+        CITY_TO_ID_MAP.put("上海", CITY_SHANGHAI);
+        CITY_TO_ID_MAP.put("昆明", CITY_KUNMING);
+        CITY_TO_ID_MAP.put("广州", CITY_GUANGZHOU);
+        CITY_TO_ID_MAP.put("福州", CITY_FUZHOU);
+        CITY_TO_ID_MAP.put("乌鲁木齐", CITY_WULUMUQI);
+        CITY_TO_ID_MAP.put("贵阳", CITY_GUIYANG);
+        CITY_TO_ID_MAP.put("西安", CITY_XIAN);
+        CITY_TO_ID_MAP.put("南昌", CITY_NANCHANG);
     }
+
+    public static final HashMap<Integer, String> ID_TO_CITY_MAP;
+    static {
+        ID_TO_CITY_MAP = new HashMap<>();
+        ID_TO_CITY_MAP.put(CITY_BEIJING, "北京");
+        ID_TO_CITY_MAP.put(CITY_SHANGHAI, "上海");
+        ID_TO_CITY_MAP.put(CITY_KUNMING, "昆明");
+        ID_TO_CITY_MAP.put(CITY_GUANGZHOU, "广州");
+        ID_TO_CITY_MAP.put(CITY_FUZHOU, "福州");
+        ID_TO_CITY_MAP.put(CITY_WULUMUQI, "乌鲁木齐");
+        ID_TO_CITY_MAP.put(CITY_GUIYANG, "贵阳");
+        ID_TO_CITY_MAP.put(CITY_XIAN, "西安");
+        ID_TO_CITY_MAP.put(CITY_NANCHANG, "南昌");
+    }
+
 
     //运力的当前状态
     public static final int TRANSPORTATION_STATUS_WAITING =1;   //等待发车

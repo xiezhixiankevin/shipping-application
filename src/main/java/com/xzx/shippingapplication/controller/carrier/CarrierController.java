@@ -63,7 +63,7 @@ public class CarrierController {
     }
 
 
-    //TODO
+
     //在途运力(还未发车)查询
     @GetMapping("/get-transportation-waiting-info")
     public R getInTransitWaitingInfo(){

@@ -8,15 +8,18 @@ import com.xzx.shippingapplication.pojo.CarrierBigTruck;
 import com.xzx.shippingapplication.pojo.CarrierInTransit;
 import com.xzx.shippingapplication.mapper.CarrierInTransitMapper;
 import com.xzx.shippingapplication.pojo.CarrierSamllTruck;
+import com.xzx.shippingapplication.pojo.pack.CarrierWaitingInfoPack;
 import com.xzx.shippingapplication.service.*;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.SimpleFormatter;
 
 import static com.xzx.shippingapplication.common.util.Constant.*;
 import static com.xzx.shippingapplication.common.util.Constant.TRANSPORTATION_STATUS_IN_TRANSIT;
@@ -148,7 +151,28 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
         QueryWrapper<CarrierInTransit> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("carrier_id",carrierId);
         queryWrapper.eq("status",TRANSPORTATION_STATUS_WAITING);
-        List<CarrierInTransit> list = list(queryWrapper);
+        List<CarrierInTransit> list1 = list(queryWrapper);
+        List<CarrierWaitingInfoPack> list=new ArrayList<>();
+        for (CarrierInTransit carrierInTransit : list1) {
+            CarrierWaitingInfoPack infoPack = new CarrierWaitingInfoPack();
+
+            Integer type = carrierInTransit.getType();
+            if(type==TRANSPORTATION_TYPE_SMALL_TRUCK)infoPack.setType("小货车");
+            else if(type==TRANSPORTATION_TYPE_BIG_TRUCK)infoPack.setType("大货车");
+            else if(type==TRANSPORTATION_TYPE_AIRCRAFT)infoPack.setType("飞机");
+            infoPack.setId(carrierInTransit.getId());
+            infoPack.setTransportId(carrierInTransit.getTransportId());
+            infoPack.setBeginCity(ID_TO_CITY_MAP.get(carrierInTransit.getBeginCityId()));
+            infoPack.setEndCity(ID_TO_CITY_MAP.get(carrierInTransit.getEndCityId()));
+            infoPack.setWeight(carrierInTransit.getWeight());
+            infoPack.setOrderNum(carrierInTransit.getOrderNum());
+//            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+//            simpleDateFormat.format(carrierInTransit.getBeginTime());
+
+            list.add(infoPack);
+        }
+
+
         return R.ok().data("list",list);
     }
 }
