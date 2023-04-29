@@ -6,8 +6,10 @@ import com.xzx.shippingapplication.common.R;
 import com.xzx.shippingapplication.common.util.UserAccountPackHolder;
 import com.xzx.shippingapplication.controller.degradation.CommonReduce;
 import com.xzx.shippingapplication.controller.degradation.order.ShippingOrderReduce;
+import com.xzx.shippingapplication.pojo.LogisticsRecord;
 import com.xzx.shippingapplication.pojo.ShippingOrder;
 import com.xzx.shippingapplication.pojo.pack.UserAccountPack;
+import com.xzx.shippingapplication.service.LogisticsRecordService;
 import com.xzx.shippingapplication.service.ShippingOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -27,10 +29,11 @@ import org.springframework.web.bind.annotation.*;
 public class ShippingOrderController {
 
     @Autowired
-    private ShippingOrderService service;
+    private ShippingOrderService shippingOrderService;
 
     @Autowired
     private StringRedisTemplate redisTemplate;
+
 
     /**
      * 创建订单
@@ -41,7 +44,7 @@ public class ShippingOrderController {
         UserAccountPack user = UserAccountPackHolder.getUser();
         System.out.println("非常重要！！！！！！！！！:"+user);
 //        shippingOrder.setConsumerId()
-        return service.createShippingOrder(shippingOrder);
+        return shippingOrderService.createShippingOrder(shippingOrder);
     }
 
     /**
@@ -49,7 +52,7 @@ public class ShippingOrderController {
      * */
     @GetMapping("/get-order-by-order-id")
     public R getOrderByOrderId(@RequestParam String orderId){
-        return R.ok().data("order",service.getOrderByOrderId(orderId));
+        return R.ok().data("order",shippingOrderService.getOrderByOrderId(orderId));
     }
 
     /**
@@ -58,7 +61,7 @@ public class ShippingOrderController {
     @GetMapping("/get-consumer-uncompleted-orders")
     public R getConsumerUncompletedOrders(@RequestParam Integer consumerId,
                                           @RequestParam Boolean ifCompleted){
-        return R.ok().data("order_list",service.listOrdersOfConsumer(ifCompleted,consumerId));
+        return R.ok().data("order_list",shippingOrderService.listOrdersOfConsumer(ifCompleted,consumerId));
     }
 
     /**
@@ -66,10 +69,31 @@ public class ShippingOrderController {
      * */
     @PutMapping("/update-order-by-id")
     public R updateOrderById(@RequestBody ShippingOrder shippingOrder){
-        return R.ok().data("order",service.updateById(shippingOrder));
+        return R.ok().data("order",shippingOrderService.updateById(shippingOrder));
     }
 
-    @BlockHandler(value = 1,method = "commonReduceDeal",aClass = CommonReduce.class) // 降级注解，1s内限制30个请求
+    /**
+     * 给订单添加物流信息
+     * */
+    @PostMapping("/add-logistics-record-by-id")
+    public R addLogisticsRecordById(@RequestBody LogisticsRecord logisticsRecord){
+
+       if(shippingOrderService.addLogisticsRecord(logisticsRecord)){
+           return R.ok().message("物流信息更新成功...");
+       }else {
+           return R.error().message("抱歉物流信息更新失败，请重试...");
+       }
+    }
+
+    /**
+     * 获取订单的所有物流信息，默认时间排序
+     * */
+    @GetMapping("/list-logistics-record")
+    public R listLogisticsRecord(@RequestParam Integer OrderId){
+        return R.ok().data("logistics_record_list",shippingOrderService.listLogisticsRecord(OrderId));
+    }
+
+    @BlockHandler(value = 1,method = "commonReduceDeal",aClass = CommonReduce.class) // 降级注解，1s内限制1个请求
     @PostMapping("/test")
     public R test(String s){
         return R.ok().message(s);

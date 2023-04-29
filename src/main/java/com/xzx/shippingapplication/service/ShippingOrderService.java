@@ -1,6 +1,8 @@
 package com.xzx.shippingapplication.service;
 
+import cn.hutool.log.Log;
 import com.xzx.shippingapplication.common.R;
+import com.xzx.shippingapplication.pojo.LogisticsRecord;
 import com.xzx.shippingapplication.pojo.ShippingOrder;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -22,4 +24,12 @@ public interface ShippingOrderService extends IService<ShippingOrder> {
     List<ShippingOrder> listOrdersOfConsumer(Boolean ifCompleted,Integer consumerId);
 
     List<ShippingOrder> listOrdersOfConsumer(Integer consumerId);
+
+    Boolean updateOrderStateByInTransitId(Integer inTransitId,Integer state);
+
+    Boolean updateOrderStateById(Integer inTransitId,Integer state);
+
+    Boolean addLogisticsRecord(LogisticsRecord logisticsRecord);
+
+    List<LogisticsRecord> listLogisticsRecord(Integer orderId);
 }

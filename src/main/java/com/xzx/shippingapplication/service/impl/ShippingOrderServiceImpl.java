@@ -5,11 +5,15 @@ import com.xzx.shippingapplication.common.R;
 import com.xzx.shippingapplication.common.util.TimeUtils;
 import com.xzx.shippingapplication.common.util.rabbit.ProducerMessage;
 import com.xzx.shippingapplication.config.RabbitConfig;
+import com.xzx.shippingapplication.pojo.LogisticsRecord;
 import com.xzx.shippingapplication.pojo.ShippingOrder;
 import com.xzx.shippingapplication.mapper.ShippingOrderMapper;
+import com.xzx.shippingapplication.service.LogisticsRecordService;
 import com.xzx.shippingapplication.service.ShippingOrderService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -22,6 +26,7 @@ import java.util.*;
  * @author xzx
  * @since 2023-04-26
  */
+@Slf4j
 @Service
 public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, ShippingOrder> implements ShippingOrderService {
 
@@ -34,6 +39,9 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
 
     @Autowired
     ProducerMessage producerMessage;
+
+    @Autowired
+    private LogisticsRecordService logisticsRecordService;
 
     // 生成唯一订单id
     private String generateOrderId() {
@@ -91,6 +99,65 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
         QueryWrapper<ShippingOrder> shippingOrderQueryWrapper = new QueryWrapper<>();
         shippingOrderQueryWrapper.eq("consumer_id",consumerId);
         return list(shippingOrderQueryWrapper);
+    }
+
+    @Override
+    public Boolean updateOrderStateByInTransitId(Integer inTransitId, Integer state) {
+        QueryWrapper<ShippingOrder> shippingOrderQueryWrapper = new QueryWrapper<>();
+        shippingOrderQueryWrapper.eq("in_transit_id",inTransitId);
+
+        try{
+            // 更新订单表
+            ShippingOrder shippingOrder = new ShippingOrder();
+            shippingOrder.setState(state);
+            update(shippingOrder,shippingOrderQueryWrapper);
+
+            // 如果是state是 3(发车) 4(送达)，在物流记录表新增记录
+            List<ShippingOrder> shippingOrderList = list(shippingOrderQueryWrapper);// 获取所有相关订单
+            List<LogisticsRecord> logisticsRecordList = new ArrayList<>();
+
+            for (ShippingOrder each:shippingOrderList){
+                LogisticsRecord logisticsRecord = new LogisticsRecord();
+                logisticsRecord.setOrderId(each.getId());
+                logisticsRecord.setState(state);
+                if(state.equals(STATE_TRANSPORT)){
+                    logisticsRecord.setContent("快件已发车");
+                }else if(state.equals(STATE_COMPLETED)) {
+                    logisticsRecord.setContent("快件已送达");
+                }
+            }
+            // 更新物流记录表
+            logisticsRecordService.saveBatch(logisticsRecordList);
+
+            return true;
+        }catch (Exception e){
+            log.info(e.toString());
+            return false;
+        }
+    }
+
+    @Override
+    public Boolean updateOrderStateById(Integer id, Integer state) {
+        QueryWrapper<ShippingOrder> shippingOrderQueryWrapper = new QueryWrapper<>();
+        shippingOrderQueryWrapper.eq("id",id);
+
+        ShippingOrder shippingOrder = new ShippingOrder();
+        shippingOrder.setState(state);
+
+        return update(shippingOrder,shippingOrderQueryWrapper);
+    }
+
+    @Override
+    public Boolean addLogisticsRecord(LogisticsRecord logisticsRecord) {
+        return logisticsRecordService.save(logisticsRecord);
+    }
+
+    @Override
+    public List<LogisticsRecord> listLogisticsRecord(Integer orderId) {
+        QueryWrapper<LogisticsRecord> logisticsRecordQueryWrapper = new QueryWrapper<>();
+        logisticsRecordQueryWrapper.eq("order_id",orderId).orderByAsc("create_timestamp");
+
+        return logisticsRecordService.list(logisticsRecordQueryWrapper);
     }
 
 }
