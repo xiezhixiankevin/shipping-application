@@ -17,17 +17,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static com.xzx.shippingapplication.common.util.Constant.USER_IDENTITY_CARRIER;
+import static com.xzx.shippingapplication.common.util.Constant.USER_IDENTITY_OWNER;
 
 @Slf4j
 public class CarrierInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        log.info("被拦截了 在验证承运商的身份 ");
+
         Integer identity = UserAccountPackHolder.getUser().getIdentity();
+        System.out.println(identity);
         if(identity!=USER_IDENTITY_CARRIER){
             response.setStatus(401);
             return false;
         }
+
         return true;
 
     }

@@ -72,6 +72,7 @@ public class UserAccountServiceImpl extends ServiceImpl<UserAccountMapper, UserA
             map.put("username",userAccount.getUsername());
             map.put("identity",userAccount.getIdentity().toString());
             map.put("id",userAccount.getId().toString());
+            map.put("carrierId",userAccount.getCarrierId().toString());
             String token = JWTUtils.getToken(map);
 
             UserAccountPack userAccountPack = new UserAccountPack();

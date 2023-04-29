@@ -1,9 +1,12 @@
 package com.xzx.shippingapplication.pojo;
 
-import com.baomidou.mybatisplus.annotation.*;
-
+import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
-
+import com.baomidou.mybatisplus.annotation.Version;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 
 import com.xzx.shippingapplication.pojo.pack.UserAccountPack;
@@ -19,12 +22,12 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author xzx
- * @since 2023-04-25
+ * @since 2023-04-29
  */
-@NoArgsConstructor
-@AllArgsConstructor
 @Data
 @EqualsAndHashCode(callSuper = false)
+@NoArgsConstructor
+@AllArgsConstructor
 @Accessors(chain = true)
 public class UserAccount implements Serializable {
 
@@ -65,10 +68,17 @@ public class UserAccount implements Serializable {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTimestamp;
 
+    /**
+     * 承运商id(如果是承运商的话)
+     */
+    private Integer carrierId;
+
     public UserAccount(UserAccountPack userAccountPack) {
         setUsername(userAccountPack.getUsername());
         setPassword(userAccountPack.getPassword());
         setEmail(userAccountPack.getEmail());
         setIdentity(userAccountPack.getIdentity());
     }
+
+
 }

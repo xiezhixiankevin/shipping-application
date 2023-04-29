@@ -87,6 +87,7 @@ public class CarrierServiceImpl extends ServiceImpl<CarrierMapper, Carrier> impl
     }
 
 
+
     /**
      * 调度小货车的运力
      *

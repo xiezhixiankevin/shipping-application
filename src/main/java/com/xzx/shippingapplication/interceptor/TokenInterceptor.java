@@ -1,5 +1,6 @@
 package com.xzx.shippingapplication.interceptor;
 
+import cn.hutool.core.util.StrUtil;
 import com.auth0.jwt.exceptions.AlgorithmMismatchException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
@@ -49,11 +50,13 @@ public class TokenInterceptor implements HandlerInterceptor {
 
             UserAccountPack userAccountPack = new UserAccountPack();
             String idString = verify.getClaim("id").toString();
+            String carrierIdString = verify.getClaim("carrierId").toString();
 
             userAccountPack.setIdentity(verify.getClaim("identity").toString().charAt(1)-'0');
             userAccountPack.setEmail(verify.getClaim("email").toString());
             userAccountPack.setUsername(verify.getClaim("username").toString());
             userAccountPack.setId(Integer.valueOf(idString.substring(1,idString.length()-1)));
+            if(StrUtil.isNotBlank(carrierIdString))userAccountPack.setCarrierId(Integer.valueOf(carrierIdString.substring(1,carrierIdString.length()-1)));
             System.out.println(userAccountPack);
             UserAccountPackHolder.saveUser(userAccountPack);
 

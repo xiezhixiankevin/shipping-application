@@ -28,4 +28,7 @@ public class UserAccountPack {
     private String code;
 
     private String token;
+
+    private Integer carrierId;
+
 }

@@ -1,5 +1,6 @@
 package com.xzx.shippingapplication.service;
 
+import com.xzx.shippingapplication.common.R;
 import com.xzx.shippingapplication.pojo.CarrierInTransit;
 import com.baomidou.mybatisplus.extension.service.IService;
 
@@ -16,4 +17,6 @@ public interface CarrierInTransitService extends IService<CarrierInTransit> {
     boolean startTransportation(CarrierInTransit carrierInTransit);
 
     boolean endTransportation(CarrierInTransit carrierInTransit);
+
+    R getInTransitWaitingInfo(Integer carrierId);
 }

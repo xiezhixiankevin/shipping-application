@@ -2,6 +2,7 @@ package com.xzx.shippingapplication.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.xzx.shippingapplication.common.R;
 import com.xzx.shippingapplication.pojo.CarrierAircraft;
 import com.xzx.shippingapplication.pojo.CarrierBigTruck;
 import com.xzx.shippingapplication.pojo.CarrierInTransit;
@@ -31,6 +32,8 @@ import static com.xzx.shippingapplication.common.util.Constant.TRANSPORTATION_ST
 @Service
 public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMapper, CarrierInTransit> implements CarrierInTransitService {
 
+    @Autowired
+    CarrierInTransitMapper carrierInTransitMapper;
 
     @Autowired
     CarrierSamllTruckService samllTruckService;
@@ -56,6 +59,7 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
         carrierInTransit = getById(carrierInTransit.getId());
         //2.发货 使用乐观锁 更新在途运力的状态
         carrierInTransit.setStatus(TRANSPORTATION_STATUS_IN_TRANSIT);
+        carrierInTransit.setBeginTime(new Date());
         boolean success = update(carrierInTransit,
                 new UpdateWrapper<CarrierInTransit>().eq("status", TRANSPORTATION_STATUS_WAITING));
         if(!success)return false;
@@ -97,6 +101,7 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
 
         //2.到货 使用乐观锁 更新在途运力的状态
         carrierInTransit.setStatus(TRANSPORTATION_STATUS_FINISH);
+        carrierInTransit.setEndTime(new Date());
         boolean success = update(carrierInTransit,
                 new UpdateWrapper<CarrierInTransit>().eq("status", TRANSPORTATION_STATUS_IN_TRANSIT));
         if(!success)return false;//已经被其他线程处理了
@@ -135,5 +140,15 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
 
 
         return true;
+    }
+
+
+    @Override
+    public R getInTransitWaitingInfo(Integer carrierId) {
+        QueryWrapper<CarrierInTransit> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("carrier_id",carrierId);
+        queryWrapper.eq("status",TRANSPORTATION_STATUS_WAITING);
+        List<CarrierInTransit> list = list(queryWrapper);
+        return R.ok().data("list",list);
     }
 }

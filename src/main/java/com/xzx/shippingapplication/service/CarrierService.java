@@ -19,4 +19,6 @@ public interface CarrierService extends IService<Carrier>{
      * @return
      */
     R getAllTransportationInfo();
+
+
 }
