@@ -2,6 +2,7 @@ package com.xzx.shippingapplication.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.xzx.shippingapplication.common.util.JWTUtils;
 import com.xzx.shippingapplication.common.util.JwtDemo;
 import com.xzx.shippingapplication.mapper.UserAccountMapper;
 import com.xzx.shippingapplication.pojo.UserAccount;
@@ -71,12 +72,13 @@ public class UserAccountServiceImpl extends ServiceImpl<UserAccountMapper, UserA
             map.put("email",email);
             map.put("username",userAccount.getUsername());
             map.put("identity",userAccount.getIdentity().toString());
+            String token = JWTUtils.getToken(map);
 
             UserAccountPack userAccountPack = new UserAccountPack();
             userAccountPack.setEmail(email);
             userAccountPack.setUsername(userAccount.getUsername());
             userAccountPack.setIdentity(userAccount.getIdentity());
-            userAccountPack.setToken(JwtDemo.generateJwtToken(map));
+            userAccountPack.setToken(token);
             return userAccountPack;
         }
         return null;
