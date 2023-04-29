@@ -22,4 +22,8 @@ public interface ShippingOrderService extends IService<ShippingOrder> {
     List<ShippingOrder> listOrdersOfConsumer(Boolean ifCompleted,Integer consumerId);
 
     List<ShippingOrder> listOrdersOfConsumer(Integer consumerId);
+
+    Boolean updateOrderStateByInTransitId(Integer inTransitId,Integer state);
+
+    Boolean updateOrderStateById(Integer inTransitId,Integer state);
 }

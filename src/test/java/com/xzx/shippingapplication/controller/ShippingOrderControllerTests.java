@@ -59,7 +59,7 @@ public class ShippingOrderControllerTests extends ShippingApplicationTests {
         shippingOrder.setReceiverAddress("上海");
         shippingOrder.setReceiverName("hzl");
         shippingOrder.setReceiverPhoneNumber("123123123");
-        shippingOrder.setRefrigerated(false);
+//        shippingOrder.setRefrigerated(false);
         shippingOrder.setUrgentLevel(2);
 
         shippingOrder.setProviderId(1);

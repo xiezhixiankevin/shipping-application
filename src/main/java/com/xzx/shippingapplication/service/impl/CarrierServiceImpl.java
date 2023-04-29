@@ -61,7 +61,8 @@ public class CarrierServiceImpl extends ServiceImpl<CarrierMapper, Carrier> impl
         Integer beginCityId = CITY_TO_ID_MAP.get(order.getSenderAddress());
         Integer endCityId = CITY_TO_ID_MAP.get(order.getReceiverAddress());
         Integer urgentLevel = order.getUrgentLevel();
-        Boolean refrigerated = order.getRefrigerated();
+//        Boolean refrigerated = order.getRefrigerated();
+        Boolean refrigerated = true;
         Double weight = order.getCargoWeight();
 
         Integer inTransitId=null;
