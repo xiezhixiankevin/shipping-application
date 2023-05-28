@@ -4,7 +4,7 @@ package com.xzx.shippingapplication.controller.carrier;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.xzx.shippingapplication.common.R;
-import com.xzx.shippingapplication.common.util.UserAccountPackHolder;
+import com.xzx.shippingapplication.util.UserAccountPackHolder;
 import com.xzx.shippingapplication.pojo.Carrier;
 import com.xzx.shippingapplication.pojo.CarrierInTransit;
 import com.xzx.shippingapplication.pojo.pack.CarrierNamePack;

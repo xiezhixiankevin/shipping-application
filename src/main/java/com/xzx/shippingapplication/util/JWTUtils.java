@@ -1,4 +1,4 @@
-package com.xzx.shippingapplication.common.util;
+package com.xzx.shippingapplication.util;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;

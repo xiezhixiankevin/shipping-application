@@ -2,7 +2,7 @@ package com.xzx.shippingapplication.controller.user;
 
 
 import com.xzx.shippingapplication.common.R;
-import com.xzx.shippingapplication.common.util.EmailUtils;
+import com.xzx.shippingapplication.util.EmailUtils;
 import com.xzx.shippingapplication.pojo.pack.UserAccountPack;
 import com.xzx.shippingapplication.service.UserAccountService;
 import org.springframework.beans.factory.annotation.Autowired;

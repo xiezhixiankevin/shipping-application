@@ -2,8 +2,8 @@ package com.xzx.shippingapplication.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.xzx.shippingapplication.common.R;
-import com.xzx.shippingapplication.common.util.TimeUtils;
-import com.xzx.shippingapplication.common.util.rabbit.ProducerMessage;
+import com.xzx.shippingapplication.util.TimeUtils;
+import com.xzx.shippingapplication.util.rabbit.ProducerMessage;
 import com.xzx.shippingapplication.config.RabbitConfig;
 import com.xzx.shippingapplication.pojo.LogisticsRecord;
 import com.xzx.shippingapplication.pojo.ShippingOrder;
@@ -13,7 +13,6 @@ import com.xzx.shippingapplication.service.ShippingOrderService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

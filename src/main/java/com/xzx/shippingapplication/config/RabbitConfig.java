@@ -110,7 +110,7 @@ public class RabbitConfig {
      */
     @Bean
     public Binding binding(){
-        return BindingBuilder.bind( queueForShippingOrder()).to(defaultExchange()).with(RabbitConfig.ROUTINGKEY_FOR_SHIPPING_ORDER);
+        return BindingBuilder.bind( queueForShippingOrder()).to(defaultExchange()).with(ROUTINGKEY_FOR_SHIPPING_ORDER);
     }
 
 

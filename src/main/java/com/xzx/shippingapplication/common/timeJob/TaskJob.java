@@ -1,18 +1,12 @@
 package com.xzx.shippingapplication.common.timeJob;
 
 import com.alibaba.fastjson.JSON;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.xzx.shippingapplication.common.util.rabbit.ProducerMessage;
-import com.xzx.shippingapplication.pojo.CarrierAircraft;
-import com.xzx.shippingapplication.pojo.CarrierBigTruck;
-import com.xzx.shippingapplication.pojo.CarrierInTransit;
-import com.xzx.shippingapplication.pojo.CarrierSamllTruck;
+import com.xzx.shippingapplication.util.rabbit.ProducerMessage;
 import com.xzx.shippingapplication.pojo.pack.CorrelationDataPack;
 import com.xzx.shippingapplication.service.CarrierAircraftService;
 import com.xzx.shippingapplication.service.CarrierBigTruckService;
 import com.xzx.shippingapplication.service.CarrierInTransitService;
 import com.xzx.shippingapplication.service.CarrierSamllTruckService;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.HashOperations;
@@ -22,12 +16,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.Set;
-
-import static com.xzx.shippingapplication.common.util.Constant.*;
 
 /**
  * <Description> TaskJob

@@ -1,4 +1,4 @@
-package com.xzx.shippingapplication.common.util;
+package com.xzx.shippingapplication.util;
 
 import java.util.Date;
 

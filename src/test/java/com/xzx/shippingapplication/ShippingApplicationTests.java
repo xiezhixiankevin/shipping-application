@@ -1,8 +1,6 @@
 package com.xzx.shippingapplication;
 
-import com.xzx.shippingapplication.common.util.rabbit.ProducerMessage;
-import com.xzx.shippingapplication.config.RabbitConfig;
-import com.xzx.shippingapplication.pojo.ShippingOrder;
+import com.xzx.shippingapplication.util.rabbit.ProducerMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
@@ -12,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-
-import java.util.Date;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

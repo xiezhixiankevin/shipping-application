@@ -1,4 +1,4 @@
-package com.xzx.shippingapplication.common.util.rabbit;
+package com.xzx.shippingapplication.util.rabbit;
 
 /**
  * <Description> ComsumerMessage

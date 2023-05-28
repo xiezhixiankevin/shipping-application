@@ -18,7 +18,7 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
-import static com.xzx.shippingapplication.common.util.Constant.*;
+import static com.xzx.shippingapplication.util.Constant.*;
 
 /**
  * <p>
