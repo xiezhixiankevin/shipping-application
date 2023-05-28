@@ -1,7 +1,7 @@
 package com.ship.order.controller.order;
 
 
-import com.ship.order.common.R;
+import cn.itcast.feign.common.R;
 import com.ship.order.util.UserAccountPackHolder;
 import com.ship.order.pojo.LogisticsRecord;
 import com.ship.order.pojo.ShippingOrder;

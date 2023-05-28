@@ -1,7 +1,6 @@
 package com.ship.order.service;
 
-import cn.hutool.log.Log;
-import com.ship.order.common.R;
+import cn.itcast.feign.common.R;
 import com.ship.order.pojo.LogisticsRecord;
 import com.ship.order.pojo.ShippingOrder;
 import com.baomidou.mybatisplus.extension.service.IService;

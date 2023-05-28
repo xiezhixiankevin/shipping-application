@@ -1,7 +1,7 @@
 package com.ship.order.service.impl;
 
+import cn.itcast.feign.common.R;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.ship.order.common.R;
 import com.ship.order.util.TimeUtils;
 import com.ship.order.util.rabbit.ProducerMessage;
 import com.ship.order.pojo.LogisticsRecord;
