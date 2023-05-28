@@ -3,7 +3,7 @@
 <mapper namespace="com.xzx.shippingapplication.mapper.CarrierBigTruckMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.xzx.shippingapplication.pojo.CarrierBigTruck">
+    <resultMap id="BaseResultMap" type="cn.itcast.feign.pojo.CarrierBigTruck">
         <id column="id" property="id" />
         <result column="status" property="status" />
         <result column="city_id" property="cityId" />

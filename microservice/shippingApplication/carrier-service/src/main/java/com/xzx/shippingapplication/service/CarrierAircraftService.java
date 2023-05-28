@@ -1,6 +1,6 @@
 package com.xzx.shippingapplication.service;
 
-import com.xzx.shippingapplication.pojo.CarrierAircraft;
+import cn.itcast.feign.pojo.CarrierAircraft;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

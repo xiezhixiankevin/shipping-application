@@ -1,15 +1,15 @@
 package com.xzx.shippingapplication.service.impl;
 
 import cn.itcast.feign.common.R;
+import cn.itcast.feign.pojo.CarrierAircraft;
+import cn.itcast.feign.pojo.CarrierBigTruck;
+import cn.itcast.feign.pojo.CarrierInTransit;
+import cn.itcast.feign.pojo.CarrierSamllTruck;
+import cn.itcast.feign.pojo.pack.CarrierInfoPack;
+import cn.itcast.feign.pojo.pack.CarrierTransitStatusInfoPack;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.xzx.shippingapplication.pojo.CarrierAircraft;
-import com.xzx.shippingapplication.pojo.CarrierBigTruck;
-import com.xzx.shippingapplication.pojo.CarrierInTransit;
 import com.xzx.shippingapplication.mapper.CarrierInTransitMapper;
-import com.xzx.shippingapplication.pojo.CarrierSamllTruck;
-import com.xzx.shippingapplication.pojo.pack.CarrierInfoPack;
-import com.xzx.shippingapplication.pojo.pack.CarrierTransitStatusInfoPack;
 import com.xzx.shippingapplication.service.*;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.xzx.shippingapplication.util.Constant.*;
-import static com.xzx.shippingapplication.util.Constant.TRANSPORTATION_STATUS_IN_TRANSIT;
+import static cn.itcast.feign.util.Constant.*;
 
 /**
  * <p>
@@ -88,7 +87,7 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
         }
 
         //4.更新订单表中所有涉及到的订单的状态
-        shippingOrderService.updateOrderStateByInTransitId(carrierInTransit.getCarrierId(),ShippingOrderServiceImpl.STATE_TRANSPORT);
+        shippingOrderService.updateOrderStateByInTransitId(carrierInTransit.getCarrierId(),STATE_TRANSPORT);
 
         return true;
     }
@@ -143,7 +142,7 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
         }
 
         //4.更新订单表中所有涉及到的订单的状态
-        shippingOrderService.updateOrderStateByInTransitId(carrierInTransit.getCarrierId(),ShippingOrderServiceImpl.STATE_ARRIVED);
+        shippingOrderService.updateOrderStateByInTransitId(carrierInTransit.getCarrierId(),STATE_ARRIVED);
 
 
 

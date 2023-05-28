@@ -1,6 +1,6 @@
 package com.xzx.shippingapplication.service.impl;
 
-import com.xzx.shippingapplication.pojo.AreaProvincialCapital;
+import cn.itcast.feign.pojo.AreaProvincialCapital;
 import com.xzx.shippingapplication.mapper.AreaProvincialCapitalMapper;
 import com.xzx.shippingapplication.service.AreaProvincialCapitalService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;

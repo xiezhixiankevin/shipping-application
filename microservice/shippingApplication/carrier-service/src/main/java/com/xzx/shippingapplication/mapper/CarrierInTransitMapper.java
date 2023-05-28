@@ -1,9 +1,8 @@
 package com.xzx.shippingapplication.mapper;
 
-import com.xzx.shippingapplication.pojo.CarrierInTransit;
+import cn.itcast.feign.pojo.CarrierInTransit;
+import cn.itcast.feign.pojo.pack.CarrierInfoPack;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.xzx.shippingapplication.pojo.pack.CarrierInTransitPack;
-import com.xzx.shippingapplication.pojo.pack.CarrierInfoPack;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
