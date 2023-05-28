@@ -1,5 +1,6 @@
 package com.xzx.shippingapplication.service.impl;
 
+import cn.itcast.feign.clients.ShippingOrderClient;
 import cn.itcast.feign.common.R;
 import cn.itcast.feign.pojo.*;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
@@ -45,6 +46,9 @@ public class CarrierServiceImpl extends ServiceImpl<CarrierMapper, Carrier> impl
     @Autowired
     CarrierInTransitService inTransitService;
 
+    @Autowired
+    ShippingOrderClient shippingOrderClient;
+
     /**
      * 分配运力
      * @param order
@@ -74,7 +78,7 @@ public class CarrierServiceImpl extends ServiceImpl<CarrierMapper, Carrier> impl
         }
         //更新订单表
         order.setInTransitId(inTransitId);
-        shippingOrderService.updateById(order);
+        shippingOrderClient.updateOrderById(order);
 
     }
 

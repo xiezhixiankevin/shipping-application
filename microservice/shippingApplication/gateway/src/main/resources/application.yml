@@ -25,5 +25,10 @@ spring:
           uri: lb://orderservice
           predicates:
             - Path=/order/**
+        - id: carrier-service
+          uri: lb://carrierservice
+          predicates:
+            - Path=/carrier/**,/city/**
+
       default-filters:
         - AddRequestHeader=Truth,Itcast is freaking awesome!

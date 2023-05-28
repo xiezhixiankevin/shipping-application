@@ -1,5 +1,6 @@
 package com.xzx.shippingapplication.service.impl;
 
+import cn.itcast.feign.clients.ShippingOrderClient;
 import cn.itcast.feign.common.R;
 import cn.itcast.feign.pojo.CarrierAircraft;
 import cn.itcast.feign.pojo.CarrierBigTruck;
@@ -46,6 +47,9 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
     @Autowired
     CarrierAircraftService aircraftService;
 
+    @Autowired
+    ShippingOrderClient shippingOrderClient;
+
 
     /**
      * 手动发货
@@ -87,7 +91,7 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
         }
 
         //4.更新订单表中所有涉及到的订单的状态
-        shippingOrderService.updateOrderStateByInTransitId(carrierInTransit.getCarrierId(),STATE_TRANSPORT);
+        shippingOrderClient.updateOrderStateByInTransitId(carrierInTransit.getCarrierId(),STATE_TRANSPORT);
 
         return true;
     }
@@ -142,7 +146,7 @@ public class CarrierInTransitServiceImpl extends ServiceImpl<CarrierInTransitMap
         }
 
         //4.更新订单表中所有涉及到的订单的状态
-        shippingOrderService.updateOrderStateByInTransitId(carrierInTransit.getCarrierId(),STATE_ARRIVED);
+        shippingOrderClient.updateOrderStateByInTransitId(carrierInTransit.getCarrierId(),STATE_ARRIVED);
 
 
 

@@ -2,8 +2,8 @@ package com.xzx.shippingapplication.controller.city;
 
 
 import cn.itcast.feign.common.R;
+import cn.itcast.feign.pojo.AreaProvincialCapital;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.xzx.shippingapplication.pojo.AreaProvincialCapital;
 import com.xzx.shippingapplication.service.AreaProvincialCapitalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

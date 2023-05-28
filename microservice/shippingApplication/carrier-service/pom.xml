@@ -111,6 +111,12 @@
             <version>2.11.0</version>
         </dependency>
 
+        <!--httpClient的依赖 -->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-httpclient</artifactId>
+        </dependency>
+
     </dependencies>
 
     <properties>

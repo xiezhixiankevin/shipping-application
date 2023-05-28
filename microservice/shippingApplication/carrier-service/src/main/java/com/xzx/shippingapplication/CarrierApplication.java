@@ -12,10 +12,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @MapperScan("com.xzx.shippingapplication.mapper")
 @EnableScheduling
 @EnableFeignClients(defaultConfiguration = DefaultFeignConfiguration.class,clients = {ShippingOrderClient.class})
-public class ShippingApplication {
+public class CarrierApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ShippingApplication.class, args);
+        SpringApplication.run(CarrierApplication.class, args);
     }
 
 }
