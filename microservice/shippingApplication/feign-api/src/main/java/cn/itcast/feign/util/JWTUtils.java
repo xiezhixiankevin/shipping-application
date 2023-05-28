@@ -1,4 +1,4 @@
-package com.app.shippingapplication.util;
+package cn.itcast.feign.util;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTCreator;

@@ -58,17 +58,13 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <scope>provided </scope>
         </dependency>
-        <!--        引入JWT-->
+
+
+        <!--引入feign的统一api-->
         <dependency>
-            <groupId>com.auth0</groupId>
-            <artifactId>java-jwt</artifactId>
-            <version>3.14.0</version>
-        </dependency>
-        <!--邮件发送依赖-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-mail</artifactId>
-            <scope>provided </scope>
+            <groupId>cn.itcast.demo</groupId>
+            <artifactId>feign-api</artifactId>
+            <version>1.0</version>
         </dependency>
     </dependencies>
     <build>

@@ -1,8 +1,8 @@
 package com.app.shippingapplication.service.impl;
 
+import cn.itcast.feign.util.JWTUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.app.shippingapplication.util.JWTUtils;
 import com.app.shippingapplication.mapper.UserAccountMapper;
 import com.app.shippingapplication.pojo.UserAccount;
 import com.app.shippingapplication.pojo.pack.UserAccountPack;

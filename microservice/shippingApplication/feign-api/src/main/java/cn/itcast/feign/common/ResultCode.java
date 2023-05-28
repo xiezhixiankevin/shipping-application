@@ -1,4 +1,4 @@
-package com.app.shippingapplication.common;
+package cn.itcast.feign.common;
 
 /**
  * <Description> ResultCode

@@ -1,4 +1,4 @@
-package com.app.shippingapplication.util;
+package cn.itcast.feign.util;
 
 import java.util.Date;
 

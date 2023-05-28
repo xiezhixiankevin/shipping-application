@@ -1,4 +1,4 @@
-package com.app.shippingapplication.util;
+package cn.itcast.feign.util;
 
 
 import com.app.shippingapplication.pojo.pack.UserAccountPack;

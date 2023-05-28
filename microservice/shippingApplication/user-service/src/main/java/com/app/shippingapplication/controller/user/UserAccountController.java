@@ -1,7 +1,7 @@
 package com.app.shippingapplication.controller.user;
 
 
-import com.app.shippingapplication.common.R;
+import cn.itcast.feign.common.R;
 import com.app.shippingapplication.util.EmailUtils;
 import com.app.shippingapplication.pojo.pack.UserAccountPack;
 import com.app.shippingapplication.service.UserAccountService;
