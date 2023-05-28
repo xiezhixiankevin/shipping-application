@@ -16,7 +16,7 @@ spring:
 spring:
   profiles: prod
   application:
-    name: userservice
+    name: orderservice
   cloud:
     config:
       label: master
@@ -30,7 +30,7 @@ spring:
 spring:
   profiles: dev
   application:
-    name: userservice
+    name: orderservice
   cloud:
     config:
       label: master  #指定仓库分支

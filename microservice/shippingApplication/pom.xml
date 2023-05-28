@@ -14,6 +14,7 @@
         <module>feign-api</module>
         <module>gateway</module>
         <module>carrier-service</module>
+        <module>configcenter</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -48,6 +49,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--hytrix-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-hystrix</artifactId>
+                <version>1.2.6.RELEASE</version>
+            </dependency>
+
             <!--nacos的管理依赖-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
