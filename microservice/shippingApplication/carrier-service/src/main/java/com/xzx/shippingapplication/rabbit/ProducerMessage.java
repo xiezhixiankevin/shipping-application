@@ -1,4 +1,4 @@
-package com.xzx.shippingapplication.util.rabbit;
+package com.xzx.shippingapplication.rabbit;
 
 /**
  * <Description> ProducerMessage

@@ -1,6 +1,5 @@
 package com.app.shippingapplication;
 
-import cn.itcast.feign.clients.UserClient;
 import cn.itcast.feign.config.DefaultFeignConfiguration;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

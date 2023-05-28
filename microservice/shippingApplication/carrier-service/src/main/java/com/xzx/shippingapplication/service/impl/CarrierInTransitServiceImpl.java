@@ -21,8 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.xzx.shippingapplication.util.Constant.*;
-import static com.xzx.shippingapplication.util.Constant.TRANSPORTATION_STATUS_IN_TRANSIT;
+import static cn.itcast.feign.util.Constant.*;
 
 /**
  * <p>

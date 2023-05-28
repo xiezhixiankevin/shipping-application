@@ -19,6 +19,7 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
+import static cn.itcast.feign.util.Constant.CITY_TO_ID_MAP;
 import static com.xzx.shippingapplication.util.Constant.*;
 
 /**
