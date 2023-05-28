@@ -1,11 +1,11 @@
 package com.ship.order.service.impl;
 
 import cn.itcast.feign.common.R;
+import cn.itcast.feign.pojo.LogisticsRecord;
+import cn.itcast.feign.pojo.ShippingOrder;
 import cn.itcast.feign.util.TimeUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ship.order.config.RabbitConfig;
-import com.ship.order.pojo.LogisticsRecord;
-import com.ship.order.pojo.ShippingOrder;
 import com.ship.order.mapper.ShippingOrderMapper;
 import com.ship.order.service.LogisticsRecordService;
 import com.ship.order.service.ShippingOrderService;

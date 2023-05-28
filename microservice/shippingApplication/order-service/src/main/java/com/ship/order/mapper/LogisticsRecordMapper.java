@@ -1,6 +1,6 @@
 package com.ship.order.mapper;
 
-import com.ship.order.pojo.LogisticsRecord;
+import cn.itcast.feign.pojo.LogisticsRecord;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

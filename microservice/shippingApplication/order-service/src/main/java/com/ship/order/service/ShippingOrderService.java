@@ -1,8 +1,8 @@
 package com.ship.order.service;
 
 import cn.itcast.feign.common.R;
-import com.ship.order.pojo.LogisticsRecord;
-import com.ship.order.pojo.ShippingOrder;
+import cn.itcast.feign.pojo.LogisticsRecord;
+import cn.itcast.feign.pojo.ShippingOrder;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.*;

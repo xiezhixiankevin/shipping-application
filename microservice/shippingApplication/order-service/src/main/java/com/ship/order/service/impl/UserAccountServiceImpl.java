@@ -1,11 +1,11 @@
 package com.ship.order.service.impl;
 
+import cn.itcast.feign.pojo.UserAccount;
+import cn.itcast.feign.pojo.pack.UserAccountPack;
+import cn.itcast.feign.util.JWTUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ship.order.util.JWTUtils;
 import com.ship.order.mapper.UserAccountMapper;
-import com.ship.order.pojo.UserAccount;
-import com.ship.order.pojo.pack.UserAccountPack;
 import com.ship.order.service.UserAccountService;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.data.redis.core.RedisTemplate;

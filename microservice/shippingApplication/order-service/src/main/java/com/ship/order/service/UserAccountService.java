@@ -1,8 +1,8 @@
 package com.ship.order.service;
 
-import com.xzx.shippingapplication.pojo.UserAccount;
+import cn.itcast.feign.pojo.UserAccount;
+import cn.itcast.feign.pojo.pack.UserAccountPack;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.xzx.shippingapplication.pojo.pack.UserAccountPack;
 import org.springframework.data.redis.core.RedisTemplate;
 
 /**

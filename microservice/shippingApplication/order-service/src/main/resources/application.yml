@@ -19,6 +19,17 @@ spring:
         min-idle: 1
         time-between-eviction-runs: 10s
     database: 1
+  rabbitmq:
+    host: 121.4.113.134
+    port: 5672
+    username: admin
+    password: shiwo2002625
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    listener:
+      simple:
+        #自动签收auto  手动 manual
+        acknowledge-mode: manual
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

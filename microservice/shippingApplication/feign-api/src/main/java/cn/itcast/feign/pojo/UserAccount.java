@@ -1,7 +1,7 @@
 package cn.itcast.feign.pojo;
 
+import cn.itcast.feign.pojo.pack.UserAccountPack;
 import com.baomidou.mybatisplus.annotation.*;
-import com.xzx.shippingapplication.pojo.pack.UserAccountPack;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

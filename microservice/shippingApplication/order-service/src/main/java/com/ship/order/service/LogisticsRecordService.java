@@ -1,6 +1,6 @@
 package com.ship.order.service;
 
-import com.ship.order.pojo.LogisticsRecord;
+import cn.itcast.feign.pojo.LogisticsRecord;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

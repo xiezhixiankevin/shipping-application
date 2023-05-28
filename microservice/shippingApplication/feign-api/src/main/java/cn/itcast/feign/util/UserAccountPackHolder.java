@@ -1,7 +1,7 @@
 package cn.itcast.feign.util;
 
 
-import com.app.shippingapplication.pojo.pack.UserAccountPack;
+import cn.itcast.feign.pojo.pack.UserAccountPack;
 
 public class UserAccountPackHolder {
     private static final ThreadLocal<UserAccountPack> tl = new ThreadLocal<>();

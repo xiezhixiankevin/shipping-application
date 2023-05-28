@@ -2,10 +2,10 @@ package com.ship.order.controller.order;
 
 
 import cn.itcast.feign.common.R;
-import com.ship.order.util.UserAccountPackHolder;
-import com.ship.order.pojo.LogisticsRecord;
-import com.ship.order.pojo.ShippingOrder;
-import com.ship.order.pojo.pack.UserAccountPack;
+import cn.itcast.feign.pojo.LogisticsRecord;
+import cn.itcast.feign.pojo.ShippingOrder;
+import cn.itcast.feign.pojo.pack.UserAccountPack;
+import cn.itcast.feign.util.UserAccountPackHolder;
 import com.ship.order.service.ShippingOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;

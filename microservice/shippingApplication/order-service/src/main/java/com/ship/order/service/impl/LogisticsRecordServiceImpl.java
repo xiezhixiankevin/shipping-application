@@ -1,6 +1,6 @@
 package com.ship.order.service.impl;
 
-import com.ship.order.pojo.LogisticsRecord;
+import cn.itcast.feign.pojo.LogisticsRecord;
 import com.ship.order.mapper.LogisticsRecordMapper;
 import com.ship.order.service.LogisticsRecordService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
