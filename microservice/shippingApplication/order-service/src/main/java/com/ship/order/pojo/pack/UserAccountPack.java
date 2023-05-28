@@ -1,4 +1,4 @@
-package com.app.shippingapplication.pojo.pack;
+package com.ship.order.pojo.pack;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
