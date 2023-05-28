@@ -1,9 +1,9 @@
 package com.ship.order.service.impl;
 
 import cn.itcast.feign.common.R;
+import cn.itcast.feign.util.TimeUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.ship.order.util.TimeUtils;
-import com.ship.order.util.rabbit.ProducerMessage;
+import com.ship.order.config.RabbitConfig;
 import com.ship.order.pojo.LogisticsRecord;
 import com.ship.order.pojo.ShippingOrder;
 import com.ship.order.mapper.ShippingOrderMapper;
@@ -13,6 +13,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.ship.order.rabbit.ProducerMessage;
 
 import java.util.*;
 
@@ -36,7 +37,7 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
     public static final Integer STATE_COMPLETED = 5;
 
     @Autowired
-    ProducerMessage producerMessage;
+    private ProducerMessage producerMessage;
 
     @Autowired
     private LogisticsRecordService logisticsRecordService;

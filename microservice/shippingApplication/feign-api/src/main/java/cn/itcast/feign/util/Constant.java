@@ -76,6 +76,14 @@ public class Constant {
     public static final int USER_IDENTITY_CARRIER =1;//承运商
     public static final int USER_IDENTITY_ADMIN =2;//管理员
 
+    // 订单状态
+    public static final Integer STATE_PUBLISH = 0;
+    public static final Integer STATE_NEGOTIATE = 1;
+    public static final Integer STATE_WAITING = 2;
+    public static final Integer STATE_TRANSPORT = 3;
+    public static final Integer STATE_ARRIVED = 4;
+    public static final Integer STATE_COMPLETED = 5;
+
 
 
 
