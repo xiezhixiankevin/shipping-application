@@ -7,7 +7,7 @@ spring:
     password: shiwo2002625
     driver-class-name: com.mysql.cj.jdbc.Driver
     application:
-      name: shippingApp
+      name: userservice
     redis:
       host: 8.130.92.141
       port: 6379
