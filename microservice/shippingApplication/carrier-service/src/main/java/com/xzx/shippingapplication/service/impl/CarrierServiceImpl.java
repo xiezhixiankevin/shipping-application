@@ -1,12 +1,11 @@
 package com.xzx.shippingapplication.service.impl;
 
 import cn.itcast.feign.common.R;
-import cn.itcast.feign.pojo.ShippingOrder;
+import cn.itcast.feign.pojo.*;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xzx.shippingapplication.mapper.CarrierMapper;
-import com.xzx.shippingapplication.pojo.*;
 import com.xzx.shippingapplication.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +19,7 @@ import java.util.Date;
 import java.util.List;
 
 import static cn.itcast.feign.util.Constant.CITY_TO_ID_MAP;
-import static com.xzx.shippingapplication.util.Constant.*;
+import static cn.itcast.feign.util.Constant.*;
 
 /**
  * <p>

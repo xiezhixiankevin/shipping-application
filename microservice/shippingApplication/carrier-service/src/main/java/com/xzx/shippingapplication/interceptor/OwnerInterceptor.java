@@ -1,13 +1,14 @@
 package com.xzx.shippingapplication.interceptor;
 
-import com.xzx.shippingapplication.util.UserAccountPackHolder;
+import cn.itcast.feign.util.UserAccountPackHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import static com.xzx.shippingapplication.util.Constant.USER_IDENTITY_OWNER;
+import static cn.itcast.feign.util.Constant.USER_IDENTITY_OWNER;
+
 
 @Slf4j
 public class OwnerInterceptor implements HandlerInterceptor {

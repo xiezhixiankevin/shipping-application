@@ -3,11 +3,13 @@ package com.xzx.shippingapplication.controller.carrier;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.itcast.feign.common.R;
+import cn.itcast.feign.pojo.Carrier;
+import cn.itcast.feign.pojo.CarrierInTransit;
+import cn.itcast.feign.pojo.pack.CarrierNamePack;
+import cn.itcast.feign.pojo.pack.UserAccountPack;
+import cn.itcast.feign.util.UserAccountPackHolder;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.xzx.shippingapplication.util.UserAccountPackHolder;
-import com.xzx.shippingapplication.pojo.Carrier;
-import com.xzx.shippingapplication.pojo.CarrierInTransit;
-import com.xzx.shippingapplication.pojo.pack.CarrierNamePack;
 import com.xzx.shippingapplication.service.CarrierInTransitService;
 import com.xzx.shippingapplication.service.CarrierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,7 @@ public class CarrierController {
      */
     @GetMapping("/get-all-carrier-name")
     public R getAllCarrier(){
+//        Wrapper<Carrier> wrapper = new QueryWrapper<>();
         List<Carrier> list = carrierService.list(new QueryWrapper<Carrier>());
         List<CarrierNamePack> carrierNamePacks = BeanUtil.copyToList(list, CarrierNamePack.class);
         return R.ok().data("carrierName",carrierNamePacks);
@@ -69,6 +72,7 @@ public class CarrierController {
      */
     @GetMapping("/get-transportation-waiting-info")
     public R getInTransitWaitingInfo(){
+
         Integer carrierId = UserAccountPackHolder.getUser().getCarrierId();
 
         return carrierInTransitService.getInTransitWaitingInfo(carrierId);

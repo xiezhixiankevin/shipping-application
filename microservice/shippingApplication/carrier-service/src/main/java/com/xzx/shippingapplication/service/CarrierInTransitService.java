@@ -1,7 +1,7 @@
 package com.xzx.shippingapplication.service;
 
 import cn.itcast.feign.common.R;
-import com.xzx.shippingapplication.pojo.CarrierInTransit;
+import cn.itcast.feign.pojo.CarrierInTransit;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

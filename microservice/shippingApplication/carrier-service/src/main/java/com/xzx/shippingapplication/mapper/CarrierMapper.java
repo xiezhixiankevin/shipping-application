@@ -1,6 +1,6 @@
 package com.xzx.shippingapplication.mapper;
 
-import com.xzx.shippingapplication.pojo.Carrier;
+import cn.itcast.feign.pojo.Carrier;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

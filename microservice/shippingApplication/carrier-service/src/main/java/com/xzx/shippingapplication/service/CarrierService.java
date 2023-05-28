@@ -1,9 +1,10 @@
 package com.xzx.shippingapplication.service;
 
 import cn.itcast.feign.common.R;
+import cn.itcast.feign.pojo.Carrier;
 import cn.itcast.feign.pojo.ShippingOrder;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.xzx.shippingapplication.pojo.Carrier;
+
 
 public interface CarrierService extends IService<Carrier>{
 

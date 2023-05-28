@@ -1,6 +1,7 @@
 package com.xzx.shippingapplication.service;
 
-import com.xzx.shippingapplication.pojo.CarrierBigTruck;
+
+import cn.itcast.feign.pojo.CarrierBigTruck;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

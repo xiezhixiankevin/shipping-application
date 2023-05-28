@@ -1,6 +1,6 @@
 package com.xzx.shippingapplication.service.impl;
 
-import com.xzx.shippingapplication.pojo.CarrierSamllTruck;
+import cn.itcast.feign.pojo.CarrierSamllTruck;
 import com.xzx.shippingapplication.mapper.CarrierSamllTruckMapper;
 import com.xzx.shippingapplication.service.CarrierSamllTruckService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
