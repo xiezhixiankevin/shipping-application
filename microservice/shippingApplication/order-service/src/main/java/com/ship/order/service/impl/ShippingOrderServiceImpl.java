@@ -3,7 +3,6 @@ package com.ship.order.service.impl;
 import cn.itcast.feign.common.R;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.ship.order.util.TimeUtils;
-import com.ship.order.util.rabbit.ProducerMessage;
 import com.ship.order.pojo.LogisticsRecord;
 import com.ship.order.pojo.ShippingOrder;
 import com.ship.order.mapper.ShippingOrderMapper;
@@ -35,8 +34,6 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
     public static final Integer STATE_ARRIVED = 4;
     public static final Integer STATE_COMPLETED = 5;
 
-    @Autowired
-    ProducerMessage producerMessage;
 
     @Autowired
     private LogisticsRecordService logisticsRecordService;
@@ -64,9 +61,9 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
 
         if(save(shippingOrder)){
             /**
-             * 生成消息放到rabbitMQ队列
+             * 生成消息放到kafka队列 待完成
              * */
-            producerMessage.sendMsg(shippingOrder, RabbitConfig.EXCHANGE_FOR_SHIPPING_ORDER,RabbitConfig.ROUTINGKEY_FOR_SHIPPING_ORDER);
+//            producerMessage.sendMsg(shippingOrder, RabbitConfig.EXCHANGE_FOR_SHIPPING_ORDER,RabbitConfig.ROUTINGKEY_FOR_SHIPPING_ORDER);
             return R.ok().data("order",shippingOrder);
         }
 

@@ -12,6 +12,7 @@
     <artifactId>order-service</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -20,6 +21,10 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
         <!--redis-->
         <dependency>
@@ -52,12 +57,14 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <scope>provided </scope>
         </dependency>
+
         <!--swagger-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <scope>provided </scope>
         </dependency>
+
         <!--swagger ui-->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -83,6 +90,7 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
+
     <build>
         <finalName>app</finalName>
         <plugins>
