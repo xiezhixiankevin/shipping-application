@@ -80,6 +80,16 @@ public class ShippingOrderController {
        }
     }
 
+
+    /**
+     * 更新订单表涉及订单状态
+     * */
+    @PostMapping("/update-orderState-by-transitId")
+    public void updateOrderStateByInTransitId(@RequestParam Integer inTransitId, @RequestParam Integer state){
+        shippingOrderService.updateOrderStateByInTransitId(inTransitId,state);
+    }
+
+
     /**
      * 获取订单的所有物流信息，默认时间排序
      * */

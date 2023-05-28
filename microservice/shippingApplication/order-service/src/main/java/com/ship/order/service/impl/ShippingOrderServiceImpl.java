@@ -1,8 +1,9 @@
 package com.ship.order.service.impl;
 
 import cn.itcast.feign.common.R;
+import cn.itcast.feign.util.TimeUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.ship.order.util.TimeUtils;
+import com.ship.order.config.RabbitConfig;
 import com.ship.order.pojo.LogisticsRecord;
 import com.ship.order.pojo.ShippingOrder;
 import com.ship.order.mapper.ShippingOrderMapper;
@@ -12,6 +13,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.ship.order.rabbit.ProducerMessage;
 
 import java.util.*;
 
@@ -34,6 +36,8 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
     public static final Integer STATE_ARRIVED = 4;
     public static final Integer STATE_COMPLETED = 5;
 
+    @Autowired
+    private ProducerMessage producerMessage;
 
     @Autowired
     private LogisticsRecordService logisticsRecordService;
@@ -61,9 +65,9 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
 
         if(save(shippingOrder)){
             /**
-             * 生成消息放到kafka队列 待完成
+             * 生成消息放到rabbitMQ队列
              * */
-//            producerMessage.sendMsg(shippingOrder, RabbitConfig.EXCHANGE_FOR_SHIPPING_ORDER,RabbitConfig.ROUTINGKEY_FOR_SHIPPING_ORDER);
+            producerMessage.sendMsg(shippingOrder, RabbitConfig.EXCHANGE_FOR_SHIPPING_ORDER,RabbitConfig.ROUTINGKEY_FOR_SHIPPING_ORDER);
             return R.ok().data("order",shippingOrder);
         }
 
