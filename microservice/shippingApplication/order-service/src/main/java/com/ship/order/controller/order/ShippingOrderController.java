@@ -6,6 +6,8 @@ import cn.itcast.feign.pojo.LogisticsRecord;
 import cn.itcast.feign.pojo.ShippingOrder;
 import cn.itcast.feign.pojo.pack.UserAccountPack;
 import cn.itcast.feign.util.UserAccountPackHolder;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.ship.order.service.ShippingOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -33,6 +35,19 @@ public class ShippingOrderController {
     /**
      * 创建订单
      * */
+    @HystrixCommand(
+            groupKey = "group-create",
+            fallbackMethod = "codeFallBack",
+            commandProperties = {
+                    @HystrixProperty(name="execution.isolation.strategy", value="SEMAPHORE"), // 信号量隔离，因为业务方法用了ThreadLocal
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100"), //超时时间
+                    @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value="50"),//触发熔断最小请求数量
+                    @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value="30"),//触发熔断的错误占比阈值
+                    @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value="3000"),//熔断器回复时间
+                    @HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests", value="300"),// 单机最高并发
+                    @HystrixProperty(name = "fallback.isolation.semaphore.maxConcurrentRequests", value="100")// fallback单机最高并发
+            }
+    )
     @PostMapping("/create")
     public R createShippingOrder(@RequestBody ShippingOrder shippingOrder){
         UserAccountPack user = UserAccountPackHolder.getUser();
@@ -59,6 +74,19 @@ public class ShippingOrderController {
     /**
      * 修改某个订单的信息
      * */
+    @HystrixCommand(
+            groupKey = "group-update",
+            fallbackMethod = "codeFallBack",
+            commandProperties = {
+                    @HystrixProperty(name="execution.isolation.strategy", value="SEMAPHORE"), // 信号量隔离，因为业务方法用了ThreadLocal
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100"), //超时时间
+                    @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value="50"),//触发熔断最小请求数量
+                    @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value="30"),//触发熔断的错误占比阈值
+                    @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value="3000"),//熔断器回复时间
+                    @HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests", value="300"),// 单机最高并发
+                    @HystrixProperty(name = "fallback.isolation.semaphore.maxConcurrentRequests", value="100")// fallback单机最高并发
+            }
+    )
     @PutMapping("/update-order-by-id")
     public R updateOrderById(@RequestBody ShippingOrder shippingOrder){
         if(shippingOrderService.updateById(shippingOrder)){
@@ -70,6 +98,19 @@ public class ShippingOrderController {
     /**
      * 给订单添加物流信息
      * */
+    @HystrixCommand(
+            groupKey = "group-add-info",
+            fallbackMethod = "codeFallBack",
+            commandProperties = {
+                    @HystrixProperty(name="execution.isolation.strategy", value="SEMAPHORE"), // 信号量隔离，因为业务方法用了ThreadLocal
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100"), //超时时间
+                    @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value="50"),//触发熔断最小请求数量
+                    @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value="30"),//触发熔断的错误占比阈值
+                    @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value="3000"),//熔断器回复时间
+                    @HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests", value="300"),// 单机最高并发
+                    @HystrixProperty(name = "fallback.isolation.semaphore.maxConcurrentRequests", value="100")// fallback单机最高并发
+            }
+    )
     @PostMapping("/add-logistics-record-by-id")
     public R addLogisticsRecordById(@RequestBody LogisticsRecord logisticsRecord){
 
@@ -98,6 +139,9 @@ public class ShippingOrderController {
         return R.ok().data("logistics_record_list",shippingOrderService.listLogisticsRecord(orderId));
     }
 
+    public R codeFallBack(@RequestParam String email){
+        return R.ok().message("系统限流中，请稍后重试。。。。");
+    }
 
 
 

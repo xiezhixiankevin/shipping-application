@@ -5,6 +5,8 @@ import cn.itcast.feign.common.R;
 import com.app.shippingapplication.util.EmailUtils;
 import com.app.shippingapplication.pojo.pack.UserAccountPack;
 import com.app.shippingapplication.service.UserAccountService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -63,6 +65,19 @@ public class UserAccountController {
         return str.toString();
     }
 
+    @HystrixCommand(
+            groupKey = "timeline-group-rcmd",
+            fallbackMethod = "codeFallBack",
+            commandProperties = {
+                    @HystrixProperty(name="execution.isolation.strategy", value="SEMAPHORE"), // 信号量隔离，因为业务方法用了ThreadLocal
+                    @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "100"), //超时时间
+                    @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value="50"),//触发熔断最小请求数量
+                    @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value="30"),//触发熔断的错误占比阈值
+                    @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value="3000"),//熔断器回复时间
+                    @HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests", value="300"),// 单机最高并发
+                    @HystrixProperty(name = "fallback.isolation.semaphore.maxConcurrentRequests", value="100")// fallback单机最高并发
+            }
+    )
     @GetMapping("/get-register-code")
     public R getRegisterCode(@RequestParam String email){
         ValueOperations<String, String> valueOperations = redisTemplate.opsForValue();
@@ -77,6 +92,10 @@ public class UserAccountController {
                             "ShippingApp注册验证码",
                             "您的验证码是:"+code + "。请勿泄露验证码，有效时间6分钟。");
         return R.ok().message("验证码已发送，请查看邮箱！");
+    }
+
+    public R codeFallBack(@RequestParam String email){
+        return R.ok().message("系统限流中，请稍后重试。。。。");
     }
 }
 
