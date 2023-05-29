@@ -41,8 +41,6 @@ public class TokenInterceptor implements HandlerInterceptor {
         try {
             // 验证令牌
             DecodedJWT verify = JWTUtils.verify(token);
-//            log.info("用户【"+verify.getClaim("email").asString()+"】正在访问");
-            //将用户信息放到treadLocal中
 
             UserAccountPack userAccountPack = new UserAccountPack();
             String idString = verify.getClaim("id").toString();

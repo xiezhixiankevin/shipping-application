@@ -49,7 +49,7 @@ public class UserAccountController {
     @PostMapping("/register")
     public R register(@RequestBody UserAccountPack userAccountPack){
         // 校验验证码
-        UserAccountPack userAccount = userAccountService.register(userAccountPack,redisTemplate);
+        UserAccountPack userAccount = userAccountService.register(userAccountPack);
         if(userAccount != null){
             return R.ok().data("userInfo",userAccount);
         }
