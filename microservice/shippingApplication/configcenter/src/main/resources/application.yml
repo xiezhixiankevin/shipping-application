@@ -15,8 +15,49 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/xiezhixiankevin/shipping-config
+          uri: https://github.com/xiezhixiankevin/shipping-config.git
           username: xiezhixiankevin
           password: shiwo2002625
+#          uri: git@github.com:xiezhixiankevin/shipping-config.git
           default-label: master
           search-paths: config
+          private-key: |
+            -----BEGIN OPENSSH PRIVATE KEY-----
+            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
+            -----END OPENSSH PRIVATE KEY-----
+          strict-host-key-checking: false
