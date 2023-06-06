@@ -56,6 +56,7 @@ server:
 #      defaultZone: http://127.0.0.1:10086/eureka
 #pattern:
 #  name: 本地环境local
+
 management:
   endpoint:
     shutdown:
