@@ -1,0 +1,48 @@
+server:
+  port: 10010
+logging:
+  level:
+    cn.itcast: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+eureka:
+  client:
+    service-url:  # eureka的地址信息
+      defaultZone: http://127.0.0.1:10086/eureka
+spring:
+  application:
+    name: gateway
+  cloud:
+#    nacos:
+#      server-addr: nacos:8848 # nacos地址
+    gateway:
+      routes:
+        - id: user-service # 路由标示，必须唯一
+          uri: lb://userservice # 路由的目标地址
+          predicates: # 路由断言，判断请求是否符合规则
+            - Path=/user/** # 路径断言，判断路径是否是以/user开头，如果是则符合
+          filters:
+            - IgnoreTestGlobalFilter
+        - id: order-service
+          uri: lb://orderservice
+          predicates:
+            - Path=/order/**
+          filters:
+            - IgnoreOwnerAuthorizeGlobalFilter
+        - id: carrier-service
+          uri: lb://carrierservice
+          predicates:
+            - Path=/carrier/**,/city/**
+          filters:
+            - IgnoreCarrierAuthorizeGlobalFilter
+
+
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" #跨域处理 允许所有的域
+            allowedMethods: # 支持的方法
+              - GET
+              - POST
+              - PUT
+              - DELETE

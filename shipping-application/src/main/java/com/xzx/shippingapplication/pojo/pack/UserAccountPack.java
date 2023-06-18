@@ -4,13 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * <Description> UserAccountPack
- *
- * @author 26802
- * @version 1.0
- * @see com.xzx.shippingapplication.pojo.pack
- */
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

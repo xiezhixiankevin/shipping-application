@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0741c757-911f-45bc-891e-e1781d25c87b" name="变更" comment="">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzx/shippingapplication/config/MyInterceptorConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzx/shippingapplication/config/MyInterceptorConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzx/shippingapplication/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzx/shippingapplication/exception/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzx/shippingapplication/pojo/pack/UserAccountPack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzx/shippingapplication/pojo/pack/UserAccountPack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzx/shippingapplication/service/UserAccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzx/shippingapplication/service/UserAccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xzx/shippingapplication/service/impl/UserAccountServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xzx/shippingapplication/service/impl/UserAccountServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/xzx/shippingapplication/ShippingApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/xzx/shippingapplication/ShippingApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/ShippingApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/ShippingApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/annota/aspect/BlockHandlerAspect.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/annota/aspect/BlockHandlerAspect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/R.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/R.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/ResultCode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/ResultCode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/timeJob/TaskJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/timeJob/TaskJob.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/util/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/util/Constant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/util/EmailUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/util/EmailUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/util/JWTUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/util/JWTUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/util/TimeUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/util/TimeUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/util/UserAccountPackHolder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/util/UserAccountPackHolder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/util/rabbit/ComsumerMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/util/rabbit/ComsumerMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/util/rabbit/ProducerMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/common/util/rabbit/ProducerMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/config/MyInterceptorConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/config/MyInterceptorConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/config/RabbitConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/config/RabbitConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/config/SwaggerConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/config/SwaggerConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/config/component/MyMetaObjectHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/config/component/MyMetaObjectHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/controller/carrier/CarrierController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/controller/carrier/CarrierController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/controller/city/CityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/controller/city/CityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/controller/degradation/CommonReduce.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/controller/degradation/CommonReduce.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/controller/degradation/order/ShippingOrderReduce.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/controller/degradation/order/ShippingOrderReduce.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/controller/order/ShippingOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/controller/order/ShippingOrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/controller/user/UserAccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/controller/user/UserAccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/exception/GlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/exception/GlobalExceptionHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/exception/NormalErrorException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/exception/NormalErrorException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/interceptor/CarrierInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/interceptor/CarrierInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/interceptor/OwnerInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/interceptor/OwnerInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/interceptor/TokenInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/interceptor/TokenInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/AreaProvincialCapitalMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/AreaProvincialCapitalMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/CarrierAircraftMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/CarrierAircraftMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/CarrierBigTruckMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/CarrierBigTruckMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/CarrierInTransitMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/CarrierInTransitMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/CarrierMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/CarrierMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/CarrierSamllTruckMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/CarrierSamllTruckMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/LogisticsRecordMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/LogisticsRecordMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/ShippingOrderMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/ShippingOrderMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/UserAccountMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/UserAccountMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/xml/AreaProvincialCapitalMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/xml/CarrierAircraftMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/xml/CarrierBigTruckMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/xml/CarrierInTransitMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/xml/CarrierMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/xml/CarrierSamllTruckMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/xml/LogisticsRecordMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/xml/ShippingOrderMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/mapper/xml/UserAccountMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/AreaProvincialCapital.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/AreaProvincialCapital.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/Carrier.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/Carrier.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/CarrierAircraft.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/CarrierAircraft.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/CarrierBigTruck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/CarrierBigTruck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/CarrierInTransit.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/CarrierInTransit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/CarrierSamllTruck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/CarrierSamllTruck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/CarrierTransportation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/CarrierTransportation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/LogisticsRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/LogisticsRecord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/ShippingOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/ShippingOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/UserAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/UserAccount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/pack/CarrierInTransitPack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/pack/CarrierInTransitPack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/pack/CarrierInfoPack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/pack/CarrierInfoPack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/pack/CarrierNamePack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/pack/CarrierNamePack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/pack/CarrierTransitStatusInfoPack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/pack/CarrierTransitStatusInfoPack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/pack/CorrelationDataPack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/pack/CorrelationDataPack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/pack/UserAccountPack.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/pojo/pack/UserAccountPack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/AreaProvincialCapitalService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/AreaProvincialCapitalService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/CarrierAircraftService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/CarrierAircraftService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/CarrierBigTruckService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/CarrierBigTruckService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/CarrierInTransitService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/CarrierInTransitService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/CarrierSamllTruckService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/CarrierSamllTruckService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/CarrierService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/CarrierService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/LogisticsRecordService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/LogisticsRecordService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/ShippingOrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/ShippingOrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/UserAccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/UserAccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/AreaProvincialCapitalServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/AreaProvincialCapitalServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/CarrierAircraftServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/CarrierAircraftServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/CarrierBigTruckServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/CarrierBigTruckServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/CarrierInTransitServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/CarrierInTransitServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/CarrierSamllTruckServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/CarrierSamllTruckServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/CarrierServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/CarrierServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/LogisticsRecordServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/LogisticsRecordServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/ShippingOrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/ShippingOrderServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/UserAccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xzx/shippingapplication/service/impl/UserAccountServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/xzx/shippingapplication/CodeGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/xzx/shippingapplication/CodeGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/xzx/shippingapplication/ShippingApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/xzx/shippingapplication/ShippingApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/xzx/shippingapplication/controller/ShippingOrderControllerTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/xzx/shippingapplication/controller/ShippingOrderControllerTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/xzx/shippingapplication/controller/UserAccountControllerTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/xzx/shippingapplication/controller/UserAccountControllerTests.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2RNTFVaNFBDUPebJGpx6Vf5HAEC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "spring.configuration.checksum": "74fb60e97e36abd2f49105a6ee17e277",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RunManager" selected="JUnit.ShippingApplicationTests.passwordCoder">
+    <configuration name="ShippingApplicationTests.passwordCoder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shipping-application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xzx.shippingapplication.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xzx.shippingapplication" />
+      <option name="MAIN_CLASS_NAME" value="com.xzx.shippingapplication.ShippingApplicationTests" />
+      <option name="METHOD_NAME" value="passwordCoder" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShippingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="shipping-application" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xzx.shippingapplication.ShippingApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ShippingApplicationTests.passwordCoder" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="0741c757-911f-45bc-891e-e1781d25c87b" name="变更" comment="" />
+      <created>1687089445293</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1687089445293</updated>
+      <workItem from="1687089450037" duration="1060000" />
+      <workItem from="1687090543295" duration="600000" />
+      <workItem from="1687091188601" duration="10994000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xzx/shippingapplication/service/impl/UserAccountServiceImpl.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xzx/shippingapplication/service/impl/UserAccountServiceImpl.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xzx/shippingapplication/filter/JwtAuthenticationTokenFilter.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

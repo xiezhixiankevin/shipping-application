@@ -17,12 +17,12 @@ import org.springframework.web.multipart.MaxUploadSizeExceededException;
 @Slf4j
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(Exception.class)
-    @ResponseBody
-    public R error(Exception e){
-        e.printStackTrace();
-        return R.error().message("执行了全局异常，异常信息:" +e.getMessage());
-    }
+//    @ExceptionHandler(Exception.class)
+//    @ResponseBody
+//    public R error(Exception e){
+//        e.printStackTrace();
+//        return R.error().message("执行了全局异常，异常信息:" +e.getMessage());
+//    }
 
     //文件大小异常处理MaxUploadSizeExceededException
     @ExceptionHandler(MaxUploadSizeExceededException.class)
