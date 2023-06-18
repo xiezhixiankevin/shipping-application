@@ -131,7 +131,7 @@ public class CarrierController {
     /**
      * 去往carrier信息页
      */
-    @GetMapping("/toTransportationInfo")
+    @GetMapping("/toCarrierInfo")
     public String toCarrierInfo(Model model){
         Integer carrierId = UserAccountPackHolder.getUser().getCarrierId();
         R carrierInfo = carrierInTransitService.getCarrierInfo(carrierId);
