@@ -22,8 +22,10 @@ public class MyInterceptorConfig extends WebMvcConfigurationSupport {
     protected void addInterceptors(InterceptorRegistry registry) {
 
         registry.addInterceptor(new TokenInterceptor())
-                .addPathPatterns("/**")
-                .excludePathPatterns("/user/login", "/user/register", "/user/get-register-code")
+                .addPathPatterns("/order/**","/carrier/**")
+//                .addPathPatterns("/**")
+                .excludePathPatterns("/user/**")
+                .excludePathPatterns("test.html")
                 .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**")
                 .excludePathPatterns("/city/**")
                 .order(0);
@@ -54,6 +56,9 @@ public class MyInterceptorConfig extends WebMvcConfigurationSupport {
         // 解决静态资源无法访问
         registry.addResourceHandler("/**")
                 .addResourceLocations("classpath:/static/");
+        // 解决thymleaf无法访问
+        registry.addResourceHandler("/**")
+                .addResourceLocations("classpath:/META-INF/resources/");
     }
 
 

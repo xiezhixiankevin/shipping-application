@@ -11,11 +11,14 @@ import com.xzx.shippingapplication.pojo.pack.CarrierNamePack;
 import com.xzx.shippingapplication.service.CarrierInTransitService;
 import com.xzx.shippingapplication.service.CarrierService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+//@RestController
+@Controller
 @RequestMapping("/carrier")
 public class CarrierController {
 
@@ -24,6 +27,18 @@ public class CarrierController {
 
     @Autowired
     CarrierInTransitService carrierInTransitService;
+
+    /**
+     * 去承运商列表页
+     * @return R
+     */
+    @GetMapping("/toCarrierList")
+    public String getAllCarrier(Model model){
+        List<Carrier> list = carrierService.list(new QueryWrapper<Carrier>());
+        List<CarrierNamePack> carrierNamePacks = BeanUtil.copyToList(list, CarrierNamePack.class);
+        model.addAttribute("carrierNames",carrierNamePacks);
+        return "/carrier/carrierList";
+    }
 
     /**
      * 获取承运商公司详情
@@ -62,6 +77,24 @@ public class CarrierController {
         return R.error().message("该车到货失败，请重试");
     }
 
+    /**
+     * 去往在途运力查询页
+     * @param type:1还未发出 2运输中 3已结束
+     */
+    @GetMapping("/toTransportationInfo")
+    public String getInTransitWaitingInfo(@RequestParam Integer type,Model model){
+        Integer carrierId = UserAccountPackHolder.getUser().getCarrierId();
+        R info = null;
+        if (type == 1){
+            info = carrierInTransitService.getInTransitWaitingInfo(carrierId);
+        }else if(type == 2){
+            info = carrierInTransitService.getInTransitInTransitInfo(carrierId);
+        }else {
+            info = carrierInTransitService.getInTransitFinishInfo(carrierId);
+        }
+        model.addAttribute("result",info);
+        return "carrier/transportation";
+    }
 
     /**
      * 在途运力(还未发车)查询
@@ -70,7 +103,6 @@ public class CarrierController {
     @GetMapping("/get-transportation-waiting-info")
     public R getInTransitWaitingInfo(){
         Integer carrierId = UserAccountPackHolder.getUser().getCarrierId();
-
         return carrierInTransitService.getInTransitWaitingInfo(carrierId);
     }
 
@@ -96,6 +128,17 @@ public class CarrierController {
         return carrierInTransitService.getInTransitFinishInfo(carrierId);
     }
 
+    /**
+     * 去往carrier信息页
+     */
+    @GetMapping("/toTransportationInfo")
+    public String toCarrierInfo(Model model){
+        Integer carrierId = UserAccountPackHolder.getUser().getCarrierId();
+        R carrierInfo = carrierInTransitService.getCarrierInfo(carrierId);
+        model.addAttribute("result",carrierInfo);
+        return "carrier/carrierInfo";
+    }
+
 
     @GetMapping("/get-carrier-info")
     public R getCarrierInfo(){
@@ -105,25 +148,6 @@ public class CarrierController {
 
 
 
-//    /**
-//     * 查看运力池详细信息
-//     * @return R
-//     */
-//    //TODO
-//    @GetMapping("/get-all-transportation-info")
-//    public R getAllTransportationInfo(){
-//
-//        //TODO
-//        System.out.println("进来了");
-//        return carrierService.getAllTransportationInfo();
-//    }
-
-
-    //TODO
-    //添加运力
-
-    //TODO
-    //删除运力
 
 
 }

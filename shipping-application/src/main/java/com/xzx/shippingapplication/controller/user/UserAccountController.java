@@ -8,6 +8,8 @@ import com.xzx.shippingapplication.service.UserAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Random;
@@ -21,8 +23,9 @@ import java.util.concurrent.TimeUnit;
  * @author xzx
  * @since 2023-04-25
  */
-@RestController
+//@RestController
 @RequestMapping("/user")
+@Controller
 public class UserAccountController {
 
     @Autowired
@@ -32,27 +35,58 @@ public class UserAccountController {
     @Autowired
     EmailUtils emailUtils;
 
-    @PostMapping("/login")
-    public R login(@RequestParam String email,
-                   @RequestParam String password){
+
+    /**
+     * 登录界面
+     * @return
+     */
+    @RequestMapping("/login")
+    public String login(){
+        return "user/login";
+    }
+
+    @RequestMapping("/doLogin")
+    public String login(@RequestParam String email,
+                   @RequestParam String password,Model model){
         UserAccountPack userAccount = userAccountService.login(email, password);
         if(userAccount != null){
             String token = userAccount.getToken();
             userAccount.setToken(null);
-            return R.ok().data("user_info",userAccount).data("token",token);
+            //登陆成功
+            model.addAttribute("token",token);
+            model.addAttribute("user_info",userAccount);
+            return "redirect:/用户登录后的页面";
         }
-        return R.error().message("用户名或密码错误！或者系统限流请稍后重试");
+        model.addAttribute("info","密码错误或用户不存在");
+        return "user/login";
     }
 
-    @PostMapping("/register")
-    public R register(@RequestBody UserAccountPack userAccountPack){
+    /**
+     * 注册界面
+     * @return
+     */
+    @RequestMapping("/register")
+    public String register(){
+        return "/user/register";
+    }
+
+    /**
+     * 判断是否成功注册
+     * @return
+     */
+    @RequestMapping("/doRegister")
+    public String register(@RequestParam UserAccountPack userAccountPack,Model model){
         // 校验验证码
         UserAccountPack userAccount = userAccountService.register(userAccountPack,redisTemplate);
         if(userAccount != null){
-            return R.ok().data("userInfo",userAccount);
+            //注册成功
+            model.addAttribute("user_info",userAccount);
+            return "redirect:/注册成功后的页面";
         }
-        return R.error().message("注册失败!验证码错误或已有账号");
+        model.addAttribute("info","注册失败!验证码错误或已有账号");
+        return "user/register";
     }
+
 
     private static String randomCode() {
         StringBuilder str = new StringBuilder();

@@ -14,7 +14,11 @@ import com.xzx.shippingapplication.service.ShippingOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * <p>
@@ -24,8 +28,9 @@ import org.springframework.web.bind.annotation.*;
  * @author xzx
  * @since 2023-04-26
  */
-@RestController
+//@RestController
 @RequestMapping("/order")
+@Controller
 public class ShippingOrderController {
 
     @Autowired
@@ -34,13 +39,51 @@ public class ShippingOrderController {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
+    /**
+     * 去创建订单页
+     * */
+    @RequestMapping("/toCreatOrder")
+    public String toCreatOrder(){
+        return "order/createOrder";
+    }
+
+    /**
+     * 去显示某个人的所有订单页
+     * */
+    @RequestMapping("/toQueryOrder")
+    public String toQueryOrder(@RequestParam Boolean ifCompleted, Model model){
+        List<ShippingOrder> shippingOrderList = shippingOrderService.listOrdersOfConsumer(ifCompleted, UserAccountPackHolder.getUser().getId());
+        model.addAttribute("order_list",shippingOrderList);
+        return "order/queryOrder";
+    }
+
+    /**
+     * 去显示某个订单的详情页
+     * */
+    @RequestMapping("/toSingleOrder")
+    public String toSingelOrder(@RequestParam String orderId, Model model){
+        ShippingOrder order = shippingOrderService.getOrderByOrderId(orderId);
+        model.addAttribute("order",order);
+        return "order/singleOrder";
+    }
+
+    /**
+     * 去订单的物流信息页
+     * */
+    @GetMapping("/toOrderLogisticInfo")
+    public String listLogisticsRecord(@RequestParam Integer orderId,Model model){
+        List<LogisticsRecord> list = shippingOrderService.listLogisticsRecord(orderId);
+        model.addAttribute("list",list);
+        return "order/orderLogisticInfo";
+    }
+
 
     /**
      * 创建订单
      * */
-    @BlockHandler(value = 30,method = "commonReduceDeal",aClass = CommonReduce.class) // 降级注解，1s内限制30个请求
+//    @BlockHandler(value = 30,method = "commonReduceDeal",aClass = CommonReduce.class) // 降级注解，1s内限制30个请求
     @PostMapping("/create")
-    public R createShippingOrder(@RequestBody ShippingOrder shippingOrder){
+    public R createShippingOrder(@RequestParam ShippingOrder shippingOrder){
         UserAccountPack user = UserAccountPackHolder.getUser();
         shippingOrder.setConsumerId(user.getId());
         return shippingOrderService.createShippingOrder(shippingOrder);
@@ -92,12 +135,6 @@ public class ShippingOrderController {
     @GetMapping("/list-logistics-record")
     public R listLogisticsRecord(@RequestParam Integer orderId){
         return R.ok().data("logistics_record_list",shippingOrderService.listLogisticsRecord(orderId));
-    }
-
-    @BlockHandler(value = 1,method = "commonReduceDeal",aClass = CommonReduce.class) // 降级注解，1s内限制1个请求
-    @PostMapping("/test")
-    public R test(String s){
-        return R.ok().message(s);
     }
 
 

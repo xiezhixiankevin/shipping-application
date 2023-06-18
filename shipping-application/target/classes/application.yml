@@ -1,6 +1,8 @@
 server:
   port: 8088
 spring:
+  thymeleaf:
+    cache: false
   datasource:
     url: jdbc:mysql://121.4.113.134:3306/shipping_app?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
