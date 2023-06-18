@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzx.shippingapplication.mapper.UserAccountMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xzx.shippingapplication.pojo.UserAccount">
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+        <result column="email" property="email" />
+        <result column="identity" property="identity" />
+        <result column="status" property="status" />
+        <result column="create_timestamp" property="createTimestamp" />
+        <result column="update_timestamp" property="updateTimestamp" />
+        <result column="carrier_id" property="carrierId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, username, password, email, identity, status, create_timestamp, update_timestamp, carrier_id
+    </sql>
+
+</mapper>

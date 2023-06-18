@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xzx.shippingapplication.mapper.ShippingOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xzx.shippingapplication.pojo.ShippingOrder">
+        <id column="id" property="id" />
+        <result column="order_id" property="orderId" />
+        <result column="consumer_id" property="consumerId" />
+        <result column="provider_id" property="providerId" />
+        <result column="sender_name" property="senderName" />
+        <result column="sender_address" property="senderAddress" />
+        <result column="sender_phone_number" property="senderPhoneNumber" />
+        <result column="receiver_name" property="receiverName" />
+        <result column="receiver_address" property="receiverAddress" />
+        <result column="receiver_phone_number" property="receiverPhoneNumber" />
+        <result column="cargo_name" property="cargoName" />
+        <result column="cargo_weight" property="cargoWeight" />
+        <result column="cargo_info" property="cargoInfo" />
+        <result column="order_real_charge" property="orderRealCharge" />
+        <result column="order_sender_charge" property="orderSenderCharge" />
+        <result column="order_provider_charge" property="orderProviderCharge" />
+        <result column="estimate_capacity" property="estimateCapacity" />
+        <result column="latest_delivery_time" property="latestDeliveryTime" />
+        <result column="estimate_distance" property="estimateDistance" />
+        <result column="state" property="state" />
+        <result column="status" property="status" />
+        <result column="create_timestamp" property="createTimestamp" />
+        <result column="update_timestamp" property="updateTimestamp" />
+        <result column="urgent_level" property="urgentLevel" />
+        <result column="refrigerated" property="refrigerated" />
+        <result column="in_transit_id" property="inTransitId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, order_id, consumer_id, provider_id, sender_name, sender_address, sender_phone_number, receiver_name, receiver_address, receiver_phone_number, cargo_name, cargo_weight, cargo_info, order_real_charge, order_sender_charge, order_provider_charge, estimate_capacity, latest_delivery_time, estimate_distance, state, status, create_timestamp, update_timestamp, urgent_level, refrigerated, in_transit_id
+    </sql>
+
+</mapper>
