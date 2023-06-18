@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" type="text/css" href="InfoBlockStyle.css">
+<body>
+<div class="info-block" th:fragment="info-block" th:with="orderData=${orderData}">
+  <div class="main-info">
+    <div class="sender-info">
+      <div class="name" th:text="${orderData.senderName}"></div>
+      <div class="phone">电话：<span th:text="${orderData.senderPhoneNumber}"></span></div>
+      <div class="address">地址：<span th:text="${orderData.senderAddress}"></span></div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="receiver-info">
+      <div class="name" th:text="${orderData.receiverName}"></div>
+      <div class="phone">电话：<span th:text="${orderData.receiverPhoneNumber}"></span></div>
+      <div class="address">地址：<span th:text="${orderData.receiverAddress}"></span></div>
+    </div>
+
+    <div class="cargo-info">
+      <p>货物名称：<span th:text="${orderData.cargoName}"></span></p>
+      <p>货物描述：<span th:text="${orderData.cargoInfo}"></span></p>
+      <p>紧急程度：
+        <span th:if="${orderData.urgentLevel == 1}">低</span>
+        <span th:if="${orderData.urgentLevel == 2}">中</span>
+        <span th:if="${orderData.urgentLevel == 3}">高</span>
+      </p>
+      <p>是否冷藏：<span th:text="${orderData.refrigerated ? '是' : '否'}"></span></p>
+    </div>
+
+  </div>
+  <div class="order-id">运单号: <span th:text="${orderData.orderId}"></span></div>
+</div>
+</body>
+</html>

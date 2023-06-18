@@ -1,10 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
+<meta charset="UTF-8">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Thymeleaf Template</title>
+    <style>
+        .page-background {
+            padding-top: 60px;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            /* gap: 0px; */
+            align-items: center;
+        }
+
+        .info-block {
+            width: 100%;
+            max-width: 600px;
+            background-color: #fffffe;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .header {
+            font-size: 30px;
+            font-weight: bold;
+            color: #272343;
+            margin-bottom: 20px;
+        }
+
+        .clearfix {
+            font-size: 40px;
+            color: #2d334a;
+            display: block;
+            text-align: left;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-item {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .input {
+            flex-grow: 1;
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid #272343;
+            font-size: 20px;
+            outline: none;
+        }
+
+        .input:focus {
+            border-color: #ffd803;
+            color: #272343;
+        }
+
+        .line {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .button {
+            background-color: #ffd803;
+            color: #272343;
+            border: none;
+            border-radius: 8px;
+            padding: 15px 100px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .button:hover {
+            background-color: #ffca1e;
+        }
+
+        .urgency-refrigerated {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-subitem {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
 </head>
 <body>
+<div class="page-background">
+    <!-- 替换为适当的顶栏组件 -->
+    <div class="container">
+        <div class="info-block">
+            <div class="header clearfix">
+                <p>货物信息</p>
+            </div>
+            <form action="#" th:action="@{/order/create}" th:object="${shippingOrder}" method="post" class="form">
 
+            <label class="form-item">
+                    货物名称
+                    <input type="text" class="input" th:field="*{cargoName}">
+                </label>
+                <label class="form-item">
+                    货物描述
+                    <input type="text" class="input" th:field="*{cargoInfo}">
+                </label>
+                <label class="form-item">
+                    货物重量
+                    <input type="text" class="input" th:field="*{cargoWeight}">
+                </label>
+                <label class="form-item">
+                    承运商
+                    <select class="input" th:field="*{providerId}">
+                        <option value=1>顺丰</option>
+                        <option value=2>韵达</option>
+                        <option value=3>圆通</option>
+                    </select>
+                </label>
+
+                <label class="form-item">
+                    接受签收时间段
+                    <input type="date" class="input" name="latestDeliveryDate">
+                </label>
+                <div class="form-item urgency-refrigerated">
+                    <label class="form-subitem">
+                        加急级别
+                        <select class="input" th:field="*{urgentLevel}">
+                            <option value=1>低</option>
+                            <option value=2>中</option>
+                            <option value=3>高</option>
+                        </select>
+                    </label>
+                    <label class="form-subitem">
+                        是否冷藏
+                        <input type="checkbox" class="checkbox" th:field="*{refrigerated}">
+                    </label>
+                </div>
+
+                <!-- 以下部分是关于寄件人和收件人的信息，已经根据给定的Vue代码进行了适当的修改 -->
+                <div class="form-item">
+                    <label class="form-subitem">
+                        寄件人信息
+                        <input type="text" class="input" th:field="*{senderName}" placeholder="姓名">
+                        <input type="text" class="input" th:field="*{senderAddress}" placeholder="地址">
+                        <input type="text" class="input" th:field="*{senderPhoneNumber}" placeholder="电话">
+                    </label>
+                </div>
+
+                <div class="form-item">
+                    <label class="form-subitem">
+                        收件人信息
+                        <input type="text" class="input" th:field="*{receiverName}" placeholder="姓名">
+                        <input type="text" class="input" th:field="*{receiverAddress}" placeholder="地址">
+                        <input type="text" class="input" th:field="*{receiverPhoneNumber}" placeholder="电话">
+                    </label>
+                </div>
+
+                <!-- 在这里结束表单提交，并添加一个提交按钮 -->
+                <div class="form-item">
+                    <button type="submit" class="button">创建运单</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- 根据需要添加其它元素 -->
+</div>
 </body>
 </html>

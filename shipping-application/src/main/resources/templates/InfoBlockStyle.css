@@ -1,0 +1,50 @@
+.info-block {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fffffe;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.main-info {
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.sender-info,
+.receiver-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.arrow {
+    margin: 0 20px;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.phone,
+.address {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.cargo-info {
+    margin-left: auto;
+    font-size: 18px;
+}
+
+.cargo-info p {
+    margin-bottom: 5px;
+}
+
+.order-id {
+    margin-left: 0px;
+    font-size: 14px;
+    color: #999999;
+}

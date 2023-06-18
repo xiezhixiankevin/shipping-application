@@ -21,23 +21,23 @@ public class MyInterceptorConfig extends WebMvcConfigurationSupport {
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
 
-        registry.addInterceptor(new TokenInterceptor())
-                .addPathPatterns("/order/**","/carrier/**")
-//                .addPathPatterns("/**")
-                .excludePathPatterns("/user/**")
-                .excludePathPatterns("test.html")
-                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**")
-                .excludePathPatterns("/city/**")
-                .order(0);
-
-        registry.addInterceptor(new OwnerInterceptor())
-                .addPathPatterns("/order/**","/carrier/get-all-carrier-name")
-                .order(1);
-
-        registry.addInterceptor(new CarrierInterceptor())
-                .addPathPatterns("/carrier/**")
-                .excludePathPatterns("/carrier/get-all-carrier-name")
-                .order(1);
+//        registry.addInterceptor(new TokenInterceptor())
+//                .addPathPatterns("/order/**","/carrier/**")
+////                .addPathPatterns("/**")
+//                .excludePathPatterns("/user/**")
+//                .excludePathPatterns("test.html")
+//                .excludePathPatterns("/swagger-resources/**", "/webjars/**", "/v2/**", "/swagger-ui.html/**")
+//                .excludePathPatterns("/city/**")
+//                .order(0);
+//
+//        registry.addInterceptor(new OwnerInterceptor())
+//                .addPathPatterns("/order/**","/carrier/get-all-carrier-name")
+//                .order(1);
+//
+//        registry.addInterceptor(new CarrierInterceptor())
+//                .addPathPatterns("/carrier/**")
+//                .excludePathPatterns("/carrier/get-all-carrier-name")
+//                .order(1);
 
 //        super.addInterceptors(registry);
     }

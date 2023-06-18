@@ -1,6 +1,7 @@
 package com.xzx.shippingapplication.controller.order;
 
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import com.xzx.shippingapplication.annota.BlockHandler;
 import com.xzx.shippingapplication.common.R;
 import com.xzx.shippingapplication.common.util.UserAccountPackHolder;
@@ -18,6 +19,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -42,19 +46,28 @@ public class ShippingOrderController {
     /**
      * 去创建订单页
      * */
-    @RequestMapping("/toCreatOrder")
-    public String toCreatOrder(){
+    @RequestMapping("/toCreateOrder")
+    public String toCreatOrder(Model model){
+        model.addAttribute("shippingOrder", new ShippingOrder());
         return "order/createOrder";
     }
+
+    @RequestMapping("/toSearchOrder")
+    public String toSearchOrder(){
+        return "order/queryOrder";
+    }
+
 
     /**
      * 去显示某个人的所有订单页
      * */
     @RequestMapping("/toQueryOrder")
-    public String toQueryOrder(@RequestParam Boolean ifCompleted, Model model){
-        List<ShippingOrder> shippingOrderList = shippingOrderService.listOrdersOfConsumer(ifCompleted, UserAccountPackHolder.getUser().getId());
+    public String toQueryOrder(Model model){
+        List<ShippingOrder> shippingOrderList = shippingOrderService.listOrdersOfConsumer(true, UserAccountPackHolder.getUser().getId());
+        List<ShippingOrder> shippingOrderList2 = shippingOrderService.listOrdersOfConsumer(false, UserAccountPackHolder.getUser().getId());
+        shippingOrderList.addAll(shippingOrderList2);
         model.addAttribute("order_list",shippingOrderList);
-        return "order/queryOrder";
+        return "user/dashboard";
     }
 
     /**
@@ -84,10 +97,22 @@ public class ShippingOrderController {
 //    @BlockHandler(value = 30,method = "commonReduceDeal",aClass = CommonReduce.class) // 降级注解，1s内限制30个请求
     @PostMapping("/create")
     @ResponseBody
-    public R createShippingOrder(@RequestParam ShippingOrder shippingOrder){
+    public String createShippingOrder(@ModelAttribute ShippingOrder shippingOrder,
+                                      @RequestParam("latestDeliveryDate")  String latestDeliveryDate,
+//                                      @RequestParam("latestDeliveryTime") String latestDeliveryTime,
+                                      Model model){
         UserAccountPack user = UserAccountPackHolder.getUser();
         shippingOrder.setConsumerId(user.getId());
-        return shippingOrderService.createShippingOrder(shippingOrder);
+        LocalDateTime localDateTime = LocalDateTime.parse(latestDeliveryDate + "T00:00");
+        Date latestDeliveryDateTime = Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
+
+        shippingOrder.setLatestDeliveryTime(latestDeliveryDateTime);
+        R response = shippingOrderService.createShippingOrder(shippingOrder);
+        // 可以将结果添加到模型中，以便在下一个视图中显示
+        model.addAttribute("response", response);
+
+        // 返回到适当的视图（这将取决于你的应用程序设计）
+        return "success";
     }
 
     /**

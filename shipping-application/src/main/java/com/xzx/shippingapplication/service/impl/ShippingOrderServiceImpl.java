@@ -61,8 +61,8 @@ public class ShippingOrderServiceImpl extends ServiceImpl<ShippingOrderMapper, S
         // 计算预估运力(重量，时间，距离)
         Date nowTime = new Date();
         Date latestDeliveryTime = shippingOrder.getLatestDeliveryTime();
-        double capacity = estimateCapacity(shippingOrder.getCargoWeight(), TimeUtils.getDifferHour(nowTime, latestDeliveryTime), shippingOrder.getEstimateDistance());
-        shippingOrder.setEstimateCapacity(capacity);
+//        double capacity = estimateCapacity(shippingOrder.getCargoWeight(), TimeUtils.getDifferHour(nowTime, latestDeliveryTime), shippingOrder.getEstimateDistance());
+        shippingOrder.setEstimateCapacity(1.0);
 
         if(save(shippingOrder)){
             /**

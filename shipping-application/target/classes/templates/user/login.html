@@ -1,10 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<meta charset="UTF-8">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>🔐Shipping货运系统</title>
+    <style>
+        body {
+            background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-card {
+            width: 375px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+        }
+
+        .login-card h1 {
+            font-size: 30px;
+            text-align: center;
+            color: #009efd;
+            margin-bottom: 50px;
+        }
+
+        .login-card input {
+            display: block;
+            width: 95%;
+            padding: 10px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .login-card button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #009efd;
+            color: white;
+            border: none;
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    xzxzx
+<div class="login-card">
+    <h1>🔐Shipping货运系统</h1>
+    <form th:action="@{/user/doLogin}" method="post">
+        <input type="text" name="email" placeholder="请输入邮箱" required/>
+        <input type="password" name="password" placeholder="请输入密码" required/>
+        <button type="submit">登录</button>
+    </form>
+    <div class="register-link">
+        <a href="/user/register">没有账号?点此注册</a>
+    </div>
+</div>
+<p th:text="${info}"></p>
 </body>
 </html>

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -47,15 +48,19 @@ public class UserAccountController {
 
     @RequestMapping("/doLogin")
     public String login(@RequestParam String email,
-                   @RequestParam String password,Model model){
+                   @RequestParam String password, HttpSession session, Model model){
         UserAccountPack userAccount = userAccountService.login(email, password);
         if(userAccount != null){
             String token = userAccount.getToken();
             userAccount.setToken(null);
+            userAccount.setToken(null);
+            session.setAttribute("token", token);
+            session.setAttribute("user_info", userAccount);
             //登陆成功
-            model.addAttribute("token",token);
-            model.addAttribute("user_info",userAccount);
-            return "redirect:/用户登录后的页面";
+//            model.addAttribute("token",token);
+//            model.addAttribute("user_info",userAccount);
+
+            return "redirect:/order/toQueryOrder";
         }
         model.addAttribute("info","密码错误或用户不存在");
         return "user/login";
