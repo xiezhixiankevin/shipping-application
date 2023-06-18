@@ -1,10 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<meta charset="UTF-8">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Register</title>
+    <!-- CSS for Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+            background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card{
+            width: 375px;
+        }
+        .card-header{
+            font-size: 20px;
+        }
+        .card-body{
+            width: 100%;
+        }
+        .float-right{
+            float:right;
+        }
+    </style>
 </head>
 <body>
-
+<div class="card">
+    <div class="card-header">
+        🔐Shipping货运系统
+    </div>
+    <div class="card-body">
+        <form th:action="@{/user/doRegister}" method="post">
+            <div class="form-group">
+                <label for="email">👤 Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="请输入邮箱" required/>
+            </div>
+            <div class="form-group">
+                <label for="username">👤 Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名" required/>
+            </div>
+            <div class="form-group">
+                <label for="password">🔑 Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码" required/>
+            </div>
+            <div class="form-group">
+                <label for="code">🔑 Code</label>
+                <input type="text" class="form-control" id="code" name="code" placeholder="请输入验证码" required/>
+                <!-- Here you need to add a JavaScript function to send AJAX request for code -->
+                <button type="button" id="get-code-btn" class="btn btn-primary">获取验证码</button>
+            </div>
+            <div class="form-group">
+                <label for="identity">🔁 Identity</label>
+                <select class="form-control" id="identity" name="identity">
+                    <option value="0">客户</option>
+                    <option value="1">承运商</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">注册</button>
+        </form>
+        <div class="float-right">
+            <a th:href="@{/user/login}">已有账号?点此登录</a>
+        </div>
+    </div>
+</div>
 </body>
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#get-code-btn').click(function(){
+            // 获取输入的电子邮件地址
+            var email = $('#email').val();
+            $.ajax({
+                url: '/user/get-register-code',
+                type: 'GET',
+                data: {
+                    email: email
+                },
+                success: function(response){
+                    if(response.code == 200){
+                        alert(response.message);
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function(error){
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>
