@@ -98,6 +98,7 @@ public class UserAccountController {
     }
 
     @GetMapping("/get-register-code")
+    @ResponseBody
     public R getRegisterCode(@RequestParam String email){
         ValueOperations<String, String> valueOperations = redisTemplate.opsForValue();
         if(valueOperations.get(email + "-register-code") != null){

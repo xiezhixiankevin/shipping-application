@@ -45,6 +45,7 @@ public class CarrierController {
      * @return R
      */
     @GetMapping("/get-all-carrier-name")
+    @ResponseBody
     public R getAllCarrier(){
         List<Carrier> list = carrierService.list(new QueryWrapper<Carrier>());
         List<CarrierNamePack> carrierNamePacks = BeanUtil.copyToList(list, CarrierNamePack.class);
@@ -58,6 +59,7 @@ public class CarrierController {
      * @return
      */
     @PostMapping("/start-transportation")
+    @ResponseBody
     public R startTransportation(@RequestBody CarrierInTransit carrierInTransit){
         boolean res=carrierInTransitService.startTransportation(carrierInTransit);
         if(res)return R.ok().message("发车成功");
@@ -71,6 +73,7 @@ public class CarrierController {
      * @return
      */
     @PostMapping("/end-transportation")
+    @ResponseBody
     public R endTransportation(@RequestBody CarrierInTransit carrierInTransit){
         boolean res=carrierInTransitService.endTransportation(carrierInTransit);
         if(res)return R.ok().message("该车到货成功");
@@ -101,6 +104,7 @@ public class CarrierController {
      * @return
      */
     @GetMapping("/get-transportation-waiting-info")
+    @ResponseBody
     public R getInTransitWaitingInfo(){
         Integer carrierId = UserAccountPackHolder.getUser().getCarrierId();
         return carrierInTransitService.getInTransitWaitingInfo(carrierId);
@@ -112,6 +116,7 @@ public class CarrierController {
      * @return
      */
     @GetMapping("/get-transportation-in-transit-info")
+    @ResponseBody
     public R getInTransitInTransitInfo(){
         Integer carrierId = UserAccountPackHolder.getUser().getCarrierId();
         return carrierInTransitService.getInTransitInTransitInfo(carrierId);
@@ -123,6 +128,7 @@ public class CarrierController {
      * @return
      */
     @GetMapping("/get-transportation-finish-info")
+    @ResponseBody
     public R getInTransitFinishInfo(){
         Integer carrierId = UserAccountPackHolder.getUser().getCarrierId();
         return carrierInTransitService.getInTransitFinishInfo(carrierId);
@@ -141,6 +147,7 @@ public class CarrierController {
 
 
     @GetMapping("/get-carrier-info")
+    @ResponseBody
     public R getCarrierInfo(){
         Integer carrierId = UserAccountPackHolder.getUser().getCarrierId();
         return carrierInTransitService.getCarrierInfo(carrierId);

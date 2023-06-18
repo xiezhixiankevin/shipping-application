@@ -83,6 +83,7 @@ public class ShippingOrderController {
      * */
 //    @BlockHandler(value = 30,method = "commonReduceDeal",aClass = CommonReduce.class) // 降级注解，1s内限制30个请求
     @PostMapping("/create")
+    @ResponseBody
     public R createShippingOrder(@RequestParam ShippingOrder shippingOrder){
         UserAccountPack user = UserAccountPackHolder.getUser();
         shippingOrder.setConsumerId(user.getId());
@@ -93,6 +94,7 @@ public class ShippingOrderController {
      * 根据订单id返回订单信息
      * */
     @GetMapping("/get-order-by-order-id")
+    @ResponseBody
     public R getOrderByOrderId(@RequestParam String orderId){
         return R.ok().data("order",shippingOrderService.getOrderByOrderId(orderId));
     }
@@ -101,6 +103,7 @@ public class ShippingOrderController {
      * 列出某个客户的订单
      * */
     @GetMapping("/get-consumer-orders")
+    @ResponseBody
     public R getConsumerOrders(@RequestParam Boolean ifCompleted){
         return R.ok().data("order_list",shippingOrderService.listOrdersOfConsumer(ifCompleted,UserAccountPackHolder.getUser().getId()));
     }
@@ -109,6 +112,7 @@ public class ShippingOrderController {
      * 修改某个订单的信息
      * */
     @PutMapping("/update-order-by-id")
+    @ResponseBody
     public R updateOrderById(@RequestBody ShippingOrder shippingOrder){
         if(shippingOrderService.updateById(shippingOrder)){
             return R.ok();
@@ -120,6 +124,7 @@ public class ShippingOrderController {
      * 给订单添加物流信息
      * */
     @PostMapping("/add-logistics-record-by-id")
+    @ResponseBody
     public R addLogisticsRecordById(@RequestBody LogisticsRecord logisticsRecord){
 
        if(shippingOrderService.addLogisticsRecord(logisticsRecord)){
@@ -133,6 +138,7 @@ public class ShippingOrderController {
      * 获取订单的所有物流信息，默认时间排序
      * */
     @GetMapping("/list-logistics-record")
+    @ResponseBody
     public R listLogisticsRecord(@RequestParam Integer orderId){
         return R.ok().data("logistics_record_list",shippingOrderService.listLogisticsRecord(orderId));
     }

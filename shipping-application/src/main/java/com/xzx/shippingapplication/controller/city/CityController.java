@@ -10,6 +10,7 @@ import com.xzx.shippingapplication.service.CarrierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -25,6 +26,7 @@ public class CityController {
      *     获取所有城市信息 id 和 名称
      */
     @GetMapping("/All")
+    @ResponseBody
     public R getAllCarrier(){
         List<AreaProvincialCapital> list = areaProvincialCapitalService.list(new QueryWrapper<AreaProvincialCapital>());
         return R.ok().data("city",list);
