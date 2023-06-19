@@ -34,7 +34,6 @@
 
 在这个作业中，添加以下功能进一步改进Assignment3项目：
 
-要求：
 1. 已完成将微服务与事件驱动的代理集成。
 2. 已完成使用Spring Cloud Config Server进行分布式配置。
 3. 已完成使用Spring Cloud Sleuth或Zipkin进行分布式日志跟踪。
