@@ -1,6 +1,6 @@
 # 作业文档
 组员：黄泽霖、韩楚博、谢志贤
-这里将介绍四个作业的要求和交付物，它们分别位于Assignment1、Assignment2、Assignment3和Assignment4四个分支中。
+**这里将介绍四个作业的交付物，它们分别位于Assignment1、Assignment2、Assignment3和Assignment4四个分支中。**
 请注意，这个文档正在迁移到GitHub上。
 
 ## Assignment1 - 使用Spring MVC进行运输Web应用开发
