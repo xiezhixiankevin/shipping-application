@@ -112,17 +112,34 @@ public class ShippingOrderController {
         model.addAttribute("response", response);
 
         // 返回到适当的视图（这将取决于你的应用程序设计）
-        return "success";
+        return "/order/success";
     }
 
     /**
      * 根据订单id返回订单信息
      * */
+//    @GetMapping("/get-order-by-order-id")
+//    @ResponseBody
+//    public String getOrderByOrderId(@RequestParam String orderId, Model model){
+//        R response = shippingOrderService.getOrderByOrderId(orderId));
+//        model.addAttribute("response", response);
+//        return "/order/success";
+//    }
+
     @GetMapping("/get-order-by-order-id")
-    @ResponseBody
-    public R getOrderByOrderId(@RequestParam String orderId){
-        return R.ok().data("order",shippingOrderService.getOrderByOrderId(orderId));
+    public String getOrderByOrderId(@RequestParam String orderId, Model model){
+        ShippingOrder response = shippingOrderService.getOrderByOrderId(orderId);
+
+        // 当订单不存在时，设置一个错误消息
+        if (response == null) {
+            model.addAttribute("errorMessage", "查询失败，请检查号码后重试");
+        } else {
+            model.addAttribute("orderData", response);
+        }
+
+        return "/order/older_result";
     }
+
 
     /**
      * 列出某个客户的订单
