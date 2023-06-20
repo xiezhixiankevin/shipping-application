@@ -1,5 +1,6 @@
 # 作业文档
 组员：黄泽霖、韩楚博、谢志贤
+
 **这里将介绍四个作业的交付物，它们分别位于Assignment1、Assignment2、Assignment3和Assignment4四个分支中。**
 
 请注意，这个文档正在迁移到GitHub上。
@@ -23,7 +24,7 @@
 ### 使用Axios和Vue.js重新设计Web前端，替换Thymeleaf
 
 ## Assignment3 - 使用微服务架构和Spring Cloud进行航开发
-使用Spring Cloud对航运和运输管理服务器端进行重构。
+使用Spring Cloud对该项目进行重构。
 
 ### 将航运和运输服务重构为微服务架构
 ### 使用Eureka进行服务发现
