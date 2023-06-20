@@ -37,9 +37,19 @@ tips：本次作业，通过代码截取、流程图、时序图等方式展示�
 - Git
 - Lark
 
-## （TODO）系统架构图
+## 系统架构图
 
-## （TODO）系统功能图
+![img](https://p.ipic.vip/3yill0.png)
+
+## 系统功能图
+
+![img](https://p.ipic.vip/jov5ln.png)
+
+# 接口展示
+
+所有的接口文档都放在了 master 分支下，由 Swagger 导出（重构 Rest API 之后的）
+
+![img](https://p.ipic.vip/1kjnmx.png)
 
 ## **Assignment1 - 使用****Spring MVC****进行运输****Web应用****开发**
 
@@ -47,27 +57,27 @@ tips：本次作业，通过代码截取、流程图、时序图等方式展示�
 
 数据库表详情：
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGM2OTVjODk5OWJiNDkyN2U0MmI1N2FhN2QxNmFjZTVfS29aMjdBZUZMblA0eERZamd0UjNlY1MyNjU1UVVOUDFfVG9rZW46SmdjOWJNOE5hb0lndnZ4REZTWWNuN1I2bkJlXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/tnmeiz.png)
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=OWFiZWY1MWVjOWZiNTNiYTczNjUyZGM3OGE2ODliMGJfMFhHUkRuVDY4em1FSmUzUWduUnI0dlpkemNoZ21CNWdfVG9rZW46VXo2SWJ1bExFb0NBYlV4bHE1c2NtZmJxbjRnXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/zusb45.png)
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=NDY3YzIyOGE1ZTA5MDZiODFjNmMxZGUzMDUyYzQ2NTVfZVN4ZWlxOWlYQlhKQTVrSElybDhTY0lTU1JEQ3l0MlZfVG9rZW46RWxWRmJrVGszb2NEU3Z4SUhyb2NZRlJ6bk1rXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/nxxgm2.png)
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MTVjMTAzZmJiZGE2ZTA1MmYxZDQ5ODNiMzM0YWUyZmRfaFlQZHNrZFVSTFpJTHFiZnY0dmtoYUlTMWJsaXJRSWVfVG9rZW46TVExU2Jaa1BXb2N1eTh4SGNiU2NCYW94bm1lXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/h4ffa1.png)
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDg5NzhlNTZkZTRiZjcxZjE4NmEyNWYyM2FjY2E0ZDRfVWNmNzRlT1hGZGg0d1hqTWM1czZrWlNWSEJBMjhOb2ZfVG9rZW46Q3Exb2J6Z3FKb0p4NEF4aHBGUmNKdnFUbnZJXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/rizq26.png)
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MjZlZDViMTI5ODU1MTY3NzQ2ZDU5MDMyNmNmZjliNWRfOFJUa0hsRXBBMk1nR1lubXNFZXJJUmRCSjBvSDdyQTFfVG9rZW46VnF4UmJIbVB1b2J2YVp4a011MmNKSllVbkxkXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/g2lq32.png)
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=OTdjOWEyOThlNTg5Y2NiNjM3ZTQ0NWI1YTY1ZGVjNjBfSDd0VkN5Y0tQZlNKaVZacWhZeWVuTzlYMlpIZHlwSmdfVG9rZW46TUdVQmJLaUZLb1J2TDd4QnJyWmN2MzB4bnFmXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/hi2wvm.png)
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGM2ZTQwZjZjYmViMTE2N2JlYzFhNjJjOTNjNjc4NzVfanAxdHB2cmtZSEIxOU9yeHc3VTY3NlpKa0NWNXR6TzhfVG9rZW46S3NGNWJ4SExXb29SeU94QVlTWGNSeHFibkhiXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/rtuhi0.png)
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MTI0ZDhkMzhmYWFlYWI0YjNlNjlmYWVlZDVhYTMxM2RfZnNsaHZDaW5zUFZmME5jY3IycTVxSjhLWmFMR0xwQnpfVG9rZW46SU11RGJjSmJ1b3JrZ3B4VFlYSGNEdWpHbm9mXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/jt6t98.png)
 
 项目使用到的依赖：
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTFkOTY3NmFhZThiMzdlYjUzNWZlNzg5YzE1NGU2NTNfTG9jdUFaQ084aEE4bzRuMmFKYUF3QmRBZnJNMFBIeHFfVG9rZW46SmRLZWJGejdVb2dUdzN4TU9IWWNuNUVvbkpkXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/9fx9ht.png)
 
 单体配置文件：
 
@@ -139,13 +149,13 @@ mybatis-plus:
 
 使用MyBatis-Plus进行数据库映射与交互：
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MzAwZTU3YmJjMzU2NzRlZjU4ZTNkMTIzODdkNDk0OWNfY0ZnVVV2ZXhVZTFubThzeVh5T0g1bmdEeThsRkJscHJfVG9rZW46UGc1QWJYelI2b1dDRVJ4bnpFRmNyU1F0bnJmXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/taycpg.png)
 
 Controller层功能划分介绍：
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=OGYxZWJiNjAyNmYwMjNiNDllMzllM2NkYWZjZjY4YTdfRmY2OHVNOGVJQ0RNT2k3dDdMT0I5S2FHMW9aaXZWSGJfVG9rZW46UGhmSGI4VEdPb256bzB4RXZxUmNPT29BbkVlXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/j864kx.png)
 
-### （TODO）**使用Thymeleaf创建****前端**
+### **使用Thymeleaf创建****前端**
 
 在本次作业中，首先创建了以下模版，分为管理订单的 order 和用户登录注册及主页面展示的的 user。
 
@@ -158,13 +168,15 @@ Controller层功能划分介绍：
   - `dashboard` 用户登录成功后进入的页面
   - `login` 登录页
   - `register` 注册页
-- `InfoBlock`
+- `InfoBlock`可以复用的信息块组件
 
-下面，将具体介绍具体的数据流转与页面布局
+请注意，我们在 Assignment2 中对前端的功能进行了大幅扩展，增加了承运商功能。
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=N2E4NmNkMjhlZGNmZTI3MWE3YzY3MTUyMjQzZjJhYjBfNjJjeGk1MXBaVEVpcFV1V0laeTV2YnNrQkFFWEFJMTFfVG9rZW46RWhsOWJOVEw3b01QZTJ4ZGVCMmN0cE5tbnRIXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+下面，将具体介绍具体的数据流转与页面布局。
 
-#### Login
+![img](https://p.ipic.vip/bmag2n.png)
+
+#### 登录 Login
 
 以下是 Login 的静态样式，在点击登录时，请求 
 
@@ -174,9 +186,9 @@ Controller层功能划分介绍：
 
 该 map 在后端将在后端 session 存入 token 等必要信息，之后跳转到 dashboard 页
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=YTRlMGVhNDM4NjQwZmE2ZGNjNzE4NDI5MDYyNTk4NmRfeVFXRmtsSjBsUFQzZ3cxWXQ2NE5GYnBKcDRIbEZSdG9fVG9rZW46RURwd2JGejRGb2Fqb2V4M3g4cGNnMnE3blJkXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/o7sizw.png)
 
-#### Register
+#### 注册 Register
 
 以下是 Register 的静态样式，在点击登录时，请求 
 
@@ -186,9 +198,9 @@ Controller层功能划分介绍：
 
 该 map 和登录一样，在后端将在后端 session 存入 token 等必要信息，之后跳转到 dashboard 页
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2U2YzljYmYxZmNhZWMxY2FlYTQ0NjAzZTA5MGIwOWZfcVZTTGlOM0daM0tCQjQ2WlZLVnhudE5ESG9pMldISFVfVG9rZW46RzhIMWJTN0JCb0oycU14cVcyTWNEcmtHbmtlXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/i67ru6.png)
 
-#### Dashboard
+#### 用户主页面 Dashboard
 
 后端在返回页面时，将该用户的所有订单全部加入属性，然后在 html 渲染出来：
 
@@ -205,9 +217,9 @@ public String toQueryOrder(Model model){
 }
 ```
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MWJhNzcwOWEzOTJmMTkzODU1YjM3MWQ1ZWI4YWJmY2ZfYWVuM2hkZmpXTUtsZ1l1YTVjRUlXRjNyRUxONXk3YWNfVG9rZW46RFhjOWJ1TnpHb1l1dXN4emQ2UmN3UlJVbjhnXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/38gjlc.png)
 
-#### createOrder
+#### 新建订单 createOrder
 
 在本页面中，可以用于创建一个运单，将所有的作为表单，然后请求
 
@@ -239,9 +251,53 @@ public String toQueryOrder(Model model){
     }
 ```
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MmMwZDdjNTc5NDJmZDM1MDhkZTk1NjI0YjFkMzJkMTNfY0k2SEtLYXRrZmZkTjlNNnRZajFEU1EzQ0sxbnBnUDRfVG9rZW46STFJdGJiYmdEb2ZiWXJ4NzEwRWNlQndjblZmXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/ha900c.png)
 
-### （TODO）使用**Session、Cookies、****拦截器****进行身份验证和授权**
+#### 查询订单 searchOrder
+
+当跳转进入查询订单时，可以输入订单号，将信息发送给后端：
+
+```TypeScript
+<div id="query-order" class="total-css">
+    <div class="search-container">
+        <input type="text" id="order-input" class="input" placeholder="请输入订单号" />
+        <button class="button" onclick="searchOrder()">查询运单</button>
+    </div>
+</div>
+
+<script>
+    function searchOrder() {
+        var orderId = document.getElementById('order-input').value;
+        window.location.href = '/order/get-order-by-order-id?orderId=' + orderId;
+    }
+</script>
+```
+
+![img](https://p.ipic.vip/e1g27s.png)
+
+#### 查看订单 Order Result
+
+在输入完订单号之后，`/order/get-order-by-order-id?orderId=` 方法会将对应的属性加入
+
+```TypeScript
+@GetMapping("/get-order-by-order-id")
+public String getOrderByOrderId(@RequestParam String orderId, Model model){
+    ShippingOrder response = shippingOrderService.getOrderByOrderId(orderId);
+
+    // 当订单不存在时，设置一个错误消息
+    if (response == null) {
+        model.addAttribute("errorMessage", "查询失败，请检查号码后重试");
+    } else {
+        model.addAttribute("orderData", response);
+    }
+
+    return "/order/older_result";
+}
+```
+
+![img](https://p.ipic.vip/hsk4bh.png)
+
+### 使用**Session、Cookies、****拦截器****进行身份验证和授权**
 
 本项目共使用了两种方法
 
@@ -316,21 +372,7 @@ public String toQueryOrder(Model model){
 
    3. 拦截器：一共使用三个拦截器进行校验，**流程图**如下：
 
-### （TODO）业务逻辑
-
-1. 用户登录注册接口
-   1. 
-
-1. 客户接口
-   1. 
-
-1. 承运商接口
-
-### 接口展示
-
-1. 
-2. 
-3. 
+![img](https://p.ipic.vip/xif3z7.png)
 
 ## **Assignment2 - 使用****REST API****进行Assignment1的重新设计**
 
@@ -499,13 +541,50 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
 限流实现代码：
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGZiYzEwYTRjM2QyYWVmMThlMWRlZDZmMDJlYWEzYWVfZUNOM204amVTbVVrbGYxa3I5NlBERU9rcWQ2M0J5VUFfVG9rZW46QlJOUGJTMk9rb2k0clN4MXB1WGNkekZabmxmXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/o45f9f.png)
 
 要降级的方法进行注解：
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MGQwZTIwOGNmNWZjMDY5ZWZlZjZiYmExMGVjNmEwNzZfR1dYY2Jic2g0UzdVaHBaMWF2d1J4d0ZKNXpWa1RqSVVfVG9rZW46TkNZZWJCNGJobzFudEt4azlKcmNieW9RbnJnXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/2y12it.png)
 
-### **（TODO）使用Axios和Vue.js重新设计Web前端，替换Thymeleaf**
+### **使用Axios和Vue.js重新设计Web前端，替换Thymeleaf**
+
+#### 登录与注册
+
+启动系统时，用户可以使用邮箱注册并登录。我们的系统账号分为两种账号：
+
+- 用户账号，可以创建订单、查询订单等
+- 承运商账号，可以查看该承运商的货车状态，各个订单的状态以及执行发货操作等
+
+![img](https://p.ipic.vip/muigi9.png)
+
+![img](https://p.ipic.vip/mnuzii.png)
+
+#### 创建订单
+
+在创建订单页面，可以填写货物的信息、寄件人信息及收件人信息。系统将自动根据货物重量以及地区距离（使用百度地图的 API 计算）计算出大致价格。
+
+![img](https://p.ipic.vip/8ppsuw.png)
+
+#### 查询订单
+
+输入运单号，可以查询订单
+
+![img](https://p.ipic.vip/dfb35m.png)
+
+#### 承运商：查看发货状态
+
+当登入承运商系统时，可以查看所有的订单状态以及本承运商的车辆状态（数量）
+
+并可以确认发货及确认到达等操作
+
+![img](https://p.ipic.vip/m4nf2l.png)
+
+#### 承运商：发货
+
+当登入承运商系统时，当点击确认发货时，系统就会查看所有的未发货信息，并展示：
+
+![img](https://p.ipic.vip/cefllt.png)
 
 ### 对接口的集成测试
 
@@ -516,59 +595,75 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
 1. 获取验证码:
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=NTkzOThjN2M3Zjg0MTY5NGE2ZGM0M2E1MDAxZThlM2JfNU9hdHd6NG9PNTJIWDF3cVIyTWlyUnJxa2tjOUo3amZfVG9rZW46U2k4WWJDb0dWb1NuYUF4R2hoeWNNR0JIbkxkXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/fn4e80.png)
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=YjViYWI1OTI0ZDg5NDYyYzk2MjcyYzY5NjBiNDUwZTRfbWNWaTR5OU5kMFd4QXdwSHZGWnR4bE0xaExVV3FjRWlfVG9rZW46VjVkQmJXdW1Sb0k0UFN4Rm9vVWNnajF3bkhlXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/i79kdx.png)
 
 1. 注册：
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=OWQ0YTgyNjZhMDgxZDkxMzI2NDA3MTQ5OTljYjBmMjZfOHAxQ1Vxc0VGMEF2d3lVYU14Tnl3U2drSjFYUU02a0dfVG9rZW46QkVzbmJHY0ZTb09ndEp4aHJqVGNEekpobm5kXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/q8gp2m.png)
 
 1. 登录：
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=ODQ0YzAyNDQ2NWExZGI2YzcyMWMzOTI0OGUyMjA4ZDRfUFJNcEdoek81cE55NDYxM25hclNmZTFZMzlsV3c4dTVfVG9rZW46WkNBWGJDT3hTb3REQlp4T3FpWmNBN3BNbkRiXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/ojy1e2.png)
 
 #### （TODO）承运商模块
 
 1. 获取已开通城市列表：
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=NWQ0MmY3NTc2YmFlMjQ5ZWViOWEwNWQ2NTRiYmM4NDRfZ0dVTFl0N1l6bzdDbXlYVXdhaDNUMVVvSVlqN1IxUFBfVG9rZW46UGRpc2JhanN2b2FsVG94cnNwQ2NTZTNvbnZnXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/agpgi4.png)
 
 1. 获取承运商信息
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=NGNjZjUwZjkwYzlkMTE1YzRkMzFhZTU2NTIyZTgyZjRfU1hteDVJQzBMRFRweExVR21oYXdtY09iczlaZHJER0xfVG9rZW46VkhRZ2I4cFA5bzVQc1h4Tk5JSmNXY2ZubnplXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/pnobzk.png)
 
-1. *承运商手动发货：*
+1. *承运商手动发货*
+2. *承运商手动到货*
+3. *在途运力(还未发车)查询：*
 
-1. *承运商手动到货：*
-
-1. *在途运力(还未发车)查询：*
+![img](https://p.ipic.vip/h3mxlf.png)
 
 1. 获取在途（途中）运力信息：
 
+![img](https://p.ipic.vip/grrouf.png)
+
 1. 获取在途（到达）运力信息：
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=NTA3NmFkMmNhYzg2OWQyYzFkYzc3MDcwMGY5MmFmNWRfSjRJTEtGdzVrbkVTUHV6QzhNTE5YRTdvODU4Sk9jcHFfVG9rZW46Tk9TYWJUc1lxbzFFY3J4RUhxSmM1TlYxbnhmXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/nnzfnl.png)
 
 1. 获取承运商运力概览信息：
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MjFmNTZmOWRkNmU5ZjYwZDYwZjc2OGEwNzNmMjFlOTRfQld5TkRCNVR4UVU1T3JNSTFRQWpDU3h6OUt2aG9lR0lfVG9rZW46V1FEVWJBUGxZb2lUZjh4ZWhYb2NtOFR0bmZmXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/x8l0ru.png)
 
-#### （TODO）客户订单模块
+#### 客户订单模块
 
 1. *创建订单*
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=YzY1ODU1YmM4YWJlZjZlMjIwNDhkMjkwYWM0MjY2YjBfOVJ2WkROa0FNd1VrTmxseG5GZjk0NjdQSUs1SnJscXpfVG9rZW46SXBsb2J1cDdpb1dxc0R4bUNNeWNJS0ZYbnNiXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/k5kxph.png)
 
 1. *根据订单id返回订单信息*
 
+![img](https://p.ipic.vip/c2td21.png)
+
 1. *列出某个客户的订单*
+
+![img](https://p.ipic.vip/un6hnl.png)
 
 1. *修改某个订单的信息*
 
+![img](https://p.ipic.vip/syg4fc.png)
+
+![img](https://p.ipic.vip/i8spi9.png)
+
 1. *给订单添加物流信息*
 
+![img](https://p.ipic.vip/wa8tk0.png)
+
+![img](https://p.ipic.vip/9vjaqm.png)
+
 1. *获取订单的所有物流信息，默认时间排序*
+
+![img](https://p.ipic.vip/6ccb05.png)
 
 ## **Assignment3 - 使用****微服务架构****和****Spring Cloud****进行航开发**
 
@@ -576,25 +671,73 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
 ### **将单体服务重构为****微服务架构**
 
+我们把单体拆成以下几个微服务：
+
+![img](https://p.ipic.vip/gbqsez.png)
+
 ### **使用****Eureka****进行服务发现**
+
+![img](https://p.ipic.vip/56m9ho.png)
 
 ### **使用Resilience4j或Hystrix实现****断路器**
 
 1.导入Hystrix相关依赖。
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=YjExYjlhYzIzZjgwNmQxY2EyNmYyNTQzMDQxNjE1MWNfWFBKZFFQVVQ2VmV6M0wwbW5JWTc5WFhtVUozc1VuenVfVG9rZW46SHpIQWJ5STZSb3R5dFl4clpGN2NzeWxibmRnXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/qr47wc.png)
 
 - 2.对需要限流的方法添加注解（本项目采用信号量限流方式）
 
 -  以下截图来自创建订单方法
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MDhkOGM2OGVjNzczNmZkOTk2MzExNzlmZDZlYjY2NjdfRklKbk1ybDFHQXlNTlk2Qk1iblZnRFhxMll3eEZFRjhfVG9rZW46SjJFamIzZHM3b2ZWT3F4UEdKNmNvMEtQbjNZXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/39tzkz.png)
 
 3.达到限流时的反馈
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MGNiODhlOTE2MmIyOTU5ZWY2MWI5YTM3OWZjOTJiZmNfMkw2VVJFZDdYU3I2RmM3akpkWVdGV2JPZU95N0phMmRfVG9rZW46Q1ZJOWJzMzg3b002NFh4YjZvcGMwaVVkbkJlXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/w95k3n.png)
 
 ### **使用****Gateway****向外部用户暴露服务**
+
+```YAML
+spring:
+  application:
+    name: gateway
+  cloud:
+#    nacos:
+#      server-addr: nacos:8848 # nacos地址
+    gateway:
+      routes:
+        - id: user-service # 路由标示，必须唯一
+          uri: lb://userservice # 路由的目标地址
+          predicates: # 路由断言，判断请求是否符合规则
+            - Path=/user/** # 路径断言，判断路径是否是以/user开头，如果是则符合
+          filters:
+            - IgnoreTestGlobalFilter
+        - id: order-service
+          uri: lb://orderservice
+          predicates:
+            - Path=/order/**
+          filters:
+            - IgnoreOwnerAuthorizeGlobalFilter
+        - id: carrier-service
+          uri: lb://carrierservice
+          predicates:
+            - Path=/carrier/**,/city/**
+          filters:
+            - IgnoreCarrierAuthorizeGlobalFilter
+
+
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" #跨域处理 允许所有的域
+            allowedMethods: # 支持的方法
+              - GET
+              - POST
+              - PUT
+              - DELETE
+```
+
+![img](https://p.ipic.vip/zj8huc.png)
 
 ### **使用****Spring Cloud** **Config Server和Sleuth进行集中式配置和跟踪**
 
@@ -602,19 +745,19 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
 - ​       服务端：
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MWE0YmRjMmIzZGIzMjY0MWFlMGFmNTA2NGI1MGIxZDNfVDY1aTNrdlFkSHE0S3BuRFNRMGc5VjluWUt1M3NycVBfVG9rZW46QnBwZWJNS1A5b0tBa1h4MzRFWmNmdjBBbjliXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/aq9qdy.png)
 
 - ​          客户端:
 
-- ![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=NTViYmI0YjNmYWE1ZTY3MzAzOTkzM2JiYmE5YmJkZjBfaVpWTjk0S0lMRk03bmRaRWRVcUpzdmRqRFhUTkl1dFdfVG9rZW46TTNlTGJTU01Wb1psRXl4TGp0RGNUQTFnbmNjXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+- ![img](https://p.ipic.vip/hfo2yx.png)
 
 2.在github上创建配置仓库并添加配置文件
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MTQ2ODE5NjhiNWRiMDliNjkxMmU3YzFjZWYwNjE3Y2ZfV2h0ZGFYT3lOTjRZcU8yN2RDWVNIVDRzbDZTN1NnOGpfVG9rZW46T2FueWJhbkRib1FqeVp4dE03bWNXZm9abjRiXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/2wmv99.png)
 
 ​      3.增加配置中心应用
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjNlZTNmZjM2MmMxYjRhMjMwOGQ4NGY0NjA5ODdkYmZfbUhqcU5pVG9kMGZRRmJUeWdEdTZZSGhMeXFFVHdVWVNfVG9rZW46SWhDWWJXNXZub0FjMGx4NkI5a2NRb1RGblBoXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/o8nche.png)
 
 - 4.给需要拉取配置的微服务添加相关配置以实现去统一配置中心拉取配置
 
@@ -622,7 +765,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
 -   1)增加bootstrap.yml配置文件
 
-- ![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=NGU1OGFkNjYyYWFmODNkZDNlZTkwYTBmMDkwMTEwMTBfaWVrRDZTRjhSSm90cDU4UXZkdlg5SE9WS3RUSFlEV3VfVG9rZW46UUlaYmJqQkdWb250V254NDd1S2NrY0FibjhjXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+- ![img](https://p.ipic.vip/fn34q9.png)
 
 -   2）注释掉application.yml中原有配置内容
 
@@ -640,27 +783,27 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
 1.添加kafka相关依赖
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MWNiNDU4YjhhNjA3M2Y5OTBmMzk3MTUyMTk3Yjg4MDdfRkRqd2xuZ1V6ejdDM1BYdXllV2ZDZTFZWnBPS0hjOXJfVG9rZW46RUxSZ2JQRXZzbzhUZVd4emo2UmMydjR6bklmXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/czce8k.png)
 
 - 2.增加消息发送者与监听者
 
 -  发送者:
 
-- ![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=OGE0OTc3NzNjOTBjNjAyMzU0NzJjYTk3MDViMTgxNjlfclZFWVY0clNwOWtRN1Z4YUI0MmNua2ZRYVFPQTlXY2xfVG9rZW46S1JOYmJ6bEl2b1Q5ZlJ4bmVLcWN4UW5vbjNiXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+- ![img](https://p.ipic.vip/1kfwc8.png)
 
 -   监听者:
 
-- ![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MmMwMjI2OTY5MWEyZTUxODljZTBjYTg1Mjc0MzhmMGRfbVB6SE1xNUlyRDRQU0FWRzIwWWZ4RzNEdW5Bd0Z0TFFfVG9rZW46WnphR2JEajhRb1k1OXN4S05waWNuUW9sbjFnXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+- ![img](https://p.ipic.vip/krxa0u.png)
 
 - 3.填写业务逻辑
 
 -  创建订单：
 
-- ![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=OTQ4ZTQyZjM4ZTAwZjA1YTE3ZWIyMDU4ZTcxYzc5NmJfV2xhSUt0a3hKNTdkUkJMYTdrNlpZeXFXcjNKQWdkQ0hfVG9rZW46WjNQcWJvWGlDb05CS3B4U3E1YWMwRjdrbjZnXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+- ![img](https://p.ipic.vip/0esn5w.png)
 
 -  处理订单：
 
-- ![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MTMxYzU0YzY1NjQwNzRhZDg3YTkyYzdjYzMwMzYzNDBfd2RiZzNVNGJTS2QyYlNEUXVGRUhDUG1EZDV1d29XMWJfVG9rZW46QXlkQWJETXN2b2d4SkZ4bk1pWmNKOWgxbnNoXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+- ![img](https://p.ipic.vip/yv00al.png)
 
 ### **集成springboot配置使用服务器进行集中配置。（additional）**
 
@@ -668,19 +811,19 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
 - ​       服务端：
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=ODNiNmMyYzVkNzBlZGNhZjZjNGUwNTJhMDc0MWE3OGVfMWhQVVZxOEtpQWFXOG1aRXhCczRsYktDN3VERnQ3UktfVG9rZW46R2FuMGI3T3BybzRuWnB4OHg3YWNlUmp2bkFlXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/01289o.png)
 
 - ​          客户端:
 
-- ![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=MzNiYWE3NzlmNmM0MzZhNGY0N2VjMmY5NzhiYjQ2ZDlfMHM0R2xyemFKVXFJelNxWU9NSFJROUZ1S2Z2bEhIUmlfVG9rZW46WXpMTGJDbHVvb2ZhNkV4OERVUmNsQURPbjRmXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+- ![img](https://p.ipic.vip/sd927b.png)
 
 2.在github上创建配置仓库并添加配置文件
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=NTY0Y2MyZmU2ZjY0NzgwODVhZTRiZGUwZjRmMzYyYjlfWEdqVndWbzJUR2pCRmswYzFzTmdXSkJJSnJ1Q0trekJfVG9rZW46RGJhSGI4Z0kzb0hGY0V4SWhQNGM1bko4blFoXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/vhyowv.png)
 
 ​      3.增加配置中心应用
 
-![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmE3ZjNiMmJjMjUyNmY4ZjhkOGQ3MjRmMWEyOGU4YmZfNXFFQWVwTkdiVEs1N1F2S2VDV1lCZ3hTRGg5Q29DMFRfVG9rZW46QW43b2J5ZFlBb1hTYnF4QVNLbGNTcDNtbjJnXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+![img](https://p.ipic.vip/0wdzza.png)
 
 - 4.给需要拉取配置的微服务添加相关配置以实现去统一配置中心拉取配置
 
@@ -688,7 +831,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
 -   1)增加bootstrap.yml配置文件
 
-- ![img](https://cca6t77neh.feishu.cn/space/api/box/stream/download/asynccode/?code=OGI3MGVjNGMxNjg4MDBlNDlmZGViZjYyMmY1NmZiMTBfZU5TbnNPZWR5SEI3UFhOa3BYUjB1TXUxN0cxMGhJRnlfVG9rZW46TWR0Q2J5SUlPb0lOMXR4TVlVTGNmSmlLbjdnXzE2ODcyNzY2MjQ6MTY4NzI4MDIyNF9WNA)
+- ![img](https://p.ipic.vip/03emft.png)
 
 -   2）注释掉application.yml中原有配置内容
 
@@ -697,6 +840,3 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 -  1.注意github仓库的文件命名要与微服务名称相匹配
 
 -  2.项目中要对github的用户名和密码进行配置，否则会出现权限问题。
-
-### **Spring Cloud** **Sleuth或Zipkin进行****分布式****日志跟踪。（additional）**
-
