@@ -19,7 +19,6 @@ public class AuthAspect {
     @Autowired
     private HttpSession session;
 
-//    @Before("execution(* com.xzx.shippingapplication.controller.order.ShippingOrderController.*(..))")
     @Before("execution(* com.xzx.shippingapplication.controller.order.ShippingOrderController.*(..))")
     public void beforeMethod(JoinPoint joinPoint) {
         // 从 Session 中获取 token
