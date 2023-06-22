@@ -59,7 +59,7 @@ tips：本次作业，通过代码截取、流程图、时序图等方式展示�
 
 
 
-## **Assignment1 - 使用****Spring MVC****进行运输****Web应用****开发**
+# **Assignment1 - 使用****Spring MVC****进行运输****Web应用****开发**
 
 ### **创建和配置****Spring MVC****项目、整合Spring Data JPA/Mybatis-Plus**
 
@@ -382,7 +382,7 @@ public String getOrderByOrderId(@RequestParam String orderId, Model model){
 
 ![img](https://p.ipic.vip/xif3z7.png)
 
-## **Assignment2 - 使用****REST API****进行Assignment1的重新设计**
+# **Assignment2 - 使用****REST API****进行Assignment1的重新设计**
 
 在这个作业中，我们使用REST API和 Axios 重新开发Web应用。
 
@@ -673,7 +673,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
 ![img](https://p.ipic.vip/6ccb05.png)
 
-## **Assignment3 - 使用****微服务架构****和****Spring Cloud****进行航开发**
+# **Assignment3 - 使用****微服务架构****和****Spring Cloud****进行航开发**
 
 说明：使用Spring Cloud对该项目进行重构。
 
@@ -783,7 +783,7 @@ spring:
 
 -  2.项目中要对github的用户名和密码进行配置，否则会出现权限问题。
 
-## **Assignment4 - 微服务的事件通知**
+# **Assignment4 - 微服务的事件通知**
 
 在这个作业中，添加以下功能进一步改进Assignment3项目：
 
