@@ -1,11 +1,14 @@
 # **作业文档**
 
-组员：黄泽霖、韩楚博、谢志贤
+组员：
+黄泽霖 20231010
+韩楚博 20291140
+谢志贤 20251079
 
-**这里将介绍四个作业的交付物，它们分别位于Assignment1、Assignment2、Assignment3和Assignment4四个分支中。**
+**四个作业的交付物在本仓库的 4 个分支，分别为 Assignment1、Assignment2、Assignment3和Assignment4**
 
 
-tips：本次作业，通过代码截取、流程图、时序图等方式展示出来。首先介绍总体的项目，然后根据作业的要求依次讲述。图片使用了图床显示，如果显示不出来请尝试刷新。谢谢！
+tips：本次作业，通过代码截取、流程图、时序图等方式展示出来。首先介绍总体的项目，然后根据作业的要求依次讲述。图片使用了图床显示，如果显示不出来请尝试刷新。谢谢老师！
 
 ## **项目背景及概览**
 
@@ -17,24 +20,19 @@ tips：本次作业，通过代码截取、流程图、时序图等方式展示�
 
 ## **项目技术栈**
 
-**后端：**
 
 - 基础框架：Spring Boot、Spring MVC、MyBatis-Plus
 - 升级框架：Spring Cloud、Spring Security
 - 基本组件：Eureka、Gateway、Feign、MySQL、Redis、Kafka、Hystrix、Lombok、Fastjson、Swagger、Rabbitmq
-- 服务器：阿里云2核1g云服务器、腾讯云4核4g服务器
+- 前端：在不同作业中，Thymeleaf, Vue.js, ElementUI
+- 服务器：阿里云服务器、腾讯云服务器
 
-**前端：**
-
-- Thymeleaf
-- Vue.js
-- ElementUI
 
 **项目管理：**
 
 - GitHub
 - Git
-- Lark
+- 飞书 Lark
 
 ## 系统架构图
 
